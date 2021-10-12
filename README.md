@@ -1,5 +1,3 @@
-# Bit-Academy
-
 # Sprint 0 Document
 
 Project Goal: Create a web page where people can submit their goals for a day.
