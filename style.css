@@ -39,6 +39,8 @@ li a {
     text-decoration: none;
     font-weight: bold;
     font-size: 24px;
+    border-radius: 25px;
+    transition: background-color 1s ease-out;
 }
 li a:hover {
     background-color: aliceblue;
