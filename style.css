@@ -32,12 +32,14 @@ li.navbar {
 li a {
     display: block;
     text-align: center;
+    margin-top: 24px;
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 24px;
     padding-right: 24px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 20px;
 }
 li a:hover {
     background-color: #000680;
