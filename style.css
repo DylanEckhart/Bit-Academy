@@ -27,7 +27,6 @@ ul{
     align-items: center;
     justify-content: right;
 }
-
 #logo{
     width: 250px;
     margin: 10px;
@@ -39,10 +38,11 @@ li a {
     padding: 12px 24px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
 }
 li a:hover {
-    background-color: #000680;
+    background-color: aliceblue;
+    color: #000563;
     border-radius: 25px;
 }
 ul#header{
@@ -52,23 +52,28 @@ p {
     margin: 10px;
 }
 @media screen and (max-width: 800px) {
+
+
+    header{
+        grid-template: none;
+    }
+    ul{
+        display: inline-block;
+    }
     li {
         width: 100%;
         text-align: center;
-        float: none;
         margin-top: 2px;
     }
     li a {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
-        color: black;
-        background-color: aliceblue;
         border-radius: 25px;
     }
     li a:hover {
-        background-color: darkblue;
-        color: white;
+        background-color: aliceblue;
+        color: #000563;
         border-radius: 25px;
     }
     li.navbar {
