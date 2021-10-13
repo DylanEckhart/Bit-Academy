@@ -4,10 +4,11 @@ Project Goal: Create a web page where people can submit their goals for a day.
 
 # Team
 
-@Dylan Eckhart - Developer (week 1 and 5 - Team Lead)<br />
-@Timo Dokter - Developer (week 2 and 6 - Team lead)<br />
+@Dylan Eckhart - Developer (week 1 and 6 - Team Lead)<br />
+@Timo Dokter - Developer (week 2 - Team lead)<br />
 @Ishak Jmilou - Developer (week 3 - Team Lead)<br />
 @Rick Slierendregt - Developer (week 4 - Team Lead)<br />
+@Leonardo Slonek - Developer (week 5 - Team Lead)<br />
 
 # Scope
 
