@@ -1,0 +1,16 @@
+#PrePlanning {
+    margin: 10px 0;
+}
+
+h1#pagetitle {
+    text-align: center;
+}
+
+#PlanningGrid {
+    display: grid;
+    grid-template: 1fr / minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.GridItem {
+
+}
