@@ -1,0 +1,11 @@
+
+#formAdmin {
+    left      : 30%;
+    top       : 30%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+}
+
+#select{
+    width: 100%;
+}
