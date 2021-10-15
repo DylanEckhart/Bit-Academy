@@ -53,6 +53,42 @@ ul#header{
 p {
     margin: 10px;
 }
+textarea#warning{
+    display: block;
+    padding: 12px;
+    height: 7vw;
+    font-size: 2vw;
+    width: 45%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+    color: black;
+}
+textarea#text {
+    display: block;
+    padding: 12px;
+    height: auto;
+    font-size: 8vw;
+    width: 45%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    color: black;
+}
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: dimgray;
+    font-size: 2vw;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 @media screen and (max-width: 800px) {
 
 
@@ -80,6 +116,30 @@ p {
     }
     li.navbar {
         opacity: 100%;
+    }
+
+    textarea#warning{
+        display: block;
+        padding: 12px;
+        height: 24vw;
+        font-size: 5vw;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    textarea#text {
+        display: block;
+        padding: 12px;
+        height: 40vw;
+        font-size: 5vw;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    button {
+        font-size: 5vw;
+        border-radius: 10px;
+        padding: 15px;
     }
 
 }
