@@ -22,7 +22,7 @@ header {
     grid-template: auto / 1fr 2fr;
 }
 
-ul#navbar{
+ul#header{
     list-style-type: none;
     margin: 0;
     overflow: hidden;
