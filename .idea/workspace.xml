@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <list default="true" id="a892ebf6-9a9d-4bdc-8c7a-5c09128c32f5" name="Changes" comment="" />
 =======
@@ -12,6 +34,11 @@
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
 >>>>>>> Stashed changes
+=======
+    <list default="true" id="a892ebf6-9a9d-4bdc-8c7a-5c09128c32f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+    </list>
+>>>>>>> Previous_Planning
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +46,14 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
 <<<<<<< Updated upstream
@@ -45,10 +80,22 @@
 >>>>>>> Stashed changes
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Full-Stack-Project" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+>>>>>>> Previous_Planning
     <property name="vue.rearranger.settings.migration" value="true" />
 =======
     <property name="aspect.path.notification.shown" value="true" />
@@ -64,6 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1634283186439</updated>
       <workItem from="1634283189168" duration="317000" />
+<<<<<<< HEAD
 =======
       <changelist id="6c595326-299e-4690-bf6f-8a7e7448ba3b" name="Default Changelist" comment="" />
       <created>1634203128893</created>
@@ -72,6 +120,10 @@
       <updated>1634203128893</updated>
       <workItem from="1634203134534" duration="1098000" />
 >>>>>>> Stashed changes
+=======
+      <workItem from="1635143510434" duration="1554000" />
+      <workItem from="1635145164751" duration="989000" />
+>>>>>>> Previous_Planning
     </task>
     <servers />
   </component>
@@ -89,6 +141,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="203" key="#Inspections" timestamp="1634287395171">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="586" y="203" key="#Inspections/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1634287395171" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1634288786778">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1634288786778" />
   </component>
 =======
 >>>>>>> Stashed changes
