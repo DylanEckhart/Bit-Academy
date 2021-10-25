@@ -37,7 +37,7 @@ ul#navbar{
     margin: 10px;
 }
 
-li a {
+li.navbar a {
     display: block;
     text-align: center;
     padding: 12px 24px;
@@ -48,7 +48,7 @@ li a {
     transition: background-color 1s ease-out;
 }
 
-li a:hover {
+li.navbar a:hover {
     background-color: aliceblue;
     color: #000563;
     border-radius: 25px;
@@ -60,21 +60,21 @@ li a:hover {
     header{
         grid-template: none;
     }
-    ul{
+    ul#navbar{
         display: inline-block;
     }
-    li {
+    li.navbar {
         width: 100%;
         text-align: center;
         margin-top: 2px;
     }
-    li a {
+    li.navbar a {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
         border-radius: 25px;
     }
-    li a:hover {
+    li.navbar a:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
