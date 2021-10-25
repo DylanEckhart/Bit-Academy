@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Homepage</title>
+</head>
+<body>
+<header>
+    <img src="images/logo.png" alt="Logo" id="logo">
+    <ul id="header">
+        <li class="navbar"><a href="">login</a></li>
+        <li class="navbar"><a href="">register</a></li>
+        <li class="navbar"><a href="">profile</a></li>
+    </ul>
+</header>
+
+<h1 id="PageName">Submit</h1><br>
+
+
+<form action="">
+    <textarea id="warning" name="warning" placeholder="Write down what you're going to do for the day, after that press the start button. When you want to stop press the stop button" readonly></textarea>
+    <label for="text"></label><br>
+    <textarea id="text" name="text" placeholder=""></textarea><br>
+    <button onclick="alertOpenBrowser()">Submit</button>
+</form>
+
+
+
+
+
+<script>
+    function alertOpenBrowser() {
+        alert("Warning: don't shut down your browser!");
+    }
+</script>
+</body>
+</html>
