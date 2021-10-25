@@ -1,3 +1,16 @@
+/*form select students*/
+.formAdmin{
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+select{
+    color: black;
+    width: 15%;
+    height: 28px;
+}
+
+/*your prePlanning*/
 #PrePlanning {
     margin: 50px 0 0 0;
 }

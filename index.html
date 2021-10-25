@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Pre_Planning_Style.css">
+    <link rel="stylesheet" href="Admin_style.css">
     <title>Previous Plannings</title>
     <link rel="icon" href="images/icon/favicon.ico" type="image/icon">
 </head>
@@ -16,6 +16,29 @@
         <li class="navbar"><a href="">profile</a></li>
     </ul>
 </header>
+
+<!--select option for admin to choose student/employee-->
+<form class="formAdmin">
+    <label>Division</label><br>
+    <select >
+        <option value="Division 1">Division 1</option>
+        <option value="Division 2">Division 2</option>
+        <option value="Division 3">Division 3</option>
+        <option value="Division 4">Division 4</option>
+
+    </select>
+</form>
+
+<form class="formAdmin">
+    <label>Employee</label><br>
+    <select id="select">
+        <option value="Employee 1">Employee 1</option>
+        <option value="Employee 2">Employee 2</option>
+        <option value="Employee 3">Employee 3</option>
+        <option value="Employee 4">Employee 4</option>
+    </select>
+</form>
+
 <div id="PrePlanning">
     <h1 id="pagetitle">Previous Plannings</h1>
     <div id="PlanningGrid">
