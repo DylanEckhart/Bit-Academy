@@ -1,11 +1,12 @@
 *{
-    font-family: Arial, sans-serif;
+    font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
     color: white;
     background-color: #000563;
 }
 body{
-    margin: 10px;
+    margin: 15px;
+    padding-left: 15px;
 }
 
 h1#PageName{
@@ -28,30 +29,27 @@ ul{
     justify-content: right;
 }
 #logo{
-    width: 250px;
+    width: 150px;
     margin: 10px;
 }
 
-li a {
+li.navbar a {
     display: block;
     text-align: center;
     padding: 12px 24px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 16px;
     border-radius: 25px;
-    transition: background-color 1s ease-out;
+    transition: color 0.25s linear;
 }
-li a:hover {
-    background-color: aliceblue;
-    color: #000563;
-    border-radius: 25px;
+li.navbar a.bitAc {
+    color: #FFFF00;
+}
+li.navbar a:hover {
+    color: #33C1D3;
 }
 ul#header{
     padding: 10px;
-}
-p {
-    margin: 10px;
 }
 textarea#warning{
     display: block;
@@ -79,18 +77,8 @@ textarea#text {
     background-color: whitesmoke;
     color: black;
 }
-button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: dimgray;
-    font-size: 2vw;
-    border-radius: 10px;
-    padding: 10px;
-}
 
 @media screen and (max-width: 800px) {
-
 
     header{
         grid-template: none;
@@ -98,24 +86,24 @@ button {
     ul{
         display: inline-block;
     }
-    li {
+    li.navbar {
         width: 100%;
         text-align: center;
         margin-top: 2px;
+        opacity: 100%;
     }
-    li a {
+    li.navbar a {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
         border-radius: 25px;
+        font-size: 24px;
     }
-    li a:hover {
+    li.navbar a:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
-    }
-    li.navbar {
-        opacity: 100%;
+        transition: background-color 1s ease-out;
     }
 
     textarea#warning{
@@ -136,10 +124,4 @@ button {
         margin-left: auto;
         margin-right: auto;
     }
-    button {
-        font-size: 5vw;
-        border-radius: 10px;
-        padding: 15px;
-    }
-
 }
