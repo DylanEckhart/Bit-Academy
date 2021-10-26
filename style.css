@@ -60,7 +60,7 @@ li.navbar a:hover {
     header{
         grid-template: none;
     }
-    ul#navbar{
+    ul#header{
         display: inline-block;
     }
     li.navbar {
