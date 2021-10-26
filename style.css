@@ -5,7 +5,8 @@
     background-color: #000563;
 }
 body{
-    margin: 10px;
+    margin: 15px;
+    padding-left: 15px;
 }
 
 h1#PageName{
@@ -28,7 +29,7 @@ ul{
     justify-content: right;
 }
 #logo{
-    width: 250px;
+    width: 150px;
     margin: 10px;
 }
 
@@ -37,14 +38,15 @@ li a {
     text-align: center;
     padding: 12px 24px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 16px;
     border-radius: 25px;
-    transition: background-color 1s ease-out;
+    transition: color 0.25s linear;
+}
+li a.bitAc {
+    color: #FFFF00;
 }
 li a:hover {
-    background-color: aliceblue;
-    color: #000563;
-    border-radius: 25px;
+    color: #33C1D3;
 }
 ul#header{
     padding: 10px;
@@ -107,11 +109,13 @@ button {
         margin-left: 0;
         margin-right: 0;
         border-radius: 25px;
+        font-size: 24px;
     }
     li a:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
+        transition: background-color 1s ease-out;
     }
     li.navbar {
         opacity: 100%;
