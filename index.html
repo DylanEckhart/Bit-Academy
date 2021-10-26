@@ -9,25 +9,36 @@
 <header>
     <img src="images/logo.png" alt="Logo" id="logo">
     <ul id="header">
-        <li class="navbar"><a href="">login</a></li>
-        <li class="navbar"><a href="">register</a></li>
-        <li class="navbar"><a href="">profile</a></li>
+        <li class="navbar"><a href="">Login</a></li>
+        <li class="navbar"><a href="">Register</a></li>
+        <li class="navbar"><a href="">Profile</a></li>
     </ul>
 </header>
 
 <h1 id="PageName">Submit</h1><br>
 
-
-<form action="">
-    <textarea id="warning" name="warning" placeholder="Write down what you're going to do for the day, after that press the start button. When you want to stop press the stop button" readonly></textarea>
-
+<form>
+    <label for="startTime">Start time: </label>
+    <input type="time" id="startTime">
+    <p>
+        Value of the <code>time</code> input: <code>
+        "<span id="value">Na/N</span>"</code>.
+    </p>
 </form>
 
 
 
 
 
+
 <script>
+    var startTime = document.getElementById("startTime");
+    var valueSpan = document.getElementById("value");
+
+    startTime.addEventListener("input", function() {
+        valueSpan.innerText = startTime.value;
+    }, false);
+
     function alertOpenBrowser() {
         alert("Warning: don't shut down your browser!");
     }
