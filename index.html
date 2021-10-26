@@ -16,16 +16,8 @@
     </ul>
 </header>
 
-<h1 id="PageName">Submit</h1><br>
+<h1 id="PageName">Template</h1><br>
 
-<form>
-    <label for="startTime">Start time: </label>
-    <input type="time" id="startTime">
-    <p>
-        Value of the <code>time</code> input: <code>
-        "<span id="value">Na/N</span>"</code>.
-    </p>
-</form>
 
 
 
@@ -33,13 +25,6 @@
 
 
 <script>
-    var startTime = document.getElementById("startTime");
-    var valueSpan = document.getElementById("value");
-
-    startTime.addEventListener("input", function() {
-        valueSpan.innerText = startTime.value;
-    }, false);
-
     function alertOpenBrowser() {
         alert("Warning: don't shut down your browser!");
     }
