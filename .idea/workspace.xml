@@ -36,6 +36,8 @@
 >>>>>>> Stashed changes
 =======
     <list default="true" id="a892ebf6-9a9d-4bdc-8c7a-5c09128c32f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
 >>>>>>> Previous_Planning
@@ -123,6 +125,10 @@
 =======
       <workItem from="1635143510434" duration="1554000" />
       <workItem from="1635145164751" duration="989000" />
+<<<<<<< HEAD
+>>>>>>> Previous_Planning
+=======
+      <workItem from="1635236362787" duration="4010000" />
 >>>>>>> Previous_Planning
     </task>
     <servers />
