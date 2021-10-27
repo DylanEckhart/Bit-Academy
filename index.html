@@ -10,22 +10,20 @@
     <img src="images/logo.png" alt="Logo" id="logo">
     <ul id="header">
         <li class="navbar"><a href="https://www.bit-academy.nl/" class="bitAc">Bit Academy</a></li>
-        <li class="navbar"><a href="" class="account">Login</a></li>
-        <li class="navbar"><a href="" class="account">Register</a></li>
-        <li class="navbar"><a href="" class="account">Profile</a></li>
+        <li class="navbar"><a href="login.html" class="account">Login</a></li>
+        <li class="navbar"><a href="register.html" class="account">Register</a></li>
+        <li class="navbar"><a href="profile.html" class="account">Profile</a></li>
     </ul>
 </header>
 
 <h1 id="PageName">Submit</h1><br>
 
-
-
-
-
-
 <!--WARNINGBOX-->
-<textarea id="warningBox" name="warningTextBox" placeholder="warning" readonly>warning</textarea>
-
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    Select a subject and a chapter. Then select the time of when to start and when to end <br>
+    <strong style="background-color: transparent; color: red">Warning: don't shut down your browser!!</strong>
+</div>
 <!--LAST WEEK PLANNING-->
 <form class="lastWeekPlanning">
     <label class="PlanningHeader" style="background-color: transparent;">Last week planning</label><br>
@@ -47,22 +45,22 @@
 
     <ul id="listOfSubjects">
         <li class="listItem">item1 - chapter 1 <br> 09:30 - 16:00</li>
-        <li class="listItem">item1 - chapter 2 <br> 09:30 - 16:00</li>
+        <li class="listItem">item2 - chapter 3 <br> 09:30 - 16:00</li>
     </ul>
 </form>
 <!--ADD SUBJECT-->
 <form action="index.html" id="addToPlanning">
     <label for="subject" class="label">Subject</label><br>
     <select id="subject" name="subject">
-        <option value="test1">1</option>
-        <option value="test2">2</option>
-        <option value="test3">3</option>
+        <option value="test1">test 1</option>
+        <option value="test2">test 2</option>
+        <option value="test3">test 3</option>
     </select><br>
     <label for="chapter" class="label">Chapter</label><br>
     <select id="chapter" name="chapter">
-        <option value="test1">1</option>
-        <option value="test2">2</option>
-        <option value="test3">3</option>
+        <option value="test1">test 1</option>
+        <option value="test2">test 2</option>
+        <option value="test3">test 3</option>
     </select><br>
     <label for="startTime" class="label">From: <br></label>
     <input type="time" id="startTime"><br>
@@ -74,12 +72,44 @@
 <button onclick="alertOpenBrowser()">Submit</button>
 
 
+<!--
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+<p>to make page scroll <br></p>
+-->
+
 
 
 
 
 
 <script>
+    
     function alertOpenBrowser() {
         alert("Don't shut down your browser!");
     }
