@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Pre_Planning_Style.css">
     <title>Previous Plannings</title>
-    <link rel="icon" href="images/icon/favicon.ico" type="image/icon">
+    <link rel="icon" href="../images/icon/favicon.ico" type="image/icon">
 </head>
 <body>
 <header>
-    <img src="images/logo.png" alt="Logo" id="logo">
+    <img src="../images/logo.png" alt="Logo" id="logo">
     <ul id="header">
         <li class="navbar"><a href="">login</a></li>
         <li class="navbar"><a href="">register</a></li>
