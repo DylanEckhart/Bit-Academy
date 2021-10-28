@@ -8,14 +8,9 @@
     <link rel="icon" href="../images/icon/favicon.ico" type="image/icon">
 </head>
 <body>
-<header>
-    <img src="../images/logo.png" alt="Logo" id="logo">
-    <ul id="header">
-        <li class="navbar"><a href="">login</a></li>
-        <li class="navbar"><a href="">register</a></li>
-        <li class="navbar"><a href="">profile</a></li>
-    </ul>
-</header>
+<?php
+require_once "../template/header.php";
+?>
 
 <!--select option for admin to choose student/employee-->
     <form id="formAdmin">

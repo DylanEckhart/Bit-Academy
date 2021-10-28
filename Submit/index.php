@@ -6,15 +6,9 @@
     <title>Homepage</title>
 </head>
 <body>
-<header>
-    <img src="../images/logo.png" alt="Logo" id="logo">
-    <ul id="header">
-        <li class="navbar"><a href="https://www.bit-academy.nl/" class="bitAc">Bit Academy</a></li>
-        <li class="navbar"><a href="login.html" class="account">Login</a></li>
-        <li class="navbar"><a href="register.html" class="account">Register</a></li>
-        <li class="navbar"><a href="profile.html" class="account">Profile</a></li>
-    </ul>
-</header>
+<?php
+require_once "../template/header.php";
+?>
 
 <h1 id="PageName">Submit</h1><br>
 
@@ -48,7 +42,7 @@
     </ul>
 </form>
 <!--ADD SUBJECT-->
-<form action="index.html" id="addToPlanning">
+<form action="index.php" id="addToPlanning">
     <label for="subject" class="label">Subject</label><br>
     <select id="subject" name="subject">
         <option value="test1">test 1</option>
