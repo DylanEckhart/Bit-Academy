@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Submit/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_planning/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pre_planning/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
