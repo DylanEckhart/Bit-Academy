@@ -6,14 +6,9 @@
     <title>Homepage</title>
 </head>
 <body>
-<header>
-    <img src="images/logo.png" alt="Logo" id="logo">
-    <ul id="header">
-        <li class="navbar"><a href="">login</a></li>
-        <li class="navbar"><a href="">register</a></li>
-        <li class="navbar"><a href="">profile</a></li>
-    </ul>
-</header>
+<?php
+    require_once "header.php";
+?>
 
 <h1 id="PageName">Template</h1>
 
