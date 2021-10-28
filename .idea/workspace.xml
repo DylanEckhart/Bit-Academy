@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Admin/admin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Admin_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +41,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ishak\git-repo's\Bit-Academy\pre_planning" />
       <recent name="C:\Users\ishak\git-repo's\Bit-Academy\Admin" />
       <recent name="$PROJECT_DIR$/template" />
     </key>
@@ -65,6 +60,7 @@
       <workItem from="1635400331442" duration="1000" />
       <workItem from="1635407101594" duration="1349000" />
       <workItem from="1635410990275" duration="160000" />
+      <workItem from="1635411188990" duration="332000" />
     </task>
     <servers />
   </component>
