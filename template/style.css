@@ -1,18 +1,14 @@
-* {
+*{
     font-family: Arial, sans-serif;
     margin: 0;
     color: white;
-}
-
-html {
     background-color: #000563;
 }
-
-body {
+body{
     margin: 10px;
 }
 
-h1#PageName {
+h1#PageName{
     font-size: 30px;
     margin: 10px;
 }
@@ -22,7 +18,7 @@ header {
     grid-template: 1fr / 1fr 2fr;
 }
 
-ul#header{
+ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -31,13 +27,12 @@ ul#header{
     align-items: center;
     justify-content: right;
 }
-
-#logo {
+#logo{
     width: 250px;
     margin: 10px;
 }
 
-li .navbar a {
+li a {
     display: block;
     text-align: center;
     padding: 12px 24px;
@@ -47,51 +42,44 @@ li .navbar a {
     border-radius: 25px;
     transition: background-color 1s ease-out;
 }
-
-li .navbar a:hover {
+li a:hover {
     background-color: aliceblue;
     color: #000563;
     border-radius: 25px;
 }
-
-ul#header {
+ul#header{
     padding: 10px;
 }
-
 p {
     margin: 10px;
 }
-
 @media screen and (max-width: 800px) {
 
-    header {
+
+    header{
         grid-template: none;
     }
-
-    ul#header {
+    ul{
         display: inline-block;
     }
-
-    li.navbar {
+    li {
         width: 100%;
         text-align: center;
         margin-top: 2px;
     }
-
-    li.navbar a {
+    li a {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
         border-radius: 25px;
     }
-
-    li.navbar a:hover {
+    li a:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
     }
-
     li.navbar {
         opacity: 100%;
     }
+
 }
