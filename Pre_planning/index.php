@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="Pre_Planning_Style.css">
     <title>Previous Plannings</title>
     <link rel="icon" href="../Images/icon/favicon.ico" type="image/icon">
