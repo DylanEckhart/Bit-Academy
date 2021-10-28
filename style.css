@@ -55,12 +55,10 @@ li.navbar a:hover {
 }
 
 @media screen and (max-width: 800px) {
-
-
     header{
         grid-template: none;
     }
-    ul#navbar{
+    ul#header{
         display: inline-block;
     }
     li.navbar {

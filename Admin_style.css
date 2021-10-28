@@ -1,13 +1,33 @@
 /*form select students*/
-.formAdmin{
-    font-size: 25px;
-    margin-left: 20px;
-    margin-top: 20px;
+#formAdmin{
+    display: grid;
+    grid-gap: 30px;
+    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+    font-size: 30px;
+    text-align: center;
 }
-select{
+
+.labelName {
+    grid-row-start: 1;
+}
+
+.select{
+    margin: auto;
     color: black;
-    width: 15%;
-    height: 28px;
+    width: 50%;
+    font-size: 20px;
+
+}
+button{
+    font-size: 20px;
+    width: 20%;
+    color: black;
+    grid-column: span 2;
+    margin: auto;
+}
+
+option {
+    color: black;
 }
 
 /*your prePlanning*/
@@ -69,12 +89,35 @@ p.ticket_desc {
     #PlanningGrid {
         grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
     }
+}
 
+@media screen and (max-width: 800px) {
+    #formAdmin {
+        grid-template: auto / minmax(0, 1fr);
+        grid-gap: 15px;
+    }
 
+    .labelName {
+        grid-row-start: auto;
+    }
+
+    button {
+        grid-column: span 1;
+    }
 }
 
 @media screen and (max-width: 700px) {
     #PlanningGrid {
         grid-template: auto / minmax(0, 1fr);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .select {
+        width: auto;
+    }
+
+    button {
+        width: auto;
     }
 }
