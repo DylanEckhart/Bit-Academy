@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Pre_Planning_Style.css">
     <title>Previous Plannings</title>
-    <link rel="icon" href="../images/icon/favicon.ico" type="image/icon">
+    <link rel="icon" href="../Images/icon/favicon.ico" type="image/icon">
 </head>
 <body>
 <?php
-require_once "../template/header.php";
+require_once "../Template/header.php";
 ?>
 <div id="PrePlanning">
     <h1 id="pagetitle">Previous Plannings</h1>

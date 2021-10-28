@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-require_once "../template/header.php";
+require_once "../Template/header.php";
 ?>
 
 <h1 id="PageName">Submit</h1><br>
