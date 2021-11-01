@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Submit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Submit/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/SubmitStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/DatabaseModel_BitAcademy.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/DB/DatabaseModel_BitAcademy.mwb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +70,7 @@
       <workItem from="1635410990275" duration="160000" />
       <workItem from="1635411188990" duration="332000" />
       <workItem from="1635411808003" duration="1265000" />
+      <workItem from="1635751223815" duration="648000" />
     </task>
     <servers />
   </component>
