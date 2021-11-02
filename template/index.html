@@ -6,13 +6,14 @@
     <title>Homepage</title>
 </head>
 <body>
-<header>
+<header class="topnav" id="myTopnav">
     <img src="images/logo.png" alt="Logo" id="logo">
-    <ul id="header">
-        <li class="navbar"><a href="https://www.bit-academy.nl/" class="bitAc">Bit Academy</a></li>
-        <li class="navbar"><a href="" class="account">Login</a></li>
-        <li class="navbar"><a href="" class="account">Register</a></li>
-        <li class="navbar"><a href="" class="account">Profile</a></li>
+    <ul id="header mobileMenu">
+        <li class="navbar"><a href="https://www.bit-academy.nl/" class="navItem" id="bitAc">Bit Academy</a></li>
+        <li class="navbar"><a href="" class="navItem">Login</a></li>
+        <li class="navbar"><a href="" class="navItem">Register</a></li>
+        <li class="navbar"><a href="" class="navItem">Profile</a></li>
+        <li><a href="javascript:void(0);" style="font-size:25px;" class="icon mobileMenuButton" onclick="myFunction()">&#9776;</a></li>
     </ul>
 </header>
 
@@ -25,9 +26,15 @@
 
 
 <script>
-    function alertOpenBrowser() {
-        alert("Warning: don't shut down your browser!");
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
     }
+
 </script>
 </body>
 </html>

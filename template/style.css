@@ -42,7 +42,7 @@ li.navbar a {
     border-radius: 25px;
     transition: color 0.25s linear;
 }
-li.navbar a.bitAc {
+li.navbar a#bitAc {
     color: #FFFF00;
 }
 li.navbar a:hover {
@@ -78,7 +78,66 @@ textarea#text {
     color: black;
 }
 
+
+
+
+
+
+
+
+/*hide icon in desktop*/
+.topnav li .icon{
+    display: none;
+}
 @media screen and (max-width: 800px) {
+
+    .topnav li a.navItem{
+        display: none;
+    }
+
+
+    .navItem {
+        overflow: hidden;
+        background-color: transparent;
+    }
+/*when unfolded is responsive*/
+    .topnav {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav a.icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .topnav.responsive li a.navItem {
+        display: block;
+        text-align: center;
+        width: 88%;
+    }
+    .topnav.responsive .dropdown {float: right;}
+    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
 
     header{
         grid-template: none;
