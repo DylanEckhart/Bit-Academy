@@ -41,7 +41,7 @@ li.navbar a {
     font-size: 16px;
     border-radius: 25px;
     transition: color 0.25s linear;
-}
+}/*yellow text*/
 li.navbar a#bitAc {
     color: #FFFF00;
 }
@@ -78,23 +78,17 @@ textarea#text {
     color: black;
 }
 
-
-
-
-
-
-
-
 /*hide icon in desktop*/
 .topnav li .icon{
     display: none;
 }
 @media screen and (max-width: 800px) {
 
+    /*start nav bar opening*/
+
     .topnav li a.navItem{
         display: none;
     }
-
 
     .navItem {
         overflow: hidden;
@@ -139,6 +133,8 @@ textarea#text {
         font-size: 17px;
     }
 
+    /*end nav bar opening*/
+
     header{
         grid-template: none;
     }
@@ -148,13 +144,9 @@ textarea#text {
     li.navbar {
         width: 100%;
         text-align: center;
-        margin-top: 2px;
-        opacity: 100%;
+        margin: 2px;
     }
     li.navbar a {
-        margin-top: 0;
-        margin-left: 0;
-        margin-right: 0;
         border-radius: 25px;
         font-size: 24px;
     }
