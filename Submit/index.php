@@ -51,15 +51,10 @@ session_start();
                 }
                 echo $value . "<br>";
             }
+            $startTime = time();
+            date_default_timezone_set('Europe/Amsterdam');
+            echo date(" j , F, Y, H:i", $startTime);
         }
-        if(isset($_SESSION['endTask'])){
-            foreach ($_SESSION['endTask'] as $key => $endTime){
-                echo '<li class="listItem">';
-                echo "Time the button was clicked: " . $endTime . "<br>";
-            }
-        }
-        date_default_timezone_set('Europe/Amsterdam');
-        echo date(" j , F, Y, H:i", time());
         ?>
     </ul>
 </form>
@@ -86,10 +81,6 @@ session_start();
 </form>
 </body>
 </html>
-
-<?php
-
-?>
 
 
 
