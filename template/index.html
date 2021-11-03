@@ -12,7 +12,7 @@
         <li class="navbar"><a href="https://www.bit-academy.nl/" class="navItem" id="bitAc">Bit Academy</a></li>
         <li class="navbar"><a href="" class="navItem">Planning</a></li>
         <li class="navbar"><a href="" class="navItem">Profile</a></li>
-        <li><a href="javascript:void(0);" style="font-size:25px;" class="icon mobileMenuButton" onclick="myFunction()">&#9776;</a></li>
+        <li><a href="javascript:void(0);" style="font-size:25px;" class="icon mobileMenuButton" id="menuButton" onclick="myFunction()">&#9776;</a></li>
     </ul>
 </header>
 
@@ -25,12 +25,15 @@
 
 
 <script>
+
     function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
             x.className += " responsive";
+            document.getElementById("menuButton").style.transform = "rotate(-90deg)";
         } else {
             x.className = "topnav";
+            document.getElementById("menuButton").style.transform = "rotate(0deg)";
         }
     }
 
