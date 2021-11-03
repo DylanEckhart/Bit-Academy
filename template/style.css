@@ -40,12 +40,12 @@ li.navbar a {
     text-decoration: none;
     font-size: 16px;
     border-radius: 25px;
-    transition: color 0.25s linear;
+    transition: color 0.15s linear;
 }/*yellow text*/
 li.navbar a#bitAc {
     color: #FFFF00;
 }
-li.navbar a:hover {
+li.navbar a:hover, li.navbar a#bitAc:hover {
     color: #33C1D3;
 }
 ul#header{
@@ -150,11 +150,11 @@ textarea#text {
         border-radius: 25px;
         font-size: 24px;
     }
-    li.navbar a:hover {
+    li.navbar a:hover, li.navbar a#bitAc:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
-        transition: background-color 1s ease-out;
+        transition: background-color 0.25s ease-out;
     }
 
     textarea#warning{
