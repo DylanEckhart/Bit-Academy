@@ -84,10 +84,15 @@ textarea#text {
 }
 @media screen and (max-width: 800px) {
 
+
     /*start nav bar opening*/
 
     .topnav li a.navItem{
-        display: none;
+        height: 0;
+        text-align: center;
+        width: 88%;
+        padding: unset;
+        padding-left: 15px;
     }
 
     .navItem {
@@ -110,25 +115,36 @@ textarea#text {
         position: absolute;
         top: 0;
         right: 0;
+        transition: height 0.5s ease;
+    }
+    .topnav a.icon:hover {
+        background-color: white;
+        color: #000563;
+        border-radius: 25px;
     }
     .topnav.responsive li a.navItem {
         display: block;
         text-align: center;
         width: 88%;
+        /*start animation padding*/
+        transition: all 0.5s ease;
+        height: 29px;
+        padding: 15px 15px;
+    }
+    .topnav.responsive li a.navItem:hover {
+        display: block;
     }
     .topnav.responsive .dropdown {float: right;}
     .topnav.responsive .dropdown-content {position: relative;}
     .topnav.responsive .dropdown .dropbtn {
-        display: block;
         width: 100%;
         text-align: right;
     }
     .topnav a {
         float: left;
-        display: block;
         color: #f2f2f2;
         text-align: center;
-        padding: 14px 16px;
+        padding: 15px 15px;
         text-decoration: none;
         font-size: 17px;
     }
@@ -149,12 +165,13 @@ textarea#text {
     li.navbar a {
         border-radius: 25px;
         font-size: 24px;
+        /*return animation padding & startup animation*/
+        transition: all 0.5s ease-out;
     }
     li.navbar a:hover, li.navbar a#bitAc:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
-        transition: background-color 0.25s ease-out;
     }
 
     textarea#warning{
