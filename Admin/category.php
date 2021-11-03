@@ -5,17 +5,26 @@
     <meta charset="UTF-8">
     <link href="catagory_style.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <title></title>
+    <title>Category creator</title>
 </head>
-<header>
-    <img src="../images/logo.png" alt="Logo" id="logo">
-    <ul id="header">
-        <li class="navbar"><a href="">login</a></li>
-        <li class="navbar"><a href="">register</a></li>
-        <li class="navbar"><a href="">profile</a></li>
-    </ul>
-</header>
 <body>
+<?php
+require_once "../Template/header.php";
+require_once "../DB/connection.php";
+
+$conn = openConn();
+
+$sql = "SELECT * FROM `subjects`";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo $row["subject"];
+    }
+}
+
+mysqli_close($conn)
+?>
 <div id="grid">
     <div>
         <form class="form">
@@ -31,6 +40,7 @@
         <p class="inputTitle">subject</p>
         <select name="selectSubject">
             <option value="" disabled selected hidden>choose the subject</option>
+
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>
@@ -50,7 +60,5 @@
         <button class="Submit">Add</button>
     </form>
 </div>
-<?php
-?>
 </body>
 </html>
