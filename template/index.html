@@ -7,12 +7,13 @@
 </head>
 <body>
 <header class="topnav" id="myTopnav">
-    <img src="images/logo.png" alt="Logo" id="logo">
+    <img src="images/logo.png" alt="Logo" id="logo" title="Go to the Homepage" onclick="">
+
     <ul id="header mobileMenu">
         <li class="navbar"><a href="https://www.bit-academy.nl/" class="navItem" id="bitAc">Bit Academy</a></li>
         <li class="navbar"><a href="" class="navItem">Planning</a></li>
         <li class="navbar"><a href="" class="navItem">Profile</a></li>
-        <li><a href="javascript:void(0);" style="font-size:25px;" class="icon mobileMenuButton" id="menuButton" onclick="myFunction()">&#9776;</a></li>
+        <li><a href="javascript:void(0);" style="font-size:25px;" id="menuButton" onclick="showNavBar()">&#9776;</a></li>
     </ul>
 </header>
 
@@ -23,10 +24,18 @@
 
 
 
-
 <script>
+    /*send user to home page from BIT ACADEMY image*/
+    var images = document.getElementsByTagName("img");
+    for(var i = 0; i < images.length; i++) {
+            var image = images[i];
+            image.onclick = function(event) {
+            window.location.href = 'index.html';
+        };
+    }
+    /*end of send user to home page from BIT ACADEMY image*/
 
-    function myFunction() {
+    function showNavBar() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
             x.className += " responsive";
@@ -36,7 +45,6 @@
             document.getElementById("menuButton").style.transform = "rotate(0deg)";
         }
     }
-
 </script>
 </body>
 </html>
