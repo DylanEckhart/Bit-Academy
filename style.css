@@ -10,22 +10,17 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 h1#PageName{
     font-size: 30px;
     margin: 10px;
 }
-/*For the header*/
+
 header {
     display: grid;
     grid-template: 1fr / 1fr 2fr;
 }
-#logo{
-    width: 150px;
-    margin: 10px;
-}
-ul#header{
-    padding: 10px;
-}
+
 ul{
     list-style-type: none;
     margin: 0;
@@ -37,6 +32,15 @@ ul{
     width: 95%;
     background-color: transparent;
 }
+#logo{
+    width: 150px;
+    margin: 10px;
+}
+ul#header{
+    padding: 10px;
+}
+
+
 li.navbar a {
     display: block;
     text-align: center;
@@ -44,14 +48,15 @@ li.navbar a {
     text-decoration: none;
     font-size: 16px;
     border-radius: 25px;
-    transition: color 0.25s linear;
-}
-li.navbar a.bitAc {
+    transition: color 0.15s ease;
+}/*yellow text*/
+li.navbar a#bitAc {
     color: #FFFF00;
 }
-li.navbar a:hover {
+li.navbar a:hover, li.navbar a#bitAc:hover {
     color: #33C1D3;
 }
+
 /*For the warning box that displays and you can click away*/
 .alert {
     padding: 20px;
@@ -156,7 +161,13 @@ select, option, input {
     border: none;
 }
 
+/*hide icon in desktop*/
+.topnav li #menuButton{
+    display: none;
+}
+/*smaller screen sizes*/
 @media screen and (max-width: 800px) {
+
 
     * {
         text-align: center;
@@ -169,34 +180,90 @@ select, option, input {
         font-size: 50px;
         font-weight: bold;
     }
-    /*For the header*/
+
+
+    /*start nav bar opening*/
+
+    .navItem {
+        overflow: hidden;
+        background-color: transparent;
+    }
+
+    .topnav {
+        position: relative;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 15px 15px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav li a.navItem{
+        height: 0;
+        text-align: center;
+        width: 88%;
+        padding: unset;
+        padding-left: 15px;
+    }
+
+    .topnav a#menuButton {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 0.5s ease-out;
+    }
+    .topnav a#menuButton:hover {
+        background-color: white;
+        color: #000563;
+        border-radius: 25px;
+    }
+
+    /*when unfolded, is .responsive*/
+
+    /*location menu button*/
+    .topnav.responsive #menuButton {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive li a.navItem {
+        display: block;
+        text-align: center;
+        width: 88%;
+        transition: all 0.5s ease;
+        height: 29px;
+        padding: 15px 15px;
+    }
+
+    /*end nav bar opening*/
+
     header{
         grid-template: none;
     }
     ul{
         display: inline-block;
-        margin: 10px;
     }
     li.navbar {
         width: 100%;
         text-align: center;
-        margin-top: 2px;
-        opacity: 100%;
+        margin: 2px;
     }
     li.navbar a {
-        margin-top: 0;
-        margin-left: 0;
-        margin-right: 0;
         border-radius: 25px;
         font-size: 24px;
+        transition: all 0.5s ease-out;
     }
-    li.navbar a:hover {
+    li.navbar a:hover, li.navbar a#bitAc:hover {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
-        transition: background-color 1s ease-out;
     }
-
     /*For the warning box that displays and you can click away*/
     .alert {
         margin: 10px auto auto;
@@ -241,4 +308,5 @@ select, option, input {
         margin: 5px;
         font-size: xx-large;
     }
+
 }

@@ -6,13 +6,14 @@
     <title>Homepage</title>
 </head>
 <body>
-<header>
-    <img src="images/logo.png" alt="Logo" id="logo">
-    <ul id="header">
-        <li class="navbar"><a href="https://www.bit-academy.nl/" class="bitAc">Bit Academy</a></li>
-        <li class="navbar"><a href="login.html" class="account">Login</a></li>
-        <li class="navbar"><a href="register.html" class="account">Register</a></li>
-        <li class="navbar"><a href="profile.html" class="account">Profile</a></li>
+<header class="topnav" id="myTopnav">
+    <img src="images/logo.png" alt="Logo" id="logo" title="Go to the Homepage" onclick="">
+
+    <ul id="header mobileMenu">
+        <li class="navbar"><a href="https://www.bit-academy.nl/" class="navItem" id="bitAc">Bit Academy</a></li>
+        <li class="navbar"><a href="" class="navItem">Planning</a></li>
+        <li class="navbar"><a href="" class="navItem">Profile</a></li>
+        <li><a href="javascript:void(0);" style="font-size:25px;" id="menuButton" onclick="showNavBar()">&#9776;</a></li>
     </ul>
 </header>
 
@@ -23,21 +24,6 @@
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     Select a subject and a chapter. Then select the time of when to start and when to end <br>
 </div>
-<!--LAST WEEK PLANNING-->
-<form class="lastWeekPlanning">
-    <label class="PlanningHeader" style="background-color: transparent;">Last week planning</label><br>
-
-    <label for="finishTasks?" class="questions">Did you finish all the tasks of last week?<br></label>
-    <select id="finishTasks?" name="yes/no" required>
-        <option value="yes" style="background-color: transparent;">yes</option>
-        <option value="no" style="background-color: transparent;">no</option>
-    </select><br>
-    <label class="questions">Which tasks did you do?</label><br>
-        <input type="checkbox" id="first" name="first" value="first" required> <!--where the subjects go-->
-        <label for="first" style="background-color: transparent;"><!--where the subjects go-->(the name of the subject)<br></label>
-    <label class="questions">Is there a reason why you couldn't finish your tasks?</label><br>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
-</form>
 <!--THIS WEEK PLANNING-->
 <form class="thisWeekPlanning">
     <label class="PlanningHeader" style="background-color: transparent;">This week planning</label><br>
@@ -61,14 +47,34 @@
         <option value="test2">test 2</option>
         <option value="test3">test 3</option>
     </select><br>
-    <label for="startTime" class="label">From: <br></label>
-    <input type="time" id="startTime"><br>
-    <label for="endTime" class="label">To: <br></label>
-    <input type="time" id="endTime"><br>
 </form>
 <br>
 <br>
-<button>Submit</button>
+<button>Plan</button>
 
+
+
+<script>
+    /*send user to home page from BIT ACADEMY image*/
+    var images = document.getElementsByTagName("img");
+    for(var i = 0; i < images.length; i++) {
+        var image = images[i];
+        image.onclick = function(event) {
+            window.location.href = 'index.html';
+        };
+    }
+    /*end of send user to home page from BIT ACADEMY image*/
+
+    function showNavBar() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+            document.getElementById("menuButton").style.transform = "rotate(-90deg)";
+        } else {
+            x.className = "topnav";
+            document.getElementById("menuButton").style.transform = "rotate(0deg)";
+        }
+    }
+</script>
 </body>
 </html>
