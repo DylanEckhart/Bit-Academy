@@ -1,35 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Homepage</title>
-</head>
-<body>
+<link rel="stylesheet" href="style.css">
 <header class="topnav" id="myTopnav">
-    <img src="images/logo.png" alt="Logo" id="logo" title="Go to the Homepage" onclick="">
-
-    <ul id="header mobileMenu">
-        <li class="navbar"><a href="https://www.bit-academy.nl/" class="navItem" id="bitAc">Bit Academy</a></li>
-        <li class="navbar"><a href="" class="navItem">Planning</a></li>
-        <li class="navbar"><a href="" class="navItem">Profile</a></li>
+    <img src="../Images/logo.png" alt="Logo" id="logo" title="Go to the Homepage">
+    <ul id="header">
+        <li class="navbar"><a href="../Pre_planning/index.php" class="navItem">Overview</a></li>
+        <li class="navbar"><a href="../Submit/index.php" class="navItem">Submit</a></li>
+        <li class="navbar"><a href="../Admin/index.php" class="navItem">Admin</a></li>
         <li><a href="javascript:void(0);" style="font-size:25px;" id="menuButton" onclick="showNavBar()">&#9776;</a></li>
     </ul>
 </header>
-
-<h1 id="PageName">Template</h1><br>
-
-
-
-
-
-
 <script>
     /*send user to home page from BIT ACADEMY image*/
     var images = document.getElementsByTagName("img");
     for(var i = 0; i < images.length; i++) {
-            var image = images[i];
-            image.onclick = function(event) {
+        var image = images[i];
+        image.onclick = function(event) {
             window.location.href = 'index.html';
         };
     }
@@ -46,5 +30,3 @@
         }
     }
 </script>
-</body>
-</html>

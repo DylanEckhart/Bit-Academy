@@ -6,6 +6,8 @@
 }
 body{
     margin: 15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 h1#PageName{
@@ -26,9 +28,11 @@ ul{
     display: flex;
     align-items: center;
     justify-content: right;
+    width: 95%;
+    background-color: transparent;
 }
 #logo{
-    width: 150px;
+    width: 250px;
     margin: 10px;
 }
 
@@ -39,10 +43,7 @@ li.navbar a {
     text-decoration: none;
     font-size: 16px;
     border-radius: 25px;
-    transition: color 0.15s linear;
-}/*yellow text*/
-li.navbar a#bitAc {
-    color: #FFFF00;
+    transition: all 0.15s ease;
 }
 li.navbar a:hover, li.navbar a#bitAc:hover {
     color: #33C1D3;
@@ -50,33 +51,9 @@ li.navbar a:hover, li.navbar a#bitAc:hover {
 ul#header{
     padding: 10px;
 }
-textarea#warning{
-    display: block;
-    padding: 12px;
-    height: 7vw;
-    font-size: 2vw;
-    width: 45%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: aliceblue;
-    color: black;
+p {
+    margin: 10px;
 }
-textarea#text {
-    display: block;
-    padding: 12px;
-    height: 20vw;
-    font-size: 3vw;
-    width: 45%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: whitesmoke;
-    color: black;
-}
-
 /*hide icon in desktop*/
 .topnav li #menuButton{
     display: none;
@@ -84,9 +61,19 @@ textarea#text {
 /*smaller screen sizes*/
 @media screen and (max-width: 800px) {
 
+
     * {
         text-align: center;
+        font-size: 20px;
     }
+    body {
+        overflow-y: visible;
+    }
+    h1#PageName {
+        font-size: 50px;
+        font-weight: bold;
+    }
+
 
     /*start nav bar opening*/
 
@@ -100,7 +87,6 @@ textarea#text {
     }
 
     .topnav a {
-        float: left;
         color: #f2f2f2;
         text-align: center;
         padding: 15px 15px;
@@ -113,7 +99,8 @@ textarea#text {
         text-align: center;
         width: 88%;
         padding: unset;
-        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .topnav a#menuButton {
@@ -140,8 +127,10 @@ textarea#text {
 
     .topnav.responsive li a.navItem {
         display: block;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
-        width: 88%;
+        width: 90%;
         transition: all 0.5s ease;
         height: 29px;
         padding: 15px 15px;
@@ -169,5 +158,8 @@ textarea#text {
         background-color: aliceblue;
         color: #000563;
         border-radius: 25px;
+    }
+    .listItem {
+        width: 96%;
     }
 }
