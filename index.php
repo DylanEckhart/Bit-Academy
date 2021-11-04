@@ -6,16 +6,9 @@
     <title>Homepage</title>
 </head>
 <body>
-<header class="topnav" id="myTopnav">
-    <img src="images/logo.png" alt="Logo" id="logo" title="Go to the Homepage" onclick="">
-
-    <ul id="header mobileMenu">
-        <li class="navbar"><a href="https://www.bit-academy.nl/" class="navItem" id="bitAc">Bit Academy</a></li>
-        <li class="navbar"><a href="" class="navItem">Planning</a></li>
-        <li class="navbar"><a href="" class="navItem">Profile</a></li>
-        <li><a href="javascript:void(0);" style="font-size:25px;" id="menuButton" onclick="showNavBar()">&#9776;</a></li>
-    </ul>
-</header>
+<?php
+require_once "Header/header.php"
+?>
 
 <h1 id="PageName">Submit</h1><br>
 
@@ -34,7 +27,7 @@
     </ul>
 </form>
 <!--ADD SUBJECT-->
-<form action="index.html" id="addToPlanning">
+<form action="index.php" id="addToPlanning">
     <label for="subject" class="label">Subject</label><br>
     <select id="subject" name="subject">
         <option value="test1">test 1</option>
@@ -54,27 +47,6 @@
 
 
 
-<script>
-    /*send user to home page from BIT ACADEMY image*/
-    var images = document.getElementsByTagName("img");
-    for(var i = 0; i < images.length; i++) {
-        var image = images[i];
-        image.onclick = function(event) {
-            window.location.href = 'index.html';
-        };
-    }
-    /*end of send user to home page from BIT ACADEMY image*/
 
-    function showNavBar() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-            document.getElementById("menuButton").style.transform = "rotate(-90deg)";
-        } else {
-            x.className = "topnav";
-            document.getElementById("menuButton").style.transform = "rotate(0deg)";
-        }
-    }
-</script>
 </body>
 </html>
