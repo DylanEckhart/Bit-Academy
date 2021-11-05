@@ -10,9 +10,15 @@
 <body>
 <?php
 require_once "../Template/header.php";
-//require_once "../DB/connection.php";
-//
-//$conn = openConn();
+require_once "../DB/connection.php";
+
+$conn = openConn();
+
+$getSubjectQuery = "select Subject from subjects";
+$setSubjects = mysqli_query($conn, $getSubjectQuery);
+
+//$getCategoryQuery = "select Category from categories";
+//$setCategories = mysqli_query($conn, $getCategoryQuery);
 ?>
 <div id="grid">
     <div>
@@ -29,6 +35,13 @@ require_once "../Template/header.php";
         <p class="inputTitle">Category</p>
         <select name="selectCategory">
             <option value="" disabled selected hidden>Choose the Category</option>
+            <?php
+//            if (mysqli_num_rows($setCategories) > 0) {
+//                while ($row = mysqli_fetch_assoc($setCategories)) {
+//                    echo '<option value="' . $row["Category"] . '">' . $row["Category"] . '</option>';
+//                }
+//            }
+            ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>
@@ -36,6 +49,13 @@ require_once "../Template/header.php";
         <p class="inputTitle">Subject</p>
         <select name="selectSubject">
             <option value="" disabled selected hidden>Choose the subject</option>
+            <?php
+            if (mysqli_num_rows($setSubjects) > 0) {
+                while ($row = mysqli_fetch_assoc($setSubjects)) {
+                    echo '<option value="' . $row["Subject"] . '">' . $row["Subject"] . '</option>';
+                }
+            }
+            ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>
