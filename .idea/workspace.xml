@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/connection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/DB/connection.php" afterDir="false" />
     </list>
+    <list id="6a042248-041e-4e7e-be48-2d7efd002d09" name="Changes by ishak" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +40,7 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4 MAMP" />
   <component name="ProjectId" id="1zzJYggz0HwA1coIkeqLAdNL1uT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,18 +48,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PHP/H09" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -105,6 +110,8 @@
       <workItem from="1635438942788" duration="48368000" />
       <workItem from="1635725527431" duration="9853000" />
       <workItem from="1635924071463" duration="769000" />
+      <workItem from="1636015792601" duration="10435000" />
+      <workItem from="1636098673080" duration="1220000" />
     </task>
     <servers />
   </component>

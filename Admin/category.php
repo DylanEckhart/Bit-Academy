@@ -13,17 +13,6 @@ require_once "../Template/header.php";
 require_once "../DB/connection.php";
 
 $conn = openConn();
-
-$sql = "SELECT * FROM `subjects`";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo $row["subject"];
-    }
-}
-
-mysqli_close($conn)
 ?>
 <div id="grid">
     <div>
@@ -40,7 +29,12 @@ mysqli_close($conn)
         <p class="inputTitle">subject</p>
         <select name="selectSubject">
             <option value="" disabled selected hidden>choose the subject</option>
+            <?php
+            $getSubjectsQuery = "select Subject from subjects";
+            $setSubjects = mysqli_query($getSubjectsQuery);
 
+            if (mysqli_num_rows())
+            ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>

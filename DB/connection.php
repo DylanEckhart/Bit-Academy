@@ -6,17 +6,16 @@ function openConn()
     $servername = "localhost";
 //    $username = "id17762295_bitacademy";
     $username = "root";
-    $password = "Workboard-Team2";
-//    $password = "root";
+//    $password = "Workboard-Team2";
+    $password = "root";
     $databaseName = "id17762295_bitacademydb";
 
     // Connect to the database
-    $connection = mysqli_connect($servername, $username, $databaseName);
+    $connection = mysqli_connect($servername, $username, $password, $databaseName);
 
     // Check connection
-    if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
-    }
-    echo "Connected successfully";
+//    if ($connection->connect_error) {
+//        die("Connection failed: " . $connection->connect_error);
+//    } else echo "Connected successfully";
     return $connection;
 }

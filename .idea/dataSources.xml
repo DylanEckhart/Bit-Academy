@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="id17762295_bitacademydb@localhost" uuid="7b2b8bcf-7012-4cc6-be2b-f81a1bd0e26f">
+    <data-source source="LOCAL" name="id17762295_bitacademydb@localhost" uuid="c843a9be-752f-47de-b87f-9e29b8b7fffb">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
