@@ -4,15 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="category_style.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
     <title>Category creator</title>
 </head>
 <body>
 <?php
 require_once "../Template/header.php";
-require_once "../DB/connection.php";
-
-$conn = openConn();
+//require_once "../DB/connection.php";
+//
+//$conn = openConn();
 ?>
 <div id="grid">
     <div>
@@ -29,12 +29,6 @@ $conn = openConn();
         <p class="inputTitle">Category</p>
         <select name="selectCategory">
             <option value="" disabled selected hidden>Choose the Category</option>
-            <?php
-            $getSubjectsQuery = "select Subject from subjects";
-            $setSubjects = mysqli_query($getSubjectsQuery);
-
-            if (mysqli_num_rows())
-            ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>
@@ -67,6 +61,13 @@ $conn = openConn();
     <div>
         <form class="form">
             <h1 class="formTitle">Subject</h1>
+            <p class="inputTitle">Category</p>
+            <select name="selectCategory">
+                <option value="" disabled selected hidden>Choose a Category</option>
+                <option value="test1">test1</option>
+                <option value="test2">test2</option>
+                <option value="test3">test3</option>
+            </select>
             <p class="inputTitle">Subject</p>
             <input type="text" name="Subject" class="input" placeholder="ex. cookies">
             <button name="submitSubject" class="Submit">Submit</button>
@@ -77,9 +78,21 @@ $conn = openConn();
 <!--jscript for popup message-->
 <script>
     // When the user clicks on <div>, open the popup
-    function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
+    // function myFunction() {
+    //     var popup = document.getElementById("myPopup");
+    //     popup.classList.toggle("show");
+    // }
+
+    function myFunction(){
+    var userPreference;
+
+    if (confirm("Do you want to save changes?") == true) {
+        userPreference = "Data saved successfully!";
+    } else {
+        userPreference = "Save Canceled!";
+    }
+
+    document.getElementById("msg").innerHTML = userPreference;
     }
 </script>
 </html>
