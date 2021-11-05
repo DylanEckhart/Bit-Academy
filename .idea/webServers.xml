@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="40de58cd-3891-4bd8-a40c-c703d0781e4c" name="MAMP Apache" url="http://localhost:8889/Bit-Academy">
+        <fileTransfer mountedRoot="C:\MAMP\htdocs" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
