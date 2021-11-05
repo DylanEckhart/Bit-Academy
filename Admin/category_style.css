@@ -1,0 +1,152 @@
+
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: white;
+}
+
+#grid {
+    display: grid;
+    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.form {
+    padding: 15px;
+    width: 75%;
+    margin: auto;
+    display: grid;
+    grid-template: auto / 30% 70%;
+    grid-row-gap: 15px;
+    background-color: darkgray;
+    border-radius: 15px;
+    grid-row: span 2;
+}
+
+.formTitle {
+    text-align: center;
+    grid-column: span 2;
+}
+
+.inputTitle {
+    font-size: 24px;
+}
+
+.input {
+    font-size: 18px;
+    color: black;
+}
+
+.Submit {
+    width: 20%;
+    margin: auto;
+    grid-column: span 2;
+    color: black;
+}
+
+label{
+    font-size: 18px;
+}
+
+input{
+    font-size: 18px;
+    color: black;
+}
+
+select {
+    font-size: 22px;
+    color: black;
+}
+
+option{
+    color: black;
+}
+
+/*popup message*/
+.popup {
+    width: 20%;
+    margin: auto;
+    grid-column: span 2;
+    color: black;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+/*ends of popup message*/
+
+
+@media screen and (max-width: 800px){
+    #grid {
+        display: grid;
+        grid-template: auto / minmax(0, 1fr);
+    }
+
+    .form{
+        margin-bottom: 35px;
+        grid-template: auto / 50% 50%;
+    }
+    ::placeholder{
+        font-size: 13px;
+    }
+
+    select{
+        font-size: 13px;
+    }
+
+    input{
+        font-size: 13px;
+    }
+
+    .input{
+        font-size: 13px;
+    }
+}
