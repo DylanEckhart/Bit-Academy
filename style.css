@@ -7,11 +7,11 @@
 body{
     margin: 15px;
     padding-left: 15px;
+    background-color: transparent;
 }
 
 h1#PageName{
-    font-size: 30px;
-    margin: 10px;
+    font-size: 6vh;
 }
 
 
@@ -19,12 +19,12 @@ h1#PageName{
 .alert {
     padding: 20px;
     margin: 5% auto;
-    position: fixed;
-    top: 6%;
-    left: 28%;
-    background-color: #56587D;
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    background-color: #1db2cb;
     color: white;
-    border-radius: 25px;
+    border-radius: 15px;
     width: 40%;
 }
 .closebtn {
@@ -34,7 +34,6 @@ h1#PageName{
     font-weight: bold;
     float: right;
     font-size: 2vh;
-    line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
     background-color: transparent;
@@ -42,79 +41,92 @@ h1#PageName{
 .closebtn:hover {
     color: black;
 }
-/*For the light blue panels on the left and right side of the website*/
-.lastWeekPlanning {
-    display: inline-block;
-    position: fixed;
-    left: 0;
-    width: 30%;
-    height: 50%;
-    background-color: #8082B1;
-    margin-left: 30px;
-    margin-top: 10px;
-    border-radius: 25px;
-    text-align: center;
-}
-.thisWeekPlanning {
-    display: inline-block;
-    position: fixed;
-    right: 0;
-    width: 30%;
-    background-color: #8082B1;
-    margin: 10px;
-    border: black;
-    border-radius: 25px;
-    text-align: center;
-}
-.listItem {
-    background-color: white;
-    color: black;
-    border-radius: 35px;
-    margin: 5px;
-    padding: 5px;
-    width: 25vw;
-    line-height: 1.5;
-    height: auto;
-}
-/*Only for the textbox in the "last week planning"*/
-textarea {
-    margin: 10px;
-    width: 80%;
-    height: 35%;
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-}
-/*For the middle part of the website where you can add a subject and a time period*/
+/*for the whole part of the website where you can add a task*/
 #addToPlanning {
     display: block;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     text-align: center;
+    width: 40%;
+    line-height: 4vh;
 }
-#listOfSubjects {
+#subject, #chapter {
+    width: 90%;
+    font-size: 2.5vh;
+}
+.label{
+    font-size: 3.5vh;
+}
+#listOfTasks {
     width: 90%;
     display: inline-block;
     margin: 10px;
 }
-/*For the submit/add button*/
+
+/*For the light blue panels on the left and right side of the website*/
+
+.thisWeekPlanning {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 40%;
+    background-color: transparent;
+    border-radius: 25px;
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 25vh;
+}
+.listItem {
+    display: block;
+    background-color: transparent;
+    border: solid white 5px;
+    border-radius: 15px;
+    margin: auto auto 5px;
+    line-height: 1.5;
+    height: auto;
+}
+button {
+    background-color: black;
+    border-radius: 30px;
+    width: 45%;
+    height: 4vw;
+    border: none;
+    margin: 5px;
+    font-size: 2.5vh;
+}
+#Pause1, #Resume1, #Stop1{
+    margin-bottom: 1.5vw;
+    font-size: 2vw;
+}
+#Pause1 {
+    background-color: #1db2cb;
+    display: inline-block;
+}
+#Resume1 {
+    background-color: #b4b4b4;
+    color: black;
+    display: none;
+}
+#Stop1 {
+    display: inline-block;
+    background-color: red;
+}
+
+/*For the submit/plan button*/
 #planButton {
-    background-color: gray;
+    background-color: #1db2cb;
     display: block;
     border: none;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50px;
-    font-size: 5vh;
-    width: 50vw;
-    height: 10vh;
+    font-size: 3vh;
+    width: 50%;
+    height: 5vh;
 
 }
-/*For all the questions being asked the color gets changed*/
-label.questions {
-    color: black;
-    background-color: transparent;
-}
+
 /*For all the input boxes that should be white and black text */
 select, option, input {
     margin: 10px;
@@ -134,53 +146,98 @@ select, option, input {
     body {
         overflow-y: visible;
     }
-    h1#PageName {
-        font-size: 50px;
-        font-weight: bold;
-    }
     /*For the warning box that displays and you can click away*/
     .alert {
-        margin: 10px auto auto;
-        display: block;
-        background-color: #56587D;
+        top: 50%;
+        margin: auto auto;
         position: static;
-        border-radius: 25px;
-        width: 90%;
-        font-size: 5vw;
+        width: 82%;
     }
     .closebtn {
         font-size: 4vw;
     }
-    /*For the light blue panels on the left and right side of the website*/
-    .lastWeekPlanning {
-        position: static;
-        width: 95%;
-        margin: 10px auto auto;
+    /*for the whole part of the website where you can add a task*/
+    #addToPlanning {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 90%;
+        line-height: 8vh;
     }
+    #subject, #chapter {
+        display: block;
+        width: 90%;
+        margin: auto auto auto auto;
+        font-size: 5vw;
+    }
+    #listOfTasks {
+        width: 90%;
+    }
+    /*For the submit/add button*/
+    #planButton {
+        background-color: #1db2cb;
+        display: block;
+        border: none;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50px;
+        font-size: 5vh;
+        width: 60%;
+        height: 8vh;
+    }
+
+    /*For the light blue panels on the left and right side of the website*/
+
     .thisWeekPlanning {
+        display: block;
         position: static;
-        width: 95%;
-        margin: 10px auto auto;
+        right: unset;
+        top: unset;
+        width: 100%;
+        margin: auto;
     }
     .PlanningHeader {
-        text-decoration: none;
-        margin-top: 20px;
-        background-color: transparent;
-        font-size: xx-large;
+        font-size: 6vw;
     }
     .listItem {
         width: 96%;
+        font-size: 5vw;
+        padding-top: 2vw;
     }
-    /*Only for the textbox in the "last week planning"*/
-    textarea {
-        margin: 10px 10px 20px;
-        width: 90%;
-        height: 60%;
+    button {
+        background-color: black;
+        width: 45%;
+        height: 6vw;
+        margin: 5px;
+        font-size: 3vw;
+    }
+    #Pause1, #Resume1, #Stop1{
+        margin-bottom: 3vw;
+        font-size: 4vw;
+    }
+    #Pause1 {
+        background-color: #1db2cb;
+        display: inline-block;
+    }
+    #Resume1 {
+        background-color: #b4b4b4;
+        color: black;
+        display: none;
+    }
+    #Stop1 {
+        display: inline-block;
+        background-color: red;
     }
     /*For every label with the tag label*/
     label.label {
         margin: 5px;
         font-size: xx-large;
     }
-
+    label {
+        display: block;
+        margin-left: 40px;
+        margin-right: auto;
+    }
 }
