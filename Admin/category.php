@@ -87,16 +87,19 @@ if (isset($_POST["submitTicket"])) {
 
 ?>
 <div id="grid">
+<!-- here you can make a category-->
     <div>
-        <form class="form" method="post">
+        <form class="form" id="formCategory" method="post">
             <h1 class="formTitle">Category</h1>
             <p class="inputTitle">Category</p>
             <input type="text" name="Category" class="input" placeholder="ex. PHP">
             <button name="submitCategory" class="Submit">Submit</button>
         </form>
     </div>
+<!--End of category-->
 
-    <form class="form" method="post">
+<!--here you can make the ticket-->
+    <form class="form" id="formTicket" method="post">
         <h1 class="formTitle">Ticket</h1>
         <p class="inputTitle">Category</p>
         <select name="selectCategory">
@@ -115,13 +118,6 @@ if (isset($_POST["submitTicket"])) {
         <p class="inputTitle">Subject</p>
         <select name="selectSubject">
             <option value="" disabled selected hidden>Choose the subject</option>
-            <?php
-            if (mysqli_num_rows($setSubjects) > 0) {
-                while ($row = mysqli_fetch_assoc($setSubjects)) {
-                    echo '<option value="' . $row["Subject"] . '">' . $row["Subject"] . '</option>';
-                }
-            }
-            ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>
@@ -135,17 +131,18 @@ if (isset($_POST["submitTicket"])) {
         <p class="inputTitle">Language</p>
         <input type="text" name="language" placeholder="Language">
         <p class="inputTitle">Description</p>
-        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="Description" placeholder="Description">
+        <p class="inputTitle">Deadline</p>
+        <input type="date" name="deadline">
         <p class="inputTitle">Forecast time</p>
         <input type="number" name="time" placeholder="How long will it take">
-        <button class="popup" onclick="myFunction()">
-            <span class="popuptext" id="myPopup">A Simple Popup!</span>
-            Add
-        </button>
+        <button class="popup" name="submitTicket" onclick="myFunction()">Add</button>
     </form>
+<!-- end of where you can make the ticket-->
 
+<!-- here you can make a subject-->
     <div>
-        <form class="form" method="post">
+        <form class="form" id="formSubject" method="post">
             <h1 class="formTitle">Subject</h1>
             <p class="inputTitle">Category</p>
             <select name="selectCategory">
@@ -159,15 +156,68 @@ if (isset($_POST["submitTicket"])) {
             <button name="submitSubject" class="Submit">Submit</button>
         </form>
     </div>
+<!--end of where you can make a subject-->
+
+<!-- Start list of existing category's and subjects  -->
+    <div class="listGrid">
+        <div>
+            <p id="existingtitle">Category's</p>
+            <div id="existingList">
+                <div>mobile development</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+            </div>
+        </div>
+
+        <div>
+            <p id="existingtitle">Subject's</p>
+            <div id="existingList">
+                <div>Mobile Development</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+                <div>php</div>
+                <div>html</div>
+                <div>javascript</div>
+                <div>mobile</div>
+            </div>
+        </div>
+    </div>
+<!-- End list of existing category's and subjects  -->
 </div>
 </body>
+
 <!--jscript for popup message-->
 <script>
-    // When the user clicks on <div>, open the popup
-    // function myFunction() {
-    //     var popup = document.getElementById("myPopup");
-    //     popup.classList.toggle("show");
-    // }
 
     function myFunction() {
         var userPreference;

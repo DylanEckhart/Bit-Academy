@@ -1,15 +1,16 @@
-
 * {
     font-family: Arial, sans-serif;
     margin: 0;
     color: white;
 }
-
+/*grid for the page*/
 #grid {
     display: grid;
     grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+    grid-gap: 15px;
 }
 
+/*Start category subject en ticket form*/
 .form {
     padding: 15px;
     width: 75%;
@@ -60,8 +61,10 @@ select {
 option{
     color: black;
 }
+/*End category subject en ticket form*/
 
-/*popup message*/
+
+/*Start popup message*/
 .popup {
     width: 20%;
     margin: auto;
@@ -124,10 +127,60 @@ option{
 /*ends of popup message*/
 
 
+/*Start of scrollbar category and subject*/
+.listGrid {
+    display: grid;
+    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+    grid-gap: 15px;
+    grid-column: span 2;
+}
+
+#existingList{
+    background-color: darkgray;
+    height:200px ;
+    width:50%;
+    overflow:hidden;
+    overflow-y:scroll;
+    border: none;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#existingtitle{
+    font-size: 24px;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*track*/
+::-webkit-scrollbar-track {
+    background: darkgray;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: green;
+}
+
+/*Start of scrollbar category and subject*/
+
+/*responsive*/
 @media screen and (max-width: 800px){
     #grid {
         display: grid;
         grid-template: auto / minmax(0, 1fr);
+    }
+
+    .listGrid{
+        grid-column: span 1;
+        grid-template: auto/ minmax(0, 1fr);
     }
 
     .form{
@@ -148,5 +201,9 @@ option{
 
     .input{
         font-size: 13px;
+    }
+
+    #formTicket{
+        grid-row-start: 3;
     }
 }
