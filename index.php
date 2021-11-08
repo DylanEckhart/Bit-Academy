@@ -15,7 +15,7 @@
 
 <!--WARNINGBOX-->
 <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
     Select a subject and a chapter. Then select the time of when to start and when to end <br>
 </div>
 <!--THIS WEEK PLANNING-->
@@ -44,7 +44,7 @@
 </form>
 <br>
 <br>
-<button>Plan</button>
+<button id="planButton">Plan</button>
 
 
 

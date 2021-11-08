@@ -21,18 +21,19 @@ h1#PageName{
     margin: 5% auto;
     position: fixed;
     top: 6%;
-    left: 34%;
+    left: 28%;
     background-color: #56587D;
     color: white;
     border-radius: 25px;
-    width: 30%;
+    width: 40%;
 }
 .closebtn {
+    overflow-y: hidden;
     margin-left: 15px;
     color: white;
     font-weight: bold;
     float: right;
-    font-size: 22px;
+    font-size: 2vh;
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
@@ -97,12 +98,17 @@ textarea {
     margin: 10px;
 }
 /*For the submit/add button*/
-button {
+#planButton {
     background-color: gray;
     display: block;
+    border: none;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
+    border-radius: 50px;
+    font-size: 5vh;
+    width: 50vw;
+    height: 10vh;
+
 }
 /*For all the questions being asked the color gets changed*/
 label.questions {
@@ -143,7 +149,7 @@ select, option, input {
         font-size: 5vw;
     }
     .closebtn {
-        font-size: 33px;
+        font-size: 4vw;
     }
     /*For the light blue panels on the left and right side of the website*/
     .lastWeekPlanning {
