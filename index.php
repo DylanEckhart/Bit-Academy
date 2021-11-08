@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Header/style.css">
     <title>Homepage</title>
 </head>
 <body>
 <?php
-require_once "Header/header.php"
+    require_once "Header/header.php";
 ?>
 
 <h1 id="PageName">Submit</h1><br>

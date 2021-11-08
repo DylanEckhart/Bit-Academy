@@ -7,8 +7,6 @@
 body{
     margin: 15px;
     padding-left: 15px;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 h1#PageName{
@@ -16,46 +14,6 @@ h1#PageName{
     margin: 10px;
 }
 
-header {
-    display: grid;
-    grid-template: 1fr / 1fr 2fr;
-}
-
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    width: 95%;
-    background-color: transparent;
-}
-#logo{
-    width: 150px;
-    margin: 10px;
-}
-ul#header{
-    padding: 10px;
-}
-
-
-li.navbar a {
-    display: block;
-    text-align: center;
-    padding: 12px 24px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 25px;
-    transition: color 0.15s ease;
-}/*yellow text*/
-li.navbar a#bitAc {
-    color: #FFFF00;
-}
-li.navbar a:hover, li.navbar a#bitAc:hover {
-    color: #33C1D3;
-}
 
 /*For the warning box that displays and you can click away*/
 .alert {

@@ -3,12 +3,13 @@
     margin: 0;
     color: white;
     background-color: #000563;
-}
-body{
-    margin: 15px;
-    padding-left: 15px;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+body{
+    margin-left: 7.5vw;
+    margin-top:3vw;
+    margin-right: auto;
 }
 
 h1#PageName{
@@ -33,30 +34,44 @@ ul{
     background-color: transparent;
 }
 #logo{
-    width: 250px;
+    height: 9vh;
     margin: 10px;
+}
+
+/*nav link list items*/
+.nav-links ul li {
+    display: block;
+    transition: all 1s ease;
+}
+/*div of navlinks*/
+.nav-links {
+    z-index: 2;
+    transition: all 0.3s ease;
 }
 
 li.navbar a {
     display: block;
-    text-align: center;
     padding: 12px 24px;
     text-decoration: none;
-    font-size: 16px;
-    border-radius: 25px;
+    font-size: 2.5vh;
     transition: all 0.15s ease;
 }
-li.navbar a:hover, li.navbar a#bitAc:hover {
+.navbar a:hover, #menuButtonOpen:hover, #menuButtonClosed:hover {
     color: #33C1D3;
 }
-ul#header{
+#header{
     padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 5vh;
+    margin-right: 5vh;
 }
 p {
     margin: 10px;
 }
 /*hide icon in desktop*/
-.topnav li #menuButton{
+#menuButtonClosed, #menuButtonOpen{
     display: none;
 }
 /*smaller screen sizes*/
@@ -76,6 +91,31 @@ p {
     }
 
 
+/*nav link list items*/
+    .nav-links ul li {
+        display: block;
+        transition: all 1s ease;
+
+    }
+/*div of navlinks / white background of mobile nav bar*/
+    .nav-links {
+        position: absolute;
+        background: white;
+        height: 100%;
+        width: 0;
+        top: 0;
+        right: 0;
+        text-align: left;
+        z-index: 2;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    #logo {
+        height: 12vh;
+    }
+
+
     /*start nav bar opening*/
 
     .navItem {
@@ -83,58 +123,72 @@ p {
         background-color: transparent;
     }
 
-    .topnav {
+    .topnav img {
         position: relative;
     }
 
     .topnav a {
         color: #f2f2f2;
-        text-align: center;
         padding: 15px 15px;
         text-decoration: none;
         font-size: 17px;
     }
 
-    .topnav li a.navItem{
-        height: 0;
-        text-align: center;
-        width: 88%;
-        padding: unset;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .topnav a#menuButton {
+    /*normal open text button*/
+    #menuButtonClosed {
+        color: #f2f2f2;
+        margin: 7vh;
+        text-decoration: none;
+        font-size: 17px;
         display: block;
         position: absolute;
-        top: 0;
         right: 0;
-        transition: all 0.5s ease-out;
+        top: 0;
+        transition: all 1s ease-out;
+        background-color: transparent;
     }
-    .topnav a#menuButton:hover {
-        background-color: white;
+    #menuButtonOpen {
         color: #000563;
-        border-radius: 25px;
+        margin: 7vh;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: all 1s ease-out;
+        background-color: transparent;
     }
+
 
     /*when unfolded, is .responsive*/
 
-    /*location menu button*/
-    .topnav.responsive #menuButton {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+    /*location menu button open
+     #menuButtonOpen {
+         color: #f2f2f2;
+         text-align: center;
+         padding: 15px 15px;
+         text-decoration: none;
+         font-size: 17px;
+         display: block;
+         position: absolute;
+         right: 0;
+         top: 0;
+    }*/
 
     .topnav.responsive li a.navItem {
         display: block;
+        text-align: left;
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
-        width: 88%;
         transition: all 0.5s ease;
         height: 29px;
         padding: 15px 15px;
+    }
+
+    li.navbar a {
+        font-size: 4vh;
+        text-align: left;
     }
 
     /*end nav bar opening*/
@@ -142,23 +196,26 @@ p {
     header{
         grid-template: none;
     }
+    #header {
+        margin-top: 14vh;
+        width:  90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
     ul{
         display: inline-block;
     }
-    li.navbar {
+    .navbar {
         width: 100%;
         text-align: center;
         margin: 2px;
+        background-color: transparent;
     }
-    li.navbar a {
+    .navbar a {
         border-radius: 25px;
         font-size: 24px;
         transition: all 0.5s ease-out;
-    }
-    li.navbar a:hover, li.navbar a#bitAc:hover {
-        background-color: aliceblue;
         color: #000563;
-        border-radius: 25px;
     }
     .listItem {
         width: 96%;
