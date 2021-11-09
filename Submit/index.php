@@ -1,3 +1,21 @@
+<?php
+require_once "../Header/header.php";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "id17762295_bitacademydb";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +26,6 @@
     <title>Homepage</title>
 </head>
 <body>
-<?php
-    require_once "Header/header.php";
-?>
 
 <h1 id="PageName">Submit</h1><br>
 
@@ -18,13 +33,12 @@
 <div class="alert" style="line-height: 20px">
     <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
     <label style="background-color: transparent; font-size: 30px" for=".alert">Description <br> <br></label>Choose A category and subject to add it to the planning
-    </div>
+</div>
 
 
 <!--THIS WEEK PLANNING-->
 <form class="thisWeekPlanning">
-    <label class="PlanningHeader">This week planning</label><br>
-
+    <label class="PlanningHeader">Current Planning</label>
     <ul id="listOfTasks">
         <li class="listItem">
             <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
@@ -37,18 +51,19 @@
 </form>
 <!--ADD SUBJECT-->
 <form action="index.php" id="addToPlanning" method="post">
-    <label for="subject" class="label">Subject</label>
+    <label for="subject" class="label">Category</label>
     <select id="subject" name="subject">
         <option value="test1">test 1</option>
         <option value="test2">test 2</option>
         <option value="test3">test 3</option>
     </select>
-    <label for="chapter" class="label">Chapter</label>
+    <label for="chapter" class="label">Subject</label>
     <select id="chapter" name="chapter">
         <option value="test1">test 1</option>
         <option value="test2">test 2</option>
         <option value="test3">test 3</option>
     </select>
+    <label for="chapter" class="label">Description</label>
     <button id="planButton" type="submit" onclick="sumbitTasks()">Plan</button>
 </form>
 <br>
