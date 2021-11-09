@@ -14,17 +14,14 @@ if ($conn->connect_error) {
 
 session_start();
 
-if (isset($_POST['submitPlan'])) {
-    if(!isset($_SESSION['submitPlan'])){
-        $_SESSION['submitPlan'] = array();
-    }
-    $category = $_POST['subject'];
-    $project = $_POST['chapter'];
+$category = $_POST['subject'];
+$project = $_POST['chapter'];
+
+if (isset($_POST['submitPlan']) && !empty($category) && !empty($project)) {
     date_default_timezone_set('Europe/Amsterdam');
     $startTime = date("j - F - Y - H:i", time());
-    array_push($_SESSION['submitPlan'],  $category , $project, $startTime);
-    $sql = "INSERT INTO planning (Chapter, Subject , Starting_Time)
-VALUES ('$category', '$project', NOW())";
+    $sql = "INSERT INTO planning (Starting_Time)
+VALUES (NOW())";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
