@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Header/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <title>Homepage</title>
 </head>
 <body>
@@ -25,8 +26,12 @@
     <label class="PlanningHeader">This week planning</label><br>
 
     <ul id="listOfTasks">
-        <li class="listItem">item1 - chapter 1 <br>Start Time: 09:30 <br>
-            <button  id="Pause1" onclick="return hidePauseButton()">Pause</button><button id="Resume1" onclick="return showPauseButton()">Resume</button><button id="Stop1" onclick="stopTasks()">Stop</button>
+        <li class="listItem">
+            <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
+            item1 - chapter 1 <br>Start Time: 09:30 <br>
+            <button  id="Pause1" onclick="return hidePauseButton()">Pause</button>
+            <button id="Resume1" onclick="return showPauseButton()">Resume</button>
+            <button id="Stop1" onclick="stopTasks()">Stop</button>
         </li>
     </ul>
 </form>
@@ -69,7 +74,18 @@
     }
     function stopTasks() {
         <!--Stop tasks-->
-        if (confirm('Are you sure? This will remove the task.')) {
+        if (confirm('Are you sure? This will remove the task and move it to the history.')) {
+            // Save it!
+            console.log("They're sure");
+        } else {
+            // Do nothing!
+            console.log("They're not sure");
+        }
+        return false;
+    }
+    function deleteTask() {
+        <!--Stop tasks-->
+        if (confirm('Are you sure? This will remove the task forever.')) {
             // Save it!
             console.log("They're sure");
         } else {

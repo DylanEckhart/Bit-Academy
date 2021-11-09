@@ -1,3 +1,4 @@
+@import url(Header/style.css);
 *{
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
@@ -33,7 +34,7 @@ h1#PageName{
     color: white;
     font-weight: bold;
     float: right;
-    font-size: 2vh;
+    font-size: 3vh;
     cursor: pointer;
     transition: 0.3s;
     background-color: transparent;
@@ -51,11 +52,14 @@ h1#PageName{
     line-height: 4vh;
 }
 #subject, #chapter {
+    display: block;
     width: 90%;
-    font-size: 2.5vh;
+    margin: auto auto auto auto;
+    font-size: 2.5vw;
 }
+
 .label{
-    font-size: 3.5vh;
+    font-size: 3vh;
 }
 #listOfTasks {
     width: 90%;
@@ -73,12 +77,13 @@ h1#PageName{
     width: 40%;
     background-color: transparent;
     border-radius: 25px;
-    font-size: 3vw;
+    font-size: 2.5vw;
     text-align: center;
     margin-top: 25vh;
 }
 .listItem {
     display: block;
+    white-space: normal;
     background-color: transparent;
     border: solid white 5px;
     border-radius: 15px;
@@ -89,7 +94,7 @@ h1#PageName{
 button {
     background-color: black;
     border-radius: 30px;
-    width: 45%;
+    width: 40%;
     height: 4vw;
     border: none;
     margin: 5px;
@@ -112,6 +117,16 @@ button {
     display: inline-block;
     background-color: red;
 }
+#deleteButton{
+    margin: 10px 10px 10px 10px;
+    position: relative;
+    float: right;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+#deleteButton:hover{
+    background-color: red;
+}
 
 /*For the submit/plan button*/
 #planButton {
@@ -120,6 +135,7 @@ button {
     border: none;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 3vh;
     border-radius: 50px;
     font-size: 3vh;
     width: 50%;
@@ -131,6 +147,7 @@ button {
 select, option, input {
     margin: 10px;
     width: auto;
+    font-size: 2.25vw;
     background-color: white;
     color: black;
     border-radius: 10px;
@@ -154,7 +171,7 @@ select, option, input {
         width: 82%;
     }
     .closebtn {
-        font-size: 4vw;
+        font-size: 3vw;
     }
     /*for the whole part of the website where you can add a task*/
     #addToPlanning {
@@ -166,9 +183,6 @@ select, option, input {
         line-height: 8vh;
     }
     #subject, #chapter {
-        display: block;
-        width: 90%;
-        margin: auto auto auto auto;
         font-size: 5vw;
     }
     #listOfTasks {
@@ -230,6 +244,10 @@ select, option, input {
         display: inline-block;
         background-color: red;
     }
+    select, option, input {
+        font-size: 4.5vw;
+    }
+
     /*For every label with the tag label*/
     label.label {
         margin: 5px;
