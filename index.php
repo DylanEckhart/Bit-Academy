@@ -49,7 +49,7 @@
         <option value="test2">test 2</option>
         <option value="test3">test 3</option>
     </select>
-    <button id="planButton" type="submit" onclick="return false">Plan</button>
+    <button id="planButton" type="submit" onclick="sumbitTasks()">Plan</button>
 </form>
 <br>
 <br>
@@ -73,7 +73,6 @@
         return false;
     }
     function stopTasks() {
-        <!--Stop tasks-->
         if (confirm('Are you sure? This will move the task and move it to the history.')) {
             // Save it! OK
         } else {
@@ -82,8 +81,15 @@
         return false;
     }
     function deleteTask() {
-        <!--Stop tasks-->
         if (confirm('Are you sure? This will remove the task forever.')) {
+            // Save it! OK
+        } else {
+            // Do nothing! Cancel
+        }
+        return false;
+    }
+    function sumbitTasks(){
+        if (confirm('This will add the task to the list')) {
             // Save it! OK
         } else {
             // Do nothing! Cancel
