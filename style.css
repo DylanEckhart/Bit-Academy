@@ -120,6 +120,7 @@ button {
     background-color: red;
 }
 #deleteButton{
+    font-size: 2vw;
     display: unset;
     position: absolute;
     top: 6vw;
@@ -249,6 +250,7 @@ select, option, input {
         background-color: red;
     }
     #deleteButton{
+        font-size: 4vw;
         right: 11vw;
         top: unset  ;
     }
