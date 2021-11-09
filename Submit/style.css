@@ -1,0 +1,271 @@
+@import url(../Header/style.css);
+*{
+    font-family: "Roobert", "Helvetica", "Arial", sans-serif;
+    margin: 0;
+    color: white;
+    background-color: #000563;
+}
+body{
+    margin: 15px;
+    padding-left: 15px;
+    background-color: transparent;
+}
+
+h1#PageName{
+    font-size: 6vh;
+}
+
+
+/*For the warning box that displays and you can click away*/
+.alert {
+    padding: 20px;
+    margin: 5% auto;
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    background-color: #1db2cb;
+    color: white;
+    border-radius: 15px;
+    width: 40%;
+}
+.closebtn {
+    overflow-y: hidden;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 3vh;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: transparent;
+}
+.closebtn:hover {
+    color: black;
+}
+/*for the whole part of the website where you can add a task*/
+#addToPlanning {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: center;
+    width: 40%;
+    line-height: 4vh;
+}
+#subject, #chapter {
+    display: block;
+    width: 90%;
+    margin: auto auto auto auto;
+    font-size: 2.5vw;
+}
+
+.label{
+    font-size: 3vh;
+}
+#listOfTasks {
+    width: 90%;
+    display: inline-block;
+    margin: 10px;
+}
+
+/*For the light blue panels on the left and right side of the website*/
+
+.thisWeekPlanning {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 40%;
+    background-color: transparent;
+    border-radius: 25px;
+    font-size: 2.5vw;
+    text-align: center;
+    margin-top: 25vh;
+}
+.listItem {
+    display: block;
+    white-space: normal;
+    background-color: transparent;
+    border: solid white 5px;
+    border-radius: 15px;
+    margin: auto auto 5px;
+    line-height: 1.5;
+    height: auto;
+}
+button {
+    background-color: black;
+    border-radius: 30px;
+    width: 40%;
+    height: 4vw;
+    border: none;
+    margin: 5px;
+    font-size: 2.5vh;
+}
+#Pause, #Resume, #Stop{
+    margin-bottom: 1.5vw;
+    font-size: 2vw;
+
+    transition: background-color 0.5s ease;
+}
+#Pause {
+    background-color: #1db2cb;
+    display: inline-block;
+}
+#Resume {
+    background-color: #b4b4b4;
+    color: black;
+    display: none;
+}
+#Stop {
+    display: inline-block;
+    background-color: red;
+}
+#deleteButton{
+    font-size: 2vw;
+    display: unset;
+    position: absolute;
+    top: 6vw;
+    right: 4vw;
+    transition: background-color 0.5s ease;
+    border-radius: 10px;
+}
+#deleteButton:hover{
+    background-color: red;
+}
+
+/*For the submit/plan button*/
+#planButton {
+    background-color: #1db2cb;
+    display: block;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vh;
+    border-radius: 50px;
+    font-size: 3vh;
+    width: 50%;
+    height: 5vh;
+
+}
+
+/*For all the input boxes that should be white and black text */
+select, option, input {
+    margin: 10px;
+    width: auto;
+    font-size: 2.25vw;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
+}
+/*smaller screen sizes*/
+@media screen and (max-width: 800px) {
+
+    * {
+        text-align: center;
+        font-size: 20px;
+    }
+    body {
+        overflow-y: visible;
+    }
+    /*For the warning box that displays and you can click away*/
+    .alert {
+        top: 50%;
+        margin: auto auto;
+        position: static;
+        width: 82%;
+    }
+    .closebtn {
+        font-size: 3vw;
+    }
+    /*for the whole part of the website where you can add a task*/
+    #addToPlanning {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 90%;
+        line-height: 8vh;
+    }
+    #subject, #chapter {
+        font-size: 5vw;
+    }
+    #listOfTasks {
+        width: 90%;
+    }
+    /*For the submit/add button*/
+    #planButton {
+        background-color: #1db2cb;
+        display: block;
+        border: none;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50px;
+        font-size: 5vh;
+        width: 60%;
+        height: 8vh;
+    }
+
+    /*For the light blue panels on the left and right side of the website*/
+
+    .thisWeekPlanning {
+        display: block;
+        position: static;
+        right: unset;
+        top: unset;
+        width: 100%;
+        margin: auto;
+    }
+    .PlanningHeader {
+        font-size: 6vw;
+    }
+    .listItem {
+        width: 96%;
+        font-size: 5vw;
+        padding-top: 2vw;
+    }
+    button {
+        background-color: black;
+        width: 45%;
+        height: 6vw;
+        margin: 5px;
+        font-size: 3vw;
+    }
+    #Pause, #Resume, #Stop{
+        margin-bottom: 3vw;
+        font-size: 4vw;
+    }
+
+    #Pause {
+        background-color: #1db2cb;
+        display: inline-block;
+    }
+    #Resume {
+        background-color: #b4b4b4;
+        color: black;
+        display: none;
+    }
+    #Stop {
+        display: inline-block;
+        background-color: red;
+    }
+    #deleteButton{
+        font-size: 4vw;
+        right: 11vw;
+        top: unset  ;
+    }
+    select, option, input {
+        font-size: 4.5vw;
+    }
+
+    /*For every label with the tag label*/
+    label.label {
+        margin: 5px;
+        font-size: xx-large;
+    }
+    label {
+        display: block;
+        margin-left: 40px;
+        margin-right: auto;
+    }
+}
