@@ -1,5 +1,6 @@
 <?php
-require_once "../template/header.php";
+require_once "../Header/header.php";
+
 
 
 $servername = "localhost";
@@ -27,9 +28,6 @@ session_start();
     <title>Homepage</title>
 </head>
 <body>
-<?php
-    require_once "Header/header.php";
-?>
 
 <h1 id="PageName">Submit</h1><br>
 
@@ -56,18 +54,19 @@ session_start();
 </form>
 <!--ADD SUBJECT-->
 <form action="index.php" id="addToPlanning" method="post">
-    <label for="subject" class="label">Subject</label>
+    <label for="subject" class="label">Category</label>
     <select id="subject" name="subject">
         <option value="test1">test 1</option>
         <option value="test2">test 2</option>
         <option value="test3">test 3</option>
     </select>
-    <label for="chapter" class="label">Chapter</label>
+    <label for="chapter" class="label">Subject</label>
     <select id="chapter" name="chapter">
         <option value="test1">test 1</option>
         <option value="test2">test 2</option>
         <option value="test3">test 3</option>
     </select>
+    <label for="chapter" class="label">Description</label>
     <button id="planButton" type="submit" onclick="sumbitTasks()">Plan</button>
 </form>
 <br>
@@ -122,72 +121,3 @@ session_start();
 
 </body>
 </html>
-        <?php
-
-        if(isset($_POST['submitPlan'])){
-            $sql = "SELECT plannings_idplanning,  FROM MyGuests";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-                }
-            } else {
-                echo "0 results";
-            }
-            $conn->close();
-
-        }
-
-        $ticketnummer = 1;
-        if(isset($_SESSION['submitPlan'])){
-            foreach ($_SESSION['submitPlan'] as $key => $value){
-                if($key % 3 == 0){
-                    echo '<li class="listItem">';
-                    echo "ticket nummer is: " . $ticketnummer . "<br>";
-                    ?>
-                if($key % 3 == 2){
-
-                echo $value . "<br>";
-                }
-                    $ticketnummer++;
-                    <?php
-
-                }
-            }
-        }
-        ?>
-        <?php
-        $sqlCategory = "SELECT * FROM categories";
-        $resultsCategories = mysqli_query($conn, $sqlCategory);
-
-        if (mysqli_num_rows($resultsCategories) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($resultsCategories)) {
-                echo "<option value='" . $row["Category"] . "'>" . $row["Category"] . "</option>";
-            }
-        }
-        ?>
-        <?php
-        $sqlSubject = "SELECT * FROM subjects";
-        $resultsSubjects = mysqli_query($conn, $sqlSubject);
-
-        if (mysqli_num_rows($resultsSubjects) > 0){
-            while($row = mysqli_fetch_assoc($resultsSubjects)){
-                echo "<option value='" . $row["Subject"] . "'>" . $row["Subject"] . "</option>";
-        }
-            }
-
-        ?>
-        <?php
-        $sqlDescription = "SELECT description FROM tickets";
-        $resultsDescriptions = mysqli_query($conn, $sqlDescription);
-
-        if (mysqli_num_rows($resultsDescriptions) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($resultsDescriptions)) {
-            }
-                echo "<option value='" . $row["Description"] . "'>" . $row["Description"] . "</option>";
-        }
-        ?>

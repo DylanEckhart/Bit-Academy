@@ -268,7 +268,8 @@ select, option {
     /*For every label with the tag label*/
     label.label {
         margin: 5px;
-        font-size: xx-large;
+        font-size: 10px;
+        background-color: transparent;
     }
 
     /*Stop and Pauze Buttons */
