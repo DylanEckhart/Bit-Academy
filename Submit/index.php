@@ -1,3 +1,8 @@
+<?php
+require_once "../template/header.php";
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,42 +12,21 @@
     <title>Homepage</title>
 </head>
 <body>
-<?php
-
-require_once "../template/header.php";
-session_start();
-
-?>
 
 <h1 id="PageName">Submit</h1><br>
 
 <!--WARNINGBOX-->
 <div class="alert">
- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
- Select a subject and a chapter. Then select the time of when to start and when to end <br>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    Select a subject and a chapter. Then select the time of when to start and when to end <br>
 </div>
-<!--LAST WEEK PLANNING-->
-<form class="lastWeekPlanning">
-    <label class="PlanningHeader" style="background-color: transparent;">Last week planning</label><br>
-
-    <label for="finishTasks?" class="questions">Did you finish all the tasks of last week?<br></label>
-    <select id="finishTasks?" name="yes/no" required>
-        <option value="yes" style="background-color: transparent;">yes</option>
-        <option value="no" style="background-color: transparent;">no</option>
-    </select><br>
-    <label class="questions">Which tasks did you do?</label><br>
-        <input type="checkbox" id="first" name="first" value="first" required> <!--where the subjects go-->
-        <label for="first" style="background-color: transparent;"><!--where the subjects go-->(the name of the subject)<br></label>
-    <label class="questions">Is there a reason why you couldn't finish your tasks?</label><br>
-    <label for=""></label><textarea name="" id="" cols="30" rows="10"></textarea>
-</form>
 <!--THIS WEEK PLANNING-->
-<form class="thisWeekPlanning">
+<form action="process.php" id="PlanningOvervieuw" method="post" class="thisWeekPlanning">
     <label class="PlanningHeader" style="background-color: transparent;">This week planning</label><br>
     <ul id="listOfSubjects">
         <?php
+        $ticketnummer = 1;
         if(isset($_SESSION['submitPlan'])){
-            $ticketnummer = 1;
             foreach ($_SESSION['submitPlan'] as $key => $value){
                 if($key % 3 == 0){
                     echo '<li class="listItem">';
@@ -50,16 +34,24 @@ session_start();
                     $ticketnummer++;
                 }
                 echo $value . "<br>";
+
+                if($key % 3 == 2){
+                    ?>
+                    <input type="submit" name="pauzeButton" value="Pauze" class="pauzeButton">
+                    <input type="submit" name="endTask" value="Finish Task" class="FinishTaskButton">
+
+                    <?php
+
+                }
             }
-            $startTime = time();
-            date_default_timezone_set('Europe/Amsterdam');
-            echo date(" j , F, Y, H:i", $startTime);
         }
         ?>
     </ul>
 </form>
 <!--ADD SUBJECT-->
 <form action="process.php" id="addToPlanning" method="post">
+    <br>
+    <br>
     <label for="subject" class="label">Subject</label><br>
     <select id="subject" name="subject">
         <option value="test1"> test 1</option>
@@ -72,12 +64,10 @@ session_start();
         <option value="test2"> test 2</option>
         <option value="test3"> test 3</option>
     </select><br>
-    <label for="startTime" class="label">From: <br></label>
-    <input type="time" id="startTime" name="startTime"><br>
-<br>
-<br>
-    <input type="submit" name="submitPlan" value="Submit">
-    <input type="button" name="endTask" value="Stop">
+
+    <br>
+    <br>
+    <input type="submit" name="submitPlan" value="Submit Task" id="generalButton">
 </form>
 </body>
 </html>

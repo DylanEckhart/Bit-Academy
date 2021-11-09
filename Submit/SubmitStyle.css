@@ -147,7 +147,7 @@ label.questions {
     background-color: transparent;
 }
 /*For all the input boxes that should be white and black text */
-select, option, input {
+select, option {
     margin: 10px;
     width: auto;
     background-color: white;
@@ -155,34 +155,55 @@ select, option, input {
     border-radius: 10px;
     border: none;
 }
+#generalButton{
+    margin: 10px;
+    width: auto;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
 
+    /*Stop and Pauze Buttons */
+}
+.pauzeButton{
+    background-color: #000563;
+}
+.FinishTaskButton{
+    background-color: #33C1D3;
+}
 @media screen and (max-width: 800px) {
 
     * {
         text-align: center;
         font-size: 20px;
     }
+
     body {
         overflow-y: visible;
     }
+
     h1#PageName {
         font-size: 50px;
         font-weight: bold;
     }
+
     /*For the header*/
-    header{
+    header {
         grid-template: none;
     }
-    ul{
+
+    ul {
         display: inline-block;
         margin: 10px;
     }
+
     li.navbar {
         width: 100%;
         text-align: center;
         margin-top: 2px;
         opacity: 100%;
     }
+
     li.navbar a {
         margin-top: 0;
         margin-left: 0;
@@ -190,6 +211,7 @@ select, option, input {
         border-radius: 25px;
         font-size: 24px;
     }
+
     li.navbar a:hover {
         background-color: aliceblue;
         color: #000563;
@@ -207,38 +229,54 @@ select, option, input {
         width: 90%;
         font-size: 5vw;
     }
+
     .closebtn {
         font-size: 33px;
     }
+
     /*For the light blue panels on the left and right side of the website*/
     .lastWeekPlanning {
         position: static;
         width: 95%;
         margin: 10px auto auto;
     }
+
     .thisWeekPlanning {
         position: static;
         width: 95%;
         margin: 10px auto auto;
     }
+
     .PlanningHeader {
         text-decoration: none;
         margin-top: 20px;
         background-color: transparent;
         font-size: xx-large;
     }
+
     .listItem {
         width: 96%;
     }
+
     /*Only for the textbox in the "last week planning"*/
     textarea {
         margin: 10px 10px 20px;
         width: 90%;
         height: 60%;
     }
+
     /*For every label with the tag label*/
     label.label {
         margin: 5px;
         font-size: xx-large;
+    }
+
+    /*Stop and Pauze Buttons */
+    .pauzeButton {
+        background-color: #000563;
+    }
+
+    .FinishTaskButton {
+        background-color: #33C1D3;
     }
 }
