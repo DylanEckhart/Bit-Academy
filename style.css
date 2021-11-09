@@ -103,6 +103,11 @@ button {
 #Pause1, #Resume1, #Stop1{
     margin-bottom: 1.5vw;
     font-size: 2vw;
+
+    transition: filter 1s ease;
+}
+#Pause1:hover, #Resume1:hover, #Stop1:hover{
+    filter: brightness(75%);
 }
 #Pause1 {
     background-color: #1db2cb;
@@ -118,10 +123,11 @@ button {
     background-color: red;
 }
 #deleteButton{
-    margin: 10px 10px 10px 10px;
-    position: relative;
-    float: right;
-    transition: all 0.5s ease;
+    display: unset;
+    position: absolute;
+    top: 6vw;
+    right: 4vw;
+    transition: background-color 0.5s ease;
     border-radius: 10px;
 }
 #deleteButton:hover{
@@ -231,6 +237,7 @@ select, option, input {
         margin-bottom: 3vw;
         font-size: 4vw;
     }
+
     #Pause1 {
         background-color: #1db2cb;
         display: inline-block;
@@ -243,6 +250,10 @@ select, option, input {
     #Stop1 {
         display: inline-block;
         background-color: red;
+    }
+    #deleteButton{
+        right: 11vw;
+        top: unset  ;
     }
     select, option, input {
         font-size: 4.5vw;
