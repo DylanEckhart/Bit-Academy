@@ -12,79 +12,78 @@
 require_once "../Template/header.php";
 require_once "../DB/connection.php";
 
-//$conn = openConn();
-//
-//$getSubjectQuery = "select Subject from subjects";
-//$setSubjects = mysqli_query($conn, $getSubjectQuery);
-//
-////$getCategoryQuery = "select Category from categories";
-////$setCategories = mysqli_query($conn, $getCategoryQuery);
-//
-//function addCategoryIntoDB($conn)
-//{
-//    $addCategory = $_POST["category"];
-////    $insertCategory = "insert into categories (Category) values ('$addCategory')";
-////    if ($addCategory != null) {
-////    mysqli_query($conn, $insertCategory);
-////    }
-//}
-//
-//function addSubjectIntoDB($conn)
-//{
-//    $addSubject = $_POST["subject"];
-//    $insertSubjectSQL = "insert into subjects (Subject) values ('$addSubject')";
-//    if ($addSubject != null) {
-//        mysqli_query($conn, $insertSubjectSQL);
-//    }
-//}
-//
-//function addTicketIntoDB($conn) {
-//    $getCategory = $_POST["selectCategory"];
-//    $getSubject = $_POST["selectSubject"];
-//    $getLayer = $_POST["layer_chooser"];
-//    $getLanguage = $_POST["language"];
-//    $getDescription = $_POST["description"];
-//    $getDeadline = $_POST["deadline"];
-//    $getTime = $_POST["time"];
-//
-////    $insertTicketSQL = "insert into tickets (Description )";
-//
-////    if ($getCategory != null && $getSubject != null && $getLayer != null && $getLanguage != null && $getDescription != null && $getDeadline != null && $getTime != null) {
-////
-////    }
-//}
-//
-//function showExistingCategory($setCategories)
-//{
-////    if (mysqli_num_rows($setCategories) > 0) {
-////        while ($row = mysqli_fetch_assoc($setCategories)) {
-////            echo "<div>" . $row["Category"] . "</div>";
-////        }
-////    }
-//}
-//
-//function showExistingSubjects($setSubjects)
-//{
-//    if (mysqli_num_rows($setSubjects) > 0) {
-//        while ($row = mysqli_fetch_assoc($setSubjects)) {
-//            echo "<div>" . $row["Subject"] . "</div>";
-//        }
-//    }
-//}
-//
-//if (isset($_POST["submitCategory"])) {
-//    addCategoryIntoDB($conn);
-//}
-//
-//if (isset($_POST["submitSubject"])) {
-//    addSubjectIntoDB($conn);
-//}
-//
-//if (isset($_POST["submitTicket"])) {
-//    addTicketIntoDB($conn);
-//}
-//
+$conn = openConn();
 
+$getSubjectQuery = "select * from subjects";
+$setSubjects = mysqli_query($conn, $getSubjectQuery);
+
+$getCategoryQuery = "select * from categories";
+$setCategories = mysqli_query($conn, $getCategoryQuery);
+
+function addCategoryIntoDB($conn)
+{
+    $addCategory = $_POST["category"];
+    $insertCategory = "insert into categories (Category) values ('$addCategory')";
+    if ($addCategory != null) {
+        mysqli_query($conn, $insertCategory);
+    }
+}
+
+function addSubjectIntoDB($conn)
+{
+    $addSubject = $_POST["subject"];
+    $insertSubjectSQL = "insert into subjects (Subject) values ('$addSubject')";
+    if ($addSubject != null) {
+        mysqli_query($conn, $insertSubjectSQL);
+    }
+}
+
+function addTicketIntoDB($conn)
+{
+    $getCategory = $_POST["selectCategory"];
+    $getSubject = $_POST["selectSubject"];
+    $getLayer = $_POST["layer_chooser"];
+    $getLanguage = $_POST["language"];
+    $getDescription = $_POST["description"];
+    $getDeadline = $_POST["deadline"];
+    $getTime = $_POST["time"];
+
+//    $insertTicketSQL = "insert into tickets (Description )";
+
+    if ($getCategory != null && $getSubject != null && $getLayer != null && $getLanguage != null && $getDescription != null && $getDeadline != null && $getTime != null) {
+
+    }
+}
+
+function showExistingCategory($setCategories)
+{
+    if (mysqli_num_rows($setCategories) > 0) {
+        while ($row = mysqli_fetch_assoc($setCategories)) {
+            echo "<div>" . $row["Category"] . "</div>";
+        }
+    }
+}
+
+function showExistingSubjects($setSubjects)
+{
+    if (mysqli_num_rows($setSubjects) > 0) {
+        while ($row = mysqli_fetch_assoc($setSubjects)) {
+            echo "<div>" . $row["Subject"] . "</div>";
+        }
+    }
+}
+
+if (isset($_POST["submitCategory"])) {
+    addCategoryIntoDB($conn);
+}
+
+if (isset($_POST["submitSubject"])) {
+    addSubjectIntoDB($conn);
+}
+
+if (isset($_POST["submitTicket"])) {
+    addTicketIntoDB($conn);
+}
 ?>
 <div id="grid">
     <!-- here you can make a category-->
@@ -105,11 +104,11 @@ require_once "../DB/connection.php";
         <select name="selectCategory">
             <option value="" disabled selected hidden>Choose the Category</option>
             <?php
-            //            if (mysqli_num_rows($setCategories) > 0) {
-            //                while ($row = mysqli_fetch_assoc($setCategories)) {
-            //                    echo '<option value="' . $row["Category"] . '">' . $row["Category"] . '</option>';
-            //                }
-            //            }
+            if (mysqli_num_rows($setCategories) > 0) {
+                while ($row = mysqli_fetch_assoc($setCategories)) {
+                    echo "<option value='" . $row["Category"] . "'>". $row["Category"] . "</option>";
+                }
+            }
             ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
@@ -222,7 +221,7 @@ require_once "../DB/connection.php";
     function myFunction() {
         var userPreference;
 
-        if (confirm("Do you want to save changes?") == true) {
+        if (confirm("Do you want to save changes?") === true) {
             userPreference = "Data saved successfully!";
         } else {
             userPreference = "Save Canceled!";
