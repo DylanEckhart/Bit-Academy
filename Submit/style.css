@@ -59,7 +59,8 @@ h1#PageName{
 }
 
 .label{
-    font-size: 3vh;
+    font-size: 3.5vh;
+    background-color: transparent;
 }
 #listOfTasks {
     width: 90%;
@@ -261,7 +262,7 @@ select, option, input {
     /*For every label with the tag label*/
     label.label {
         margin: 5px;
-        font-size: xx-large;
+        font-size: 5vh;
     }
     label {
         display: block;
