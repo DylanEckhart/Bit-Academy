@@ -1,4 +1,4 @@
-@import url(Header/style.css);
+@import url(../Header/style.css);
 *{
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
