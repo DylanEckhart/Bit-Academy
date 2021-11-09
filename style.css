@@ -100,25 +100,22 @@ button {
     margin: 5px;
     font-size: 2.5vh;
 }
-#Pause1, #Resume1, #Stop1{
+#Pause, #Resume, #Stop{
     margin-bottom: 1.5vw;
     font-size: 2vw;
 
-    transition: filter 1s ease;
+    transition: background-color 0.5s ease;
 }
-#Pause1:hover, #Resume1:hover, #Stop1:hover{
-    filter: brightness(75%);
-}
-#Pause1 {
+#Pause {
     background-color: #1db2cb;
     display: inline-block;
 }
-#Resume1 {
+#Resume {
     background-color: #b4b4b4;
     color: black;
     display: none;
 }
-#Stop1 {
+#Stop {
     display: inline-block;
     background-color: red;
 }
@@ -233,21 +230,21 @@ select, option, input {
         margin: 5px;
         font-size: 3vw;
     }
-    #Pause1, #Resume1, #Stop1{
+    #Pause, #Resume, #Stop{
         margin-bottom: 3vw;
         font-size: 4vw;
     }
 
-    #Pause1 {
+    #Pause {
         background-color: #1db2cb;
         display: inline-block;
     }
-    #Resume1 {
+    #Resume {
         background-color: #b4b4b4;
         color: black;
         display: none;
     }
-    #Stop1 {
+    #Stop {
         display: inline-block;
         background-color: red;
     }

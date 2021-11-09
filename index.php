@@ -29,9 +29,9 @@
         <li class="listItem">
             <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
             item1 - chapter 1 <br>Start Time: 09:30 <br>
-            <button  id="Pause1" onclick="return hidePauseButton()">Pause</button>
-            <button id="Resume1" onclick="return showPauseButton()">Resume</button>
-            <button id="Stop1" onclick="stopTasks()">Stop</button>
+            <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
+            <button id="Resume" onclick="return showPauseButton()">Resume</button>
+            <button id="Stop" onclick="stopTasks()">Stop</button>
         </li>
     </ul>
 </form>
@@ -58,8 +58,8 @@
 
 <script>
     <!-- to hide pause button -->
-    let pause = document.getElementById("Pause1");
-    let resume = document.getElementById("Resume1");
+    let pause = document.getElementById("Pause");
+    let resume = document.getElementById("Resume");
 
     function showPauseButton() {
         pause.style.display = "inline";
@@ -74,23 +74,19 @@
     }
     function stopTasks() {
         <!--Stop tasks-->
-        if (confirm('Are you sure? This will remove the task and move it to the history.')) {
-            // Save it!
-            console.log("They're sure");
+        if (confirm('Are you sure? This will move the task and move it to the history.')) {
+            // Save it! OK
         } else {
-            // Do nothing!
-            console.log("They're not sure");
+            // Do nothing! Cancel
         }
         return false;
     }
     function deleteTask() {
         <!--Stop tasks-->
         if (confirm('Are you sure? This will remove the task forever.')) {
-            // Save it!
-            console.log("They're sure");
+            // Save it! OK
         } else {
-            // Do nothing!
-            console.log("They're not sure");
+            // Do nothing! Cancel
         }
         return false;
     }
