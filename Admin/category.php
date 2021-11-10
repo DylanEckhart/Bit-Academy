@@ -12,22 +12,46 @@
 require_once "../Template/header.php";
 require_once "../DB/connection.php";
 
+session_start();
+
 $conn = openConn();
 
 $categoriesArray = array();
 $subjectsArray = array();
 $subjectsCategoriesArray = array();
 
-$selectedCategory = "PHP";
-
 $getSubjectsQuery = "select * from subjects";
 $setSubjects = mysqli_query($conn, $getSubjectsQuery);
 
-$getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = '" . $selectedCategory . "'";
-$setSubjectsAndCategories = mysqli_query($conn, $getSubjectsWithCategories);
-
 $getCategoryQuery = "select * from categories";
 $setCategories = mysqli_query($conn, $getCategoryQuery);
+
+if (isset($_POST["selectCategory"])) {
+    $_SESSION["selectedCategory"] = $_POST["selectCategory"];
+//    $selectedCategory = $_POST["selectCategory"];
+    echo $_SESSION["selectedCategory"];
+
+    $getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedCategory"] . "'";
+    $setSubjectsAndCategories = mysqli_query($conn, $getSubjectsWithCategories);
+
+    while ($row = mysqli_fetch_assoc($setSubjectsAndCategories)) {
+        $subjectsCategoriesArray[] = $row;
+    }
+
+
+}
+
+if (isset($_POST["submitCategory"])) {
+    addCategoryIntoDB($conn);
+}
+
+if (isset($_POST["submitSubject"])) {
+    addSubjectIntoDB($conn);
+}
+
+if (isset($_POST["submitTicket"])) {
+    addTicketIntoDB($conn);
+}
 
 while ($row = mysqli_fetch_assoc($setCategories)) {
     $categoriesArray[] = $row;
@@ -35,10 +59,6 @@ while ($row = mysqli_fetch_assoc($setCategories)) {
 
 while ($row = mysqli_fetch_assoc($setSubjects)) {
     $subjectsArray[] = $row;
-}
-
-while ($row = mysqli_fetch_assoc($setSubjectsAndCategories)) {
-    $subjectsCategoriesArray[] = $row;
 }
 
 function addCategoryIntoDB($conn)
@@ -78,46 +98,43 @@ function addTicketIntoDB($conn)
 
 function showExistingCategory($categoriesArray)
 {
-    if (mysqli_num_rows($categoriesArray) > 0) {
-        while ($row = mysqli_fetch_assoc($categoriesArray)) {
-            echo "<div>" . $row["Category"] . "</div>";
+    if (sizeof($categoriesArray) > 0) {
+        foreach ($categoriesArray as $category) {
+            echo "<div>" . $category["Category"] . "</div>";
         }
-    }
+    } else echo "There are no Categories yet";
 }
 
 function showExistingSubjects($subjectArray)
 {
-    if (mysqli_num_rows($subjectArray) > 0) {
-        while ($row = mysqli_fetch_assoc($subjectArray)) {
-            echo "<div>" . $row["Subject"] . "</div>";
+    if (sizeof($subjectArray) > 0) {
+        foreach ($subjectArray as $subject) {
+            echo "<div>" . $subject["Subject"] . "</div>";
         }
-    }
+    } else echo "There are no Subjects yet";
 }
 
 function showCategoriesInOption($categoriesArray)
 {
-    foreach ($categoriesArray as $category) {
-        echo "<option value='" . $category["Category"] . "'>" . $category["Category"] . "</option>";
-    }
+    if (sizeof($categoriesArray) > 0) {
+        foreach ($categoriesArray as $category) {
+            if ($category["Category"] = $_SESSION["selectedCategory"]) {
+                echo '<option value="' . $category["Category"] . '" selected>' . $category["Category"] . '</option>';
+            }
+            else {
+                echo '<option value="' . $category["Category"] . '">' . $category["Category"] . '</option>';
+            }
+        }
+    } else echo "<option>There are no categories yet</option>";
 }
 
 function showSubjectsInOption($setSubjectAndCategories)
 {
-    foreach ($setSubjectAndCategories as $subject) {
-        echo '<option value="' . $subject["subjects_subject"] . '">' . $subject["subjects_subject"] . '</option>' ;
-    }
-}
-
-if (isset($_POST["submitCategory"])) {
-    addCategoryIntoDB($conn);
-}
-
-if (isset($_POST["submitSubject"])) {
-    addSubjectIntoDB($conn);
-}
-
-if (isset($_POST["submitTicket"])) {
-    addTicketIntoDB($conn);
+    if (sizeof($setSubjectAndCategories) > 0) {
+        foreach ($setSubjectAndCategories as $subject) {
+                echo '<option value="' . $subject["subjects_Subject"] . '">' . $subject["subjects_Subject"] . '</option>';
+        }
+    } else echo "<option disabled hidden selected>First choose a category</option>";
 }
 ?>
 <div id="grid">
@@ -136,7 +153,7 @@ if (isset($_POST["submitTicket"])) {
     <form class="form" id="formTicket" method="post">
         <h1 class="formTitle">Ticket</h1>
         <p class="inputTitle">Category</p>
-        <select name="selectCategory">
+        <select name="selectCategory" id="categorySelection" onchange="this.form.submit()">
             <option value="" disabled selected hidden>Choose the Category</option>
             <?php
             showCategoriesInOption($categoriesArray);
@@ -175,7 +192,7 @@ if (isset($_POST["submitTicket"])) {
         <form class="form" id="formSubject" method="post">
             <h1 class="formTitle">Subject</h1>
             <p class="inputTitle">Category</p>
-            <select name="selectCategory">
+            <select name="selectCategoryForSubject">
                 <option value="" disabled selected hidden>Choose a Category</option>
                 <?php
                 showCategoriesInOption($categoriesArray);
@@ -195,59 +212,19 @@ if (isset($_POST["submitTicket"])) {
     <div class="listGrid">
         <div class="container">
             <p id="existingtitle">Category's</p>
-            <div id="existingList">
+            <div class="existingList">
                 <?php
                 showExistingCategory($categoriesArray);
                 ?>
-                <div>mobile development</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
             </div>
         </div>
 
         <div class="container">
             <p id="existingtitle">Subject's</p>
-            <div id="existingList">
+            <div class="existingList">
                 <?php
                 showExistingSubjects($subjectsArray);
                 ?>
-                <div>Mobile Development</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
-                <div>php</div>
-                <div>html</div>
-                <div>javascript</div>
-                <div>mobile</div>
             </div>
         </div>
     </div>

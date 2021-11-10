@@ -86,7 +86,6 @@ option {
 
 .existingList {
     height: 200px;
-    width: 95%;
     font-size: 24px;
     overflow: hidden;
     overflow-y: scroll;
