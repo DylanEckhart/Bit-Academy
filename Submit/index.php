@@ -23,13 +23,11 @@ session_start();
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
-    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Submit</title>
+    <link rel="icon" href="../Images/icon/favicon.ico" type="image/icon">
 </head>
 <body>
-
-<h1 id="PageName">Submit</h1><br>
 
 <!--WARNINGBOX-->
 <div class="alert" style="line-height: 20px">

@@ -43,6 +43,9 @@ h1#PageName{
     color: black;
 }
 /*for the whole part of the website where you can add a task*/
+.PlanningHeader {
+    font-size: 4vh;
+}
 #addToPlanning {
     display: block;
     margin-left: 0;
@@ -219,6 +222,7 @@ select, option, input {
     }
     .PlanningHeader {
         font-size: 6vw;
+        margin-left: 0;
     }
     .listItem {
         width: 96%;
