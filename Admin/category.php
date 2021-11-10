@@ -23,28 +23,22 @@ $selectedCategory = "PHP";
 $getSubjectsQuery = "select * from subjects";
 $setSubjects = mysqli_query($conn, $getSubjectsQuery);
 
-$getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = " . $selectedCategory;
+$getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = '" . $selectedCategory . "'";
 $setSubjectsAndCategories = mysqli_query($conn, $getSubjectsWithCategories);
 
 $getCategoryQuery = "select * from categories";
 $setCategories = mysqli_query($conn, $getCategoryQuery);
 
-if (mysqli_num_rows($setCategories) > 0) {
-    while ($row = mysqli_fetch_assoc($setCategories)) {
-            $categoriesArray[] = $row;
-    }
+while ($row = mysqli_fetch_assoc($setCategories)) {
+    $categoriesArray[] = $row;
 }
 
-if (mysqli_num_rows($setSubjects) > 0) {
-    while ($row = mysqli_fetch_assoc($setSubjects)) {
-            $subjectsArray[] = $row;
-    }
+while ($row = mysqli_fetch_assoc($setSubjects)) {
+    $subjectsArray[] = $row;
 }
 
-if (mysqli_num_rows($setSubjectsAndCategories) > 0) {
-    while ($row = mysqli_fetch_assoc($setSubjectsAndCategories)) {
-            $subjectsCategoriesArray[] = $row;
-    }
+while ($row = mysqli_fetch_assoc($setSubjectsAndCategories)) {
+    $subjectsCategoriesArray[] = $row;
 }
 
 function addCategoryIntoDB($conn)
@@ -100,15 +94,17 @@ function showExistingSubjects($subjectArray)
     }
 }
 
-function showCategoriesInOption($categoriesArray) {
+function showCategoriesInOption($categoriesArray)
+{
     foreach ($categoriesArray as $category) {
         echo "<option value='" . $category["Category"] . "'>" . $category["Category"] . "</option>";
     }
 }
 
-function showSubjectsInOption($setSubjectAndCategories) {
+function showSubjectsInOption($setSubjectAndCategories)
+{
     foreach ($setSubjectAndCategories as $subject) {
-        echo "<option value='" . $subject["subjects_subject"] . "'>" . $subject["subjects_subject"] . "</option>";
+        echo '<option value="' . $subject["subjects_subject"] . '">' . $subject["subjects_subject"] . '</option>' ;
     }
 }
 
@@ -123,8 +119,6 @@ if (isset($_POST["submitSubject"])) {
 if (isset($_POST["submitTicket"])) {
     addTicketIntoDB($conn);
 }
-
-echo $setSubjects;
 ?>
 <div id="grid">
     <!-- here you can make a category-->
@@ -145,7 +139,7 @@ echo $setSubjects;
         <select name="selectCategory">
             <option value="" disabled selected hidden>Choose the Category</option>
             <?php
-                showCategoriesInOption($categoriesArray);
+            showCategoriesInOption($categoriesArray);
             ?>
         </select>
         <p class="inputTitle">Subject</p>
@@ -184,7 +178,7 @@ echo $setSubjects;
             <select name="selectCategory">
                 <option value="" disabled selected hidden>Choose a Category</option>
                 <?php
-                    showCategoriesInOption($categoriesArray);
+                showCategoriesInOption($categoriesArray);
                 ?>
                 <option value="test1">test1</option>
                 <option value="test2">test2</option>
