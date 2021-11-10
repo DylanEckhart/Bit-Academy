@@ -14,11 +14,38 @@ require_once "../DB/connection.php";
 
 $conn = openConn();
 
-$getSubjectQuery = "select * from subjects";
-$setSubjects = mysqli_query($conn, $getSubjectQuery);
+$categoriesArray = array();
+$subjectsArray = array();
+$subjectsCategoriesArray = array();
+
+$selectedCategory = "PHP";
+
+$getSubjectsQuery = "select * from subjects";
+$setSubjects = mysqli_query($conn, $getSubjectsQuery);
+
+$getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = " . $selectedCategory;
+$setSubjectsAndCategories = mysqli_query($conn, $getSubjectsWithCategories);
 
 $getCategoryQuery = "select * from categories";
 $setCategories = mysqli_query($conn, $getCategoryQuery);
+
+if (mysqli_num_rows($setCategories) > 0) {
+    while ($row = mysqli_fetch_assoc($setCategories)) {
+            $categoriesArray[] = $row;
+    }
+}
+
+if (mysqli_num_rows($setSubjects) > 0) {
+    while ($row = mysqli_fetch_assoc($setSubjects)) {
+            $subjectsArray[] = $row;
+    }
+}
+
+if (mysqli_num_rows($setSubjectsAndCategories) > 0) {
+    while ($row = mysqli_fetch_assoc($setSubjectsAndCategories)) {
+            $subjectsCategoriesArray[] = $row;
+    }
+}
 
 function addCategoryIntoDB($conn)
 {
@@ -55,21 +82,33 @@ function addTicketIntoDB($conn)
     }
 }
 
-function showExistingCategory($setCategories)
+function showExistingCategory($categoriesArray)
 {
-    if (mysqli_num_rows($setCategories) > 0) {
-        while ($row = mysqli_fetch_assoc($setCategories)) {
+    if (mysqli_num_rows($categoriesArray) > 0) {
+        while ($row = mysqli_fetch_assoc($categoriesArray)) {
             echo "<div>" . $row["Category"] . "</div>";
         }
     }
 }
 
-function showExistingSubjects($setSubjects)
+function showExistingSubjects($subjectArray)
 {
-    if (mysqli_num_rows($setSubjects) > 0) {
-        while ($row = mysqli_fetch_assoc($setSubjects)) {
+    if (mysqli_num_rows($subjectArray) > 0) {
+        while ($row = mysqli_fetch_assoc($subjectArray)) {
             echo "<div>" . $row["Subject"] . "</div>";
         }
+    }
+}
+
+function showCategoriesInOption($categoriesArray) {
+    foreach ($categoriesArray as $category) {
+        echo "<option value='" . $category["Category"] . "'>" . $category["Category"] . "</option>";
+    }
+}
+
+function showSubjectsInOption($setSubjectAndCategories) {
+    foreach ($setSubjectAndCategories as $subject) {
+        echo "<option value='" . $subject["subjects_subject"] . "'>" . $subject["subjects_subject"] . "</option>";
     }
 }
 
@@ -104,19 +143,15 @@ if (isset($_POST["submitTicket"])) {
         <select name="selectCategory">
             <option value="" disabled selected hidden>Choose the Category</option>
             <?php
-            if (mysqli_num_rows($setCategories) > 0) {
-                while ($row = mysqli_fetch_assoc($setCategories)) {
-                    echo "<option value='" . $row["Category"] . "'>". $row["Category"] . "</option>";
-                }
-            }
+                showCategoriesInOption($categoriesArray);
             ?>
-            <option value="test2">test</option>
-            <option value="test3">test</option>
-            <option value="test4">test</option>
         </select>
         <p class="inputTitle">Subject</p>
         <select name="selectSubject">
             <option value="" disabled selected hidden>Choose the subject</option>
+            <?php
+            showSubjectsInOption($subjectsCategoriesArray);
+            ?>
             <option value="test2">test</option>
             <option value="test3">test</option>
             <option value="test4">test</option>
@@ -146,6 +181,9 @@ if (isset($_POST["submitTicket"])) {
             <p class="inputTitle">Category</p>
             <select name="selectCategory">
                 <option value="" disabled selected hidden>Choose a Category</option>
+                <?php
+                    showCategoriesInOption($categoriesArray);
+                ?>
                 <option value="test1">test1</option>
                 <option value="test2">test2</option>
                 <option value="test3">test3</option>
@@ -162,6 +200,9 @@ if (isset($_POST["submitTicket"])) {
         <div class="container">
             <p id="existingtitle">Category's</p>
             <div id="existingList">
+                <?php
+                showExistingCategory($categoriesArray);
+                ?>
                 <div>mobile development</div>
                 <div>html</div>
                 <div>javascript</div>
@@ -188,6 +229,9 @@ if (isset($_POST["submitTicket"])) {
         <div class="container">
             <p id="existingtitle">Subject's</p>
             <div id="existingList">
+                <?php
+                showExistingSubjects($subjectsArray);
+                ?>
                 <div>Mobile Development</div>
                 <div>html</div>
                 <div>javascript</div>
