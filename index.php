@@ -69,7 +69,7 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Subject - 5 hours</p></li>
             </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien.Lorem ipsum dolor sit amet, consectetur</p>
             <p>Date</p>
             <p>26-10-2021</p>
             <p>Start time:</p>
