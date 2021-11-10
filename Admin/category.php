@@ -123,6 +123,8 @@ if (isset($_POST["submitSubject"])) {
 if (isset($_POST["submitTicket"])) {
     addTicketIntoDB($conn);
 }
+
+echo $setSubjects;
 ?>
 <div id="grid">
     <!-- here you can make a category-->
@@ -153,8 +155,8 @@ if (isset($_POST["submitTicket"])) {
             showSubjectsInOption($subjectsCategoriesArray);
             ?>
             <option value="test2">test</option>
-            <option value="test3">test</option>
-            <option value="test4">test</option>
+            <option value="test3">test34</option>
+            <option value="test4">test1</option>
         </select>
         <p class="inputTitle">Layer</p>
         <select name="layer_chooser">
