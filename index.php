@@ -16,19 +16,23 @@
         <li class="navbar"><a href="">profile</a></li>
     </ul>
 </header>
+</form>
+
+<!--pre-plannings of the employee-->
 <div id="PrePlanning">
     <h1 id="pagetitle">Previous Plannings</h1>
     <div id="PlanningGrid">
-
         <div class="GridItem">
             <ul class="ticketList">
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
@@ -36,10 +40,12 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
@@ -47,10 +53,12 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
@@ -58,10 +66,12 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
@@ -69,10 +79,12 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
@@ -80,10 +92,12 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
@@ -91,34 +105,40 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Web - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
             <ul class="ticketList">
                 <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
 
         <div class="GridItem">
             <ul class="ticketList">
                 <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
             </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
         </div>
-
     </div>
 </div>
 </body>
