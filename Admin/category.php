@@ -14,8 +14,13 @@ require_once "../DB/connection.php";
 
 $conn = openConn();
 
-$getSubjectQuery = "select * from subjects";
+$selectedCategory = "werkt";
+
+$getSubjectQuery = "select * from categories_and_subjects where categories_Category = " . $selectedCategory;
 $setSubjects = mysqli_query($conn, $getSubjectQuery);
+
+//$getSubjectQuery = "select * from subjects";
+//$setSubjects = mysqli_query($conn, $getSubjectQuery);
 
 $getCategoryQuery = "select * from categories";
 $setCategories = mysqli_query($conn, $getCategoryQuery);
@@ -84,6 +89,8 @@ if (isset($_POST["submitSubject"])) {
 if (isset($_POST["submitTicket"])) {
     addTicketIntoDB($conn);
 }
+
+echo $setSubjects;
 ?>
 <div id="grid">
     <!-- here you can make a category-->
@@ -106,7 +113,7 @@ if (isset($_POST["submitTicket"])) {
             <?php
             if (mysqli_num_rows($setCategories) > 0) {
                 while ($row = mysqli_fetch_assoc($setCategories)) {
-                    echo "<option value='" . $row["Category"] . "'>". $row["Category"] . "</option>";
+                    echo "<option value='" . $row["Category"] . "'>" . $row["Category"] . "</option>";
                 }
             }
             ?>
@@ -117,9 +124,16 @@ if (isset($_POST["submitTicket"])) {
         <p class="inputTitle">Subject</p>
         <select name="selectSubject">
             <option value="" disabled selected hidden>Choose the subject</option>
+            <?php
+            if (mysqli_num_rows($setSubjects) > 0) {
+                while ($row = mysqli_fetch_assoc($setSubjects)) {
+                    echo "<option value='" . $row["subjects_Subject"] . "'>" . $row["subjects_Subject"] . "</option>";
+                }
+            }
+            ?>
             <option value="test2">test</option>
-            <option value="test3">test</option>
-            <option value="test4">test</option>
+            <option value="test3">test34</option>
+            <option value="test4">test1</option>
         </select>
         <p class="inputTitle">Layer</p>
         <select name="layer_chooser">
@@ -146,6 +160,13 @@ if (isset($_POST["submitTicket"])) {
             <p class="inputTitle">Category</p>
             <select name="selectCategory">
                 <option value="" disabled selected hidden>Choose a Category</option>
+                <?php
+                if (mysqli_num_rows($setCategories) > 0) {
+                    while ($row = mysqli_fetch_assoc($setCategories)) {
+                        echo "<option value='" . $row["Category"] . "'>" . $row["Category"] . "</option>";
+                    }
+                }
+                ?>
                 <option value="test1">test1</option>
                 <option value="test2">test2</option>
                 <option value="test3">test3</option>
@@ -161,7 +182,7 @@ if (isset($_POST["submitTicket"])) {
     <div class="listGrid">
         <div class="container">
             <p id="existingtitle">Category's</p>
-            <div id="existingList">
+            <div class="existingList">
                 <div>mobile development</div>
                 <div>html</div>
                 <div>javascript</div>
@@ -187,7 +208,7 @@ if (isset($_POST["submitTicket"])) {
 
         <div class="container">
             <p id="existingtitle">Subject's</p>
-            <div id="existingList">
+            <div class="existingList">
                 <div>Mobile Development</div>
                 <div>html</div>
                 <div>javascript</div>

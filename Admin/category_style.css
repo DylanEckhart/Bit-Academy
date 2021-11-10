@@ -84,9 +84,10 @@ option {
     grid-column: span 2;
 }
 
-#existingList {
+.existingList {
     height: 200px;
     width: 95%;
+    font-size: 24px;
     overflow: hidden;
     overflow-y: scroll;
     padding: 5px;
@@ -107,18 +108,18 @@ option {
     text-align: center;
 }
 
-::-webkit-scrollbar {
+div.existingList::-webkit-scrollbar {
     width: 10px;
 }
 
 /*track*/
-::-webkit-scrollbar-track {
+div.existingList::-webkit-scrollbar-track {
     background: darkgray;
     border-radius: 10px;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+div.existingList::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #1CB2CA;
 }
