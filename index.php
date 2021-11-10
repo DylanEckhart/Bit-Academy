@@ -25,86 +25,9 @@
         <div class="GridItem">
             <ul class="ticketList">
                 <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
             </ul>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
             <p>Date</p>
             <p>26-10-2021</p>
             <p>Start time:</p>
@@ -118,6 +41,91 @@
                 <li><p class="ticket_title">PHP</p></li>
                 <li><p class="ticket_desc">- Subject - 5 hours</p></li>
             </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, </p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
+        </div>
+
+        <div class="GridItem">
+            <ul class="ticketList">
+                <li><p class="ticket_title">PHP</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
+            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
+        </div>
+
+        <div class="GridItem">
+            <ul class="ticketList">
+                <li><p class="ticket_title">PHP</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
+            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
+        </div>
+
+        <div class="GridItem">
+            <ul class="ticketList">
+                <li><p class="ticket_title">PHP</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
+            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
+        </div>
+
+        <div class="GridItem">
+            <ul class="ticketList">
+                <li><p class="ticket_title">PHP</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
+            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
+        </div>
+
+        <div class="GridItem">
+            <ul class="ticketList">
+                <li><p class="ticket_title">PHP</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
+            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <p>Date</p>
+            <p>26-10-2021</p>
+            <p>Start time:</p>
+            <p>09:30</p>
+            <p>Stop time:</p>
+            <p>16:30</p>
+        </div>
+
+        <div class="GridItem">
+            <ul class="ticketList">
+                <li><p class="ticket_title">PHP</p></li>
+                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
+            </ul>
+            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
             <p>Date</p>
             <p>26-10-2021</p>
             <p>Start time:</p>

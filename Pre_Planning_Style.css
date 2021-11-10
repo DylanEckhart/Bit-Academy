@@ -8,7 +8,7 @@ h1#pagetitle {
 
 #PlanningGrid {
     display: grid;
-    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) ;
     gap: 20px;
     margin: 20px;
 }
