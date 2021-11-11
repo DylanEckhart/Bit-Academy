@@ -18,14 +18,14 @@ h1#PageName{
 /*For the warning box that displays and you can click away*/
 .alert {
     padding: 20px;
-    margin: 5% auto;
     position: absolute;
-    top: 50%;
-    left: 1%;
+    margin: 0 0 0 4%;
+    bottom: 5%;
+    left: 0;
     background-color: #1db2cb;
     color: white;
     border-radius: 15px;
-    width: 40%;
+    width: 30%;
 }
 .closebtn {
     overflow-y: hidden;
@@ -53,7 +53,7 @@ h1#PageName{
     width: 40%;
     line-height: 4vh;
 }
-#subject, #chapter {
+#subject, #description, #category {
     display: block;
     width: 90%;
     margin: auto auto auto auto;
@@ -148,6 +148,18 @@ button {
     width: 50%;
     height: 5vh;
 
+}
+#confirmButton {
+    background-color: darkblue;
+    display: block;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vh;
+    border-radius: 50px;
+    font-size: 3vh;
+    width: 50%;
+    height: 5vh;
 }
 
 /*For all the input boxes that should be white and black text */
