@@ -19,8 +19,8 @@
     display: grid;
     grid-template: auto / 30% 70%;
     grid-row-gap: 15px;
-    background-color: darkgray;
-    border-radius: 15px;
+    border: 1px solid white;
+    border-radius: 0.25rem;
     grid-row: span 2;
 }
 

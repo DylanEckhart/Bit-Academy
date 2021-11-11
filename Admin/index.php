@@ -17,7 +17,7 @@ $conn = openConn();
 //$getDivisionQuery = "select Division from divisions";
 //$setDivisions = mysqli_query($conn, $getDivisionQuery);
 
-$getAccountQuery = "select * from account";
+$getAccountQuery = "select * from accounts";
 $setAccounts = mysqli_query($conn, $getAccountQuery);
 ?>
 

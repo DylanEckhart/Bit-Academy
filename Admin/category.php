@@ -37,8 +37,6 @@ if (isset($_POST["selectCategory"])) {
     while ($row = mysqli_fetch_assoc($setSubjectsAndCategories)) {
         $subjectsCategoriesArray[] = $row;
     }
-
-
 }
 
 if (isset($_POST["submitCategory"])) {
