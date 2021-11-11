@@ -229,10 +229,9 @@ select, option, input {
         padding-top: 2vw;
     }
     button {
-        background-color: black;
+        background-color: #1db2cb;
         width: 45%;
-        height: 6vw;
-        margin: 5px;
+        height: 7vw;
         font-size: 3vw;
     }
     #Pause, #Resume, #Stop{
