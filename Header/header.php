@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="style.css">
+<!--<head>-->
+<!--<link rel="stylesheet" href="style.css">-->
+<!--</head>-->
 
 <header class="topnav" id="myTopnav">
     <img src="../Images/logo.png" alt="Logo" id="logo" title="Go to the Homepage">

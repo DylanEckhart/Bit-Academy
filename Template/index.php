@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-    require_once "header.php";
+    require_once "../Template/Header/header.php";
 ?>
 
 <h1 id="PageName">Template</h1>

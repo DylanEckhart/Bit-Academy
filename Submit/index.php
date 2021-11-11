@@ -5,7 +5,7 @@ require_once "../Header/header.php";
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "id17762295_bitacademydb";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

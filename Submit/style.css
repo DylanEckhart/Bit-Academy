@@ -15,7 +15,6 @@ h1#PageName{
     font-size: 6vh;
 }
 
-
 /*For the warning box that displays and you can click away*/
 .alert {
     padding: 20px;
@@ -89,8 +88,8 @@ h1#PageName{
     display: block;
     white-space: normal;
     background-color: transparent;
-    border: solid white 5px;
-    border-radius: 15px;
+    border: solid white 1px;
+    border-radius: 0.25rem;
     margin: auto auto 5px;
     line-height: 1.5;
     height: auto;

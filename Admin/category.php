@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <link href="category_style.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link href="../Header/style.css" rel="stylesheet">
     <title>Category creator</title>
 </head>
 <body>
 <?php
-require_once "../Template/header.php";
+require_once "../Header/header.php";
 require_once "../DB/connection.php";
 
 $conn = openConn();

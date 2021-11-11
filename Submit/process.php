@@ -20,7 +20,7 @@ $project = $_POST['chapter'];
 if (isset($_POST['submitPlan']) && !empty($category) && !empty($project)) {
     date_default_timezone_set('Europe/Amsterdam');
     $startTime = date("j - F - Y - H:i", time());
-    $sql = "INSERT INTO planning (Starting_Time)
+    $sql = "INSERT INTO plannings (Starting_Time)
 VALUES (NOW())";
 
     if (mysqli_query($conn, $sql)) {

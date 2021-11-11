@@ -1,3 +1,5 @@
+@import url(../Header/style.css);
+
 /*form select students*/
 #formAdmin {
     display: grid;
