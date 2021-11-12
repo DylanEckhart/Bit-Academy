@@ -40,13 +40,6 @@ input {
     color: black;
 }
 
-.Submit {
-    width: 20%;
-    margin: auto;
-    grid-column: span 2;
-    color: black;
-}
-
 label {
     font-size: 18px;
 }
@@ -114,7 +107,18 @@ div.existingList::-webkit-scrollbar-thumb {
     background: #1CB2CA;
 }
 
-/*Start of scrollbar category and subject*/
+/* Button Layout */
+button {
+    background-color: #1db2cb;
+    border-radius: 30px;
+    width: 20%;
+    height: 3vw;
+    border: none;
+    font-size: 2.5vh;
+    margin: auto;
+    color: white;
+    grid-column: span 2;
+}
 
 /*list of existing category's and subjects*/
 #existingtitle {

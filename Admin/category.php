@@ -17,6 +17,8 @@ session_start();
 
 $conn = openConn();
 
+$_SESSION["selectedCategory"] = null;
+
 $categoriesArray = array();
 $subjectsArray = array();
 $subjectsCategoriesArray = array();
@@ -29,7 +31,6 @@ $setCategories = mysqli_query($conn, $getCategoryQuery);
 
 if (isset($_POST["selectCategory"])) {
     $_SESSION["selectedCategory"] = $_POST["selectCategory"];
-//    $selectedCategory = $_POST["selectCategory"];
     echo $_SESSION["selectedCategory"];
 
     $getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedCategory"] . "'";
@@ -42,10 +43,12 @@ if (isset($_POST["selectCategory"])) {
 
 if (isset($_POST["submitCategory"])) {
     addCategoryIntoDB($conn);
+    header("Refresh:0.5");
 }
 
 if (isset($_POST["submitSubject"])) {
     addSubjectIntoDB($conn);
+    header("Refresh:0.5");
 }
 
 if (isset($_POST["submitTicket"])) {
@@ -72,9 +75,12 @@ function addCategoryIntoDB($conn)
 function addSubjectIntoDB($conn)
 {
     $addSubject = $_POST["subject"];
+    $addCategoryForSubject = $_POST["selectCategoryForSubject"];
     $insertSubjectSQL = "insert into subjects (Subject) values ('$addSubject')";
-    if ($addSubject != null) {
+    $insertSubjectAndCategorySQL = "insert into categories_and_subjects (subjects_Subject, categories_Category) VALUES ('$addSubject', '$addCategoryForSubject')";
+    if ($addSubject != null && $addCategoryForSubject != null) {
         mysqli_query($conn, $insertSubjectSQL);
+        mysqli_query($conn, $insertSubjectAndCategorySQL);
     }
 }
 
@@ -82,7 +88,7 @@ function addTicketIntoDB($conn)
 {
     $getCategory = $_POST["selectCategory"];
     $getSubject = $_POST["selectSubject"];
-    $getLayer = $_POST["layer_chooser"];
+    $getLayer = $_POST["layerChooser"];
     $getLanguage = $_POST["language"];
     $getDescription = $_POST["description"];
     $getDeadline = $_POST["deadline"];
@@ -113,16 +119,24 @@ function showExistingSubjects($subjectArray)
     } else echo "There are no Subjects yet";
 }
 
+function showCategoriesInOptionForTickets($categoriesArray)
+{
+    if (sizeof($categoriesArray) > 0) {
+        foreach ($categoriesArray as $category) {
+            if ($category["Category"] === $_SESSION["selectedCategory"]) {
+                echo '<option value="' . $category["Category"] . '" selected>' . $category["Category"] . '</option>';
+            } else {
+                echo '<option value="' . $category["Category"] . '">' . $category["Category"] . '</option>';
+            }
+        }
+    } else echo "<option>There are no categories yet</option>";
+}
+
 function showCategoriesInOption($categoriesArray)
 {
     if (sizeof($categoriesArray) > 0) {
         foreach ($categoriesArray as $category) {
-            if ($category["Category"] = $_SESSION["selectedCategory"]) {
-                echo '<option value="' . $category["Category"] . '" selected>' . $category["Category"] . '</option>';
-            }
-            else {
-                echo '<option value="' . $category["Category"] . '">' . $category["Category"] . '</option>';
-            }
+            echo '<option value="' . $category["Category"] . '">' . $category["Category"] . '</option>';
         }
     } else echo "<option>There are no categories yet</option>";
 }
@@ -131,10 +145,14 @@ function showSubjectsInOption($setSubjectAndCategories)
 {
     if (sizeof($setSubjectAndCategories) > 0) {
         foreach ($setSubjectAndCategories as $subject) {
-                echo '<option value="' . $subject["subjects_Subject"] . '">' . $subject["subjects_Subject"] . '</option>';
+            echo '<option value="' . $subject["subjects_Subject"] . '">' . $subject["subjects_Subject"] . '</option>';
         }
-    } else echo "<option disabled hidden selected>First choose a category</option>";
+    } elseif ($_SESSION["selectedCategory"] === null) {
+        echo "<option disabled hidden selected>First choose a category</option>";
+    } else echo "<option disabled hidden selected>There are no subjects for this category</option>";
 }
+
+
 ?>
 <div id="grid">
     <!-- here you can make a category-->
@@ -155,7 +173,7 @@ function showSubjectsInOption($setSubjectAndCategories)
         <select name="selectCategory" id="categorySelection" onchange="this.form.submit()">
             <option value="" disabled selected hidden>Choose the Category</option>
             <?php
-            showCategoriesInOption($categoriesArray);
+            showCategoriesInOptionForTickets($categoriesArray);
             ?>
         </select>
         <p class="inputTitle">Subject</p>
@@ -164,15 +182,13 @@ function showSubjectsInOption($setSubjectAndCategories)
             <?php
             showSubjectsInOption($subjectsCategoriesArray);
             ?>
-            <option value="test2">test</option>
-            <option value="test3">test34</option>
-            <option value="test4">test1</option>
         </select>
         <p class="inputTitle">Layer</p>
-        <select name="layer_chooser">
+        <select name="layerChooser">
             <option value="" disabled selected hidden>Choose the layer</option>
             <option value="front-end">Front-end</option>
             <option value="back-end">Back-end</option>
+            <option value="both">Front-end and Back-end</option>
         </select>
         <p class="inputTitle">Language</p>
         <input type="text" name="language" placeholder="Language">
@@ -182,7 +198,7 @@ function showSubjectsInOption($setSubjectAndCategories)
         <input type="date" name="deadline">
         <p class="inputTitle">Forecast time</p>
         <input type="number" name="time" placeholder="How long will it take">
-        <button class="popup" name="submitTicket" onclick="myFunction()">Add</button>
+        <button class="Submit" name="submitTicket" onclick="myFunction()">Add</button>
     </form>
     <!-- end of where you can make the ticket-->
 
@@ -196,9 +212,6 @@ function showSubjectsInOption($setSubjectAndCategories)
                 <?php
                 showCategoriesInOption($categoriesArray);
                 ?>
-                <option value="test1">test1</option>
-                <option value="test2">test2</option>
-                <option value="test3">test3</option>
             </select>
             <p class="inputTitle">Subject</p>
             <input type="text" name="subject" class="input" placeholder="ex. cookies">
@@ -233,7 +246,6 @@ function showSubjectsInOption($setSubjectAndCategories)
 
 <!--jscript for popup message-->
 <script>
-
     function myFunction() {
         var userPreference;
 
