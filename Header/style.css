@@ -2,13 +2,11 @@
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
     color: white;
-    background-color: #000563;
     overflow-x: hidden;
 }
 body{
-    margin-left: 7.5vw;
-    margin-top:3vw;
-    margin-right: auto;
+    margin: 15px;
+    background-color: #000563;
 }
 
 h1#PageName{
@@ -38,7 +36,7 @@ ul{
 }
 
 /*nav link list items*/
-.nav-links ul li {
+.nav-links #header li {
     display: block;
     transition: all 1s ease;
 }
@@ -90,13 +88,13 @@ p {
     }
 
 
-/*nav link list items*/
+    /*nav link list items*/
     .nav-links ul li {
         display: block;
         transition: all 1s ease;
 
     }
-/*div of navlinks / white background of mobile nav bar*/
+    /*div of navlinks / white background of mobile nav bar*/
     .nav-links {
         position: absolute;
         background: white;

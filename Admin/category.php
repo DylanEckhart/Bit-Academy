@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="category_style.css" rel="stylesheet">
-    <link href="../style.css" rel="stylesheet">
+<!--    <link href="../style.css" rel="stylesheet">-->
     <title>Category creator</title>
     <link rel="icon" href="../images/icon/favicon.ico" type="image/icon">
 </head>
@@ -31,7 +31,6 @@ $setCategories = mysqli_query($conn, $getCategoryQuery);
 
 if (isset($_POST["selectCategory"])) {
     $_SESSION["selectedCategory"] = $_POST["selectCategory"];
-    echo $_SESSION["selectedCategory"];
 
     $getSubjectsWithCategories = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedCategory"] . "'";
     $setSubjectsAndCategories = mysqli_query($conn, $getSubjectsWithCategories);

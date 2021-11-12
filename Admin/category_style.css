@@ -1,4 +1,4 @@
-@import "../Header/style.css";
+@import url(../Header/style.css);
 
 * {
     font-family: Arial, sans-serif;
@@ -36,22 +36,17 @@
 }
 
 input {
-    font-size: 18px;
+    font-size: 22px;
     color: black;
-}
-
-label {
-    font-size: 18px;
-}
-
-input {
-    font-size: 18px;
-    color: black;
+    border-radius: 30px;
+    padding: 10px;
 }
 
 select {
     font-size: 22px;
     color: black;
+    border-radius: 30px;
+    padding: 10px;
 }
 
 option {
@@ -111,8 +106,8 @@ div.existingList::-webkit-scrollbar-thumb {
 button {
     background-color: #1db2cb;
     border-radius: 30px;
-    width: 20%;
-    height: 3vw;
+    width: 35%;
+    height: auto;
     border: none;
     font-size: 2.5vh;
     margin: auto;
@@ -129,6 +124,7 @@ button {
 
 /*responsive*/
 @media screen and (max-width: 800px) {
+
     #grid {
         display: grid;
         grid-template: auto / minmax(0, 1fr);
@@ -153,5 +149,19 @@ button {
 
     #formTicket {
         grid-row-start: 3;
+    }
+
+    input, select, p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .form {
+        grid-template: auto / 1fr;
+    }
+
+    button, .formTitle {
+        grid-column: span 1;
     }
 }
