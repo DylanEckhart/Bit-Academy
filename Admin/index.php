@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-require_once "../Template/header.php";
+require_once "../Header/header.php";
 require_once "../DB/connection.php";
 
 $conn = openConn();
