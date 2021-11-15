@@ -27,13 +27,12 @@ if(isset($_POST['submitPlan']) && !empty($_POST['category']) && !empty($_POST['s
     array_push($_SESSION['submitPlan'], $category , $subject, $description);
 }
 else {
-    ?> <script> alert("Niet alle velden ingevuld.")</script> <?php ;
+
 
 }
 
 
 //SAVE USERINPUT IN SESSION
-
 if (isset($_POST['submitPlanComfirmed'])) {
     $id = 1;
     while (true) {

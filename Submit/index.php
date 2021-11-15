@@ -53,7 +53,11 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
     </div>
     </form>
 <?php
-    $_SESSION['approved'] = false;
+}
+else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
+    <span style="color: red; font-size: 20px" >
+        <?php
+    echo 'Niet alles ingevuld';
 }
 ?>
 
@@ -162,7 +166,7 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
             // Save it! OK
         } else {
             // Do nothing! Cancel
-        }
+    }
         return false;
     }
     function sumbitTasks(){
