@@ -4,10 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Submit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Submit/process.php" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/process.php" afterDir="false" />
+=======
+    <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6478cbc-f128-4c5b-9f75-6e3698f75a2f.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6478cbc-f128-4c5b-9f75-6e3698f75a2f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6478cbc-f128-4c5b-9f75-6e3698f75a2f/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6478cbc-f128-4c5b-9f75-6e3698f75a2f/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6478cbc-f128-4c5b-9f75-6e3698f75a2f/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f501f489-6672-4d70-86be-726b4035ed30.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f501f489-6672-4d70-86be-726b4035ed30/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f501f489-6672-4d70-86be-726b4035ed30/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f501f489-6672-4d70-86be-726b4035ed30/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f501f489-6672-4d70-86be-726b4035ed30/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/category_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/category_style.css" afterDir="false" />
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,12 +115,17 @@
       <workItem from="1636216952751" duration="1028000" />
       <workItem from="1636388273174" duration="7236000" />
       <workItem from="1636398152079" duration="8245000" />
+<<<<<<< HEAD
       <workItem from="1636461800220" duration="2517000" />
       <workItem from="1636537277682" duration="4847000" />
       <workItem from="1636544591510" duration="11019000" />
       <workItem from="1636621414875" duration="9355000" />
       <workItem from="1636734000669" duration="594000" />
       <workItem from="1636751382083" duration="1740000" />
+=======
+      <workItem from="1636539716447" duration="994000" />
+      <workItem from="1636619164968" duration="2143000" />
+>>>>>>> main
     </task>
     <servers />
   </component>
