@@ -23,15 +23,18 @@ $_SESSION['approved'] = false;
 //SHOW PREVIEW AFTER SUBMIT PLAN BUTTON
 if(isset($_POST['submitPlan']) && !empty($_POST['category']) && !empty($_POST['subject']) && !empty($_POST['description'])){
     $_SESSION['approved'] = true;
+    $_SESSION['submitPlan'] = array();
+    array_push($_SESSION['submitPlan'], $category , $subject, $description);
 }
 else {
-    echo "vul alles in";
+    ?> <script> alert("Niet alle velden ingevuld.")</script> <?php ;
+
 }
 
+
 //SAVE USERINPUT IN SESSION
-$_SESSION['submitPlan'] = array();
-if (isset($_POST['submitPlan'])) {
-    array_push($_SESSION['submitPlan'], $category , $subject, $description);
+
+if (isset($_POST['submitPlanComfirmed'])) {
     $id = 1;
     while (true) {
         $id += 1;
@@ -45,13 +48,7 @@ if (isset($_POST['submitPlan'])) {
         }
     }
 }
-$result = $mysqli->query("SELECT id FROM mytable WHERE city = 'c7'");
-if($result->num_rows == 0) {
-    // row not found, do stuff...
-} else {
-    // do other stuff...
-}
-$mysqli->close();
+$conn->close();
 
 //PUSH USERINPUT INTO DATABASE
 if (isset($_POST['submitPlan']) && !empty($category) && !empty($project) && !empty($description)) {
