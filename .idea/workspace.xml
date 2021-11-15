@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="">
+    <list default="true" id="75ce8f2d-71f5-4f00-95f7-b293e50e01b2" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Submit/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Submit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Submit/process.php" beforeDir="false" afterPath="$PROJECT_DIR$/Submit/process.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +53,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../test" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -70,19 +74,6 @@
       <recent name="C:\Users\ishak\git-repo's\Bit-Academy\Admin" />
       <recent name="$PROJECT_DIR$/template" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -108,6 +99,12 @@
       <workItem from="1636216952751" duration="1028000" />
       <workItem from="1636388273174" duration="7236000" />
       <workItem from="1636398152079" duration="8245000" />
+      <workItem from="1636461800220" duration="2517000" />
+      <workItem from="1636537277682" duration="4847000" />
+      <workItem from="1636544591510" duration="11019000" />
+      <workItem from="1636621414875" duration="9355000" />
+      <workItem from="1636734000669" duration="594000" />
+      <workItem from="1636751382083" duration="1740000" />
     </task>
     <servers />
   </component>

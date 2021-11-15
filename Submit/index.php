@@ -3,7 +3,7 @@ require_once "../Header/header.php";
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "id17762295_bitacademydb";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -49,7 +49,7 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
         }
     }
     ?>
-    <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="sumbitTasks()">Comfirm Plan</button>
+    <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="sumbitTasks()">Confirm Plan</button>
     </div>
     </form>
 <?php
