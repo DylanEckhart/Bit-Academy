@@ -1,0 +1,41 @@
+/* Set Grid */
+#grid-container {
+    display: grid;
+    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+}
+
+/* Center welcome text */
+.welcome {
+    text-align: center;
+    margin-top: 3%;
+}
+/* Headers of the instruction blocks */
+.admin_head, .submit_head {
+    text-align: center;
+}
+
+/* Give height and width to screenshots */
+.screenshot_admin, .screenshot_submit {
+    margin-top: 2%;
+    width: 100%;
+    height: 45%;
+}
+
+/* Give instruction a border and center it */
+.instruction_submit, .instruction_admin {
+    padding: 15px;
+    width: 75%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    border-radius: 0.25rem;
+}
+
+/* Responsive for max-width 800px */
+@media screen and (max-width: 800px) {
+    .instruction_submit, .instruction_admin {
+        margin-bottom: 35px;
+        grid-template: auto / 50% 50%;
+    }
+}
