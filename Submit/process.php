@@ -32,11 +32,29 @@ else {
 $_SESSION['submitPlan'] = array();
 if (isset($_POST['submitPlan'])) {
     array_push($_SESSION['submitPlan'], $category , $subject, $description);
+    $id = 1;
+    while (true) {
+        $id += 1;
+        $result = $conn->query("SELECT plannings_idplanning FROM desc.has.idplanning WHERE plannings_idplanning ='1'");
+        if ($result->num_rows == 0) {
+            array_push($_SESSION['submitPlan'], $id);
+            continue;
+        } else {
+            /*run code to insert into desc_has_id and plannings*/
+            break;
+        }
+    }
 }
+$result = $mysqli->query("SELECT id FROM mytable WHERE city = 'c7'");
+if($result->num_rows == 0) {
+    // row not found, do stuff...
+} else {
+    // do other stuff...
+}
+$mysqli->close();
 
 //PUSH USERINPUT INTO DATABASE
 if (isset($_POST['submitPlan']) && !empty($category) && !empty($project) && !empty($description)) {
-        $_SESSION['submitPlan'] = array();
         date_default_timezone_set('Europe/Amsterdam');
         $startTime = date("j - F - Y - H:i", time());
         $sql = "INSERT INTO plannings (Starting_Time)
@@ -49,7 +67,7 @@ VALUES (NOW())";
         }
         mysqli_close($conn);
     }
-
+//REDIRECT TO INDEX PAGE
 header("Location: index.php");
 
 
