@@ -30,7 +30,6 @@ else {
     $_SESSION['approved'] = false;
 }
 
-
 //SAVE USERINPUT IN SESSION
 if (isset($_POST['submitPlanComfirmed'])) {
     $id = 1;
