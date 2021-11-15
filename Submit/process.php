@@ -26,11 +26,6 @@ if(isset($_POST['submitPlan']) && !empty($_POST['category']) && !empty($_POST['s
     $_SESSION['submitPlan'] = array();
     array_push($_SESSION['submitPlan'], $category , $subject, $description);
 }
-else {
-
-
-}
-
 
 //SAVE USERINPUT IN SESSION
 if (isset($_POST['submitPlanComfirmed'])) {
