@@ -14,7 +14,7 @@
     require_once "../Header/header.php";
     ?>
 
-    <!-- Welcome title and text -->
+    <!-- Welcome title -->
     <div class="welcomeText">
         <h1 class="welcome">Welcome to the Bit Academy Workboard!</h1>
     </div>
@@ -29,7 +29,6 @@
                 
             </p>
         </div>
-
         <!-- Instruction block for admin -->
         <div class="instruction_admin">
             <h2 class="admin_head">Instruction of Admin</h2>
