@@ -1,18 +1,6 @@
-*{
-    font-family: "Roobert", "Helvetica", "Arial", sans-serif;
-    margin: 0;
-    color: white;
+#PrePlanning {
+    margin: 50px 0 0 0;
 }
-
-body {
-    margin: 15px;
-    background-color: #000563;
-
-}
-
-/*#PrePlanning {*/
-/*    margin: 50px 0 0 0;*/
-/*}*/
 
 h1#pagetitle {
     text-align: center;
