@@ -3,12 +3,11 @@
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
     color: white;
-    background-color: #000563;
 }
 body{
+    background-color: #000563;
     margin: 15px;
     padding-left: 15px;
-    background-color: transparent;
 }
 
 h1#PageName{
