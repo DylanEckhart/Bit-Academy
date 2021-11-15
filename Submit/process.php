@@ -27,8 +27,7 @@ if(isset($_POST['submitPlan']) && !empty($_POST['category']) && !empty($_POST['s
     array_push($_SESSION['submitPlan'], $category , $subject, $description);
 }
 else {
-
-
+    $_SESSION['approved'] = false;
 }
 
 

@@ -28,38 +28,7 @@ session_start();
 
 <h1 id="PageName">Submit</h1><br>
 
-<?php
-if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
-    ?>
-<!--WARNINGBOX-->
-    <form action="process.php" id="addToPlanning" method="post">
-<div class="alert" style="line-height: 20px">
-    <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
-    <label style="background-color: transparent; font-size: 30px" for=".alert">Preview <br> <br></label>
-    <?php
-    foreach ($_SESSION['submitPlan'] as $key => $value) {
-        if ($key == 0) {
-            echo "Category = " . $value . "<br>";
-        }
-        if ($key == 1) {
-            echo "Subject = " . $value . "<br>";
-        }
-        if ($key == 2) {
-            echo "Description = " . $value . "<br>";
-        }
-    }
-    ?>
-    <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="sumbitTasks()">Confirm Plan</button>
-    </div>
-    </form>
-<?php
-}
-else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
-    <span style="color: red; font-size: 20px" >
-        <?php
-    echo 'Niet alles ingevuld';
-}
-?>
+
 
 <!--THIS WEEK PLANNING-->
 <form class="thisWeekPlanning">
@@ -75,9 +44,46 @@ else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
         </li>
     </ul>
 </form>
+<!--PREVIEW WINDOW-->
+    <form action="process.php" id="addToPlanning" method="post">
+        <div id="alertBox">
+        <span class="closebtn" onclick="closePreview()">&#10006;</span>
+            <label style="background-color: transparent;" for=".alert" id="previewHeader">Preview<br></label>
+                <?php
+                foreach ($_SESSION['submitPlan'] as $key => $value) {
+                    if ($key == 0) {
+                        echo "Category = " . $value . "<br>";
+                    }
+                    if ($key == 1) {
+                        echo "Subject = " . $value . "<br>";
+                    }
+                    if ($key == 2) {
+                        echo "Description = " . $value . "<br>";
+                    }
+                }
+                ?>
+            <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="sumbitTasks()">Confirm Plan</button>
+        </div>
+    </form>
+
 <!--ADD SUBJECT-->
 <form action="process.php" id="addToPlanning" method="post">
+    <!--NIET ALLES INGEVULD-->
+    <?php
+    if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
+        ?>
+
+
+        <?php
+    }
+    else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
+    <span style="color: red; font-size: 20px;" >
+        <?php
+        echo 'Niet alles ingevuld <br>';
+        }
+        ?>
     <label for="category" class="label">Category</label>
+
     <select id="category" name="category">
         <option value="" disabled selected hidden>Choose the Category</option>
         <?php
@@ -129,10 +135,12 @@ else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
 </form>
 <br>
 <br>
+
 <script>
     <!-- to hide pause button -->
     let pause = document.getElementById("Pause");
     let resume = document.getElementById("Resume");
+    let preview = document.getElementById("alertBox");
 
     function showPauseButton() {
         pause.style.display = "inline";
@@ -167,6 +175,12 @@ else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
         } else {
             // Do nothing! Cancel
     }
+        return false;
+    }
+    function closePreview() {
+
+        preview.parentElement.style.display="none";
+
         return false;
     }
     function sumbitTasks(){

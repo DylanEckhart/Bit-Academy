@@ -15,25 +15,27 @@ h1#PageName{
 }
 
 /*For the warning box that displays and you can click away*/
-.alert {
-    padding: 20px;
-    position: absolute;
-    margin: 0 0 0 4%;
-    bottom: 5%;
-    left: 0;
-    background-color: #1db2cb;
-    color: white;
-    border-radius: 15px;
-    width: 30%;
+
+#alertBox {
+    line-height: 1.5;
+    font-size: 3vh;
+    border-radius: 0.25rem;
+    border: solid white 1px;
+    overflow-y: hidden;
+    padding: 5px;
+    width: auto;
+    height: content-box;
+}
+#confirmButton {
+    margin: 1vh auto 2vh auto;
+    width: 60%;
+    overflow-y: hidden;
 }
 .closebtn {
     overflow-y: hidden;
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
+    position: absolute;
+    left: 38%;
     font-size: 3vh;
-    cursor: pointer;
     transition: 0.3s;
     background-color: transparent;
 }
@@ -55,12 +57,12 @@ h1#PageName{
 #subject, #description, #category {
     display: block;
     width: 90%;
-    margin: 5px auto 5px auto;
+    margin: 10px auto 10px auto;
     font-size: 2.5vh;
 }
 
 .label{
-    font-size: 3.5vh;
+    font-size: 2.5vw;
     background-color: transparent;
 }
 #listOfTasks {
@@ -90,11 +92,12 @@ h1#PageName{
     border: solid white 1px;
     border-radius: 0.25rem;
     margin: auto auto 5px;
+    padding: 5px;
     line-height: 1.5;
     height: auto;
 }
 button {
-    background-color: black;
+    background-color: #1cadc5;
     border-radius: 30px;
     width: 40%;
     height: 4vw;
@@ -148,28 +151,19 @@ button {
     height: 5vh;
 
 }
-#confirmButton {
-    background-color: darkblue;
-    display: block;
-    border: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3vh;
-    border-radius: 50px;
-    font-size: 3vh;
-    width: 50%;
-    height: 5vh;
-}
-
 /*For all the input boxes that should be white and black text */
 select, option, input {
     margin: 10px;
-    width: auto;
-    font-size: 2.25vw;
+    font-size: 2.5vh;
     background-color: white;
     color: black;
     border-radius: 6px;
     border: none;
+}
+
+#previewHeader {
+    font-size: 4vw;
+    overflow-x: unset;
 }
 /*smaller screen sizes*/
 @media screen and (max-width: 800px) {
@@ -182,14 +176,18 @@ select, option, input {
         overflow-y: visible;
     }
     /*For the warning box that displays and you can click away*/
-    .alert {
-        top: 50%;
-        margin: auto auto;
+
+    #alertBox {
+        padding: 3.2vw;
         position: static;
-        width: 82%;
+        margin: 0 auto 0 auto;
+        line-height: 40px;
+        width: 90%;
+        height: 35vh;
     }
     .closebtn {
         font-size: 3vw;
+        left: 85%;
     }
     /*for the whole part of the website where you can add a task*/
     #addToPlanning {
@@ -199,6 +197,7 @@ select, option, input {
         text-align: center;
         width: 90%;
         line-height: 8vh;
+        overflow-x: unset;
     }
     #subject, #description, #category {
         font-size: 5vw;
@@ -242,7 +241,7 @@ select, option, input {
     button {
         background-color: #1db2cb;
         width: 45%;
-        height: 7vw;
+        height: 9vw;
         font-size: 3vw;
     }
     #Pause, #Resume, #Stop{
@@ -266,7 +265,12 @@ select, option, input {
     #deleteButton{
         font-size: 4vw;
         right: 11vw;
-        top: unset  ;
+        top: unset;
+    }
+    #confirmButton {
+        margin: 3vh 0 0 0;
+        overflow-y: hidden;
+        font-size: 4vw;
     }
     select, option, input {
         font-size: 4.5vw;
@@ -278,9 +282,8 @@ select, option, input {
         margin: 5px;
         font-size: 5vh;
     }
-    label {
-        display: block;
-        margin-left: 40px;
-        margin-right: auto;
+
+    #previewHeader {
+        font-size: 7vw;
     }
 }
