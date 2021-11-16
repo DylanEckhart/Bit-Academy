@@ -86,24 +86,36 @@ option {
     text-align: center;
 }
 
-div.existingList::-webkit-scrollbar {
+fieldset {
+    border-width: 0;
+    padding: 0;
+}
+
+#existingCategoryButton {
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    width: 100%;
+}
+
+.existingList::-webkit-scrollbar {
     width: 10px;
 }
 
 /*track*/
-div.existingList::-webkit-scrollbar-track {
+.existingList::-webkit-scrollbar-track {
     background: darkgray;
     border-radius: 10px;
 }
 
 /* Handle */
-div.existingList::-webkit-scrollbar-thumb {
+.existingList::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #1CB2CA;
 }
 
 /* Button Layout */
-button {
+button.Submit {
     background-color: #1db2cb;
     border-radius: 30px;
     width: 35%;
@@ -123,7 +135,7 @@ button {
 /*end of list of existingcategory's and subjects */
 
 /*responsive*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
 
     #grid {
         display: grid;
@@ -136,7 +148,7 @@ button {
     }
 
     .form {
-        grid-template: auto / 50% 50%;
+        grid-template: auto / 30% 70%;
     }
 
     ::placeholder {
@@ -156,7 +168,7 @@ button {
     }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 700px){
     .form {
         grid-template: auto / 1fr;
     }

@@ -17,17 +17,44 @@ session_start();
 
 $conn = openConn();
 
-$_SESSION["selectedCategory"] = null;
-
 $categoriesArray = array();
 $subjectsArray = array();
 $subjectsCategoriesArray = array();
+$subjectWithSelectedCategoryArray = array();
 
-$getSubjectsQuery = "select * from subjects";
+if (isset($_SESSION["selectedExistingCategory"])) {
+    $getSubjectsQuery = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedExistingCategory"] . "'";
+} else {
+    $getSubjectsQuery = "select * from categories_and_subjects";
+}
+
 $setSubjects = mysqli_query($conn, $getSubjectsQuery);
 
 $getCategoryQuery = "select * from categories";
 $setCategories = mysqli_query($conn, $getCategoryQuery);
+
+while ($row = mysqli_fetch_assoc($setCategories)) {
+    $categoriesArray[] = $row;
+}
+
+while ($row = mysqli_fetch_assoc($setSubjects)) {
+    $subjectsArray[] = $row;
+}
+
+if (sizeof($categoriesArray) > 0) {
+    foreach ($categoriesArray as $category) {
+        if (isset($_POST[$category["Category"]])) {
+            $_SESSION["selectedExistingCategory"] = $_POST[$category["Category"]];
+
+            $getSubjectsWithSelectedCategory = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedExistingCategory"] . "'";
+            $setSubjectsWithSelectedCategory = mysqli_query($conn, $getSubjectsWithSelectedCategory);
+
+            while ($row = mysqli_fetch_assoc($setSubjectsWithSelectedCategory)) {
+                $subjectWithSelectedCategoryArray[] = $row;
+            }
+        }
+    }
+}
 
 if (isset($_POST["selectCategory"])) {
     $_SESSION["selectedCategory"] = $_POST["selectCategory"];
@@ -52,14 +79,6 @@ if (isset($_POST["submitSubject"])) {
 
 if (isset($_POST["submitTicket"])) {
     addTicketIntoDB($conn);
-}
-
-while ($row = mysqli_fetch_assoc($setCategories)) {
-    $categoriesArray[] = $row;
-}
-
-while ($row = mysqli_fetch_assoc($setSubjects)) {
-    $subjectsArray[] = $row;
 }
 
 function addCategoryIntoDB($conn)
@@ -93,10 +112,13 @@ function addTicketIntoDB($conn)
     $getDeadline = $_POST["deadline"];
     $getTime = $_POST["time"];
 
-//    $insertTicketSQL = "insert into tickets (Description )";
+    $insertTicketSQL = "insert into tickets (Description, Layer, `Forcast Time`, Deadline, categories_and_subjects_subjects_Subject, Language) 
+                        values ('$getDescription', '$getLayer', '$getTime', '$getDeadline', '$getSubject', '$getLanguage')";
 
     if ($getCategory != null && $getSubject != null && $getLayer != null && $getLanguage != null && $getDescription != null && $getDeadline != null && $getTime != null) {
-
+        mysqli_query($conn, $insertTicketSQL);
+    } else {
+        echo false;
     }
 }
 
@@ -104,18 +126,32 @@ function showExistingCategory($categoriesArray)
 {
     if (sizeof($categoriesArray) > 0) {
         foreach ($categoriesArray as $category) {
-            echo "<div>" . $category["Category"] . "</div>";
+            echo "<button id='existingCategoryButton' name='" . $category["Category"] . "' value='" . $category["Category"] . "' onclick='this.form.submit()'>" . $category["Category"] . "</button>";
         }
-    } else echo "There are no Categories yet";
+    } else echo "<div>There are no Categories yet</div>";
 }
 
-function showExistingSubjects($subjectArray)
+function showExistingSubjects($conn, $subjectArray, $selectedCategory)
 {
-    if (sizeof($subjectArray) > 0) {
-        foreach ($subjectArray as $subject) {
-            echo "<div>" . $subject["Subject"] . "</div>";
+    if (isset($selectedCategory)) {
+        $preciseSubjects = array();
+
+        $preciseSubjectsSQL = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedExistingCategory"] . "'";
+        $runPrecisesubject = mysqli_query($conn, $preciseSubjectsSQL);
+        while ($row = mysqli_fetch_assoc($runPrecisesubject)) {
+            $preciseSubjects[] = $row;
         }
-    } else echo "There are no Subjects yet";
+
+        if (sizeof($preciseSubjects) > 0) {
+            foreach ($preciseSubjects as $subject) {
+                echo "<div>" . $subject["subjects_Subject"] . "</div>";
+            }
+        } else echo "<div>There are no subjects for this category yet</div>";
+    } elseif (sizeof($subjectArray) > 0) {
+        foreach ($subjectArray as $subject) {
+            echo "<div>" . $subject["subjects_Subject"] . "</div>";
+        }
+    } else echo "<div>There are no Subjects yet</div>";
 }
 
 function showCategoriesInOptionForTickets($categoriesArray)
@@ -137,7 +173,7 @@ function showCategoriesInOption($categoriesArray)
         foreach ($categoriesArray as $category) {
             echo '<option value="' . $category["Category"] . '">' . $category["Category"] . '</option>';
         }
-    } else echo "<option>There are no categories yet</option>";
+    } else echo "<option disabled hidden selected>There are no categories yet</option>";
 }
 
 function showSubjectsInOption($setSubjectAndCategories)
@@ -150,7 +186,6 @@ function showSubjectsInOption($setSubjectAndCategories)
         echo "<option disabled hidden selected>First choose a category</option>";
     } else echo "<option disabled hidden selected>There are no subjects for this category</option>";
 }
-
 
 ?>
 <div id="grid">
@@ -169,34 +204,34 @@ function showSubjectsInOption($setSubjectAndCategories)
     <form class="form" id="formTicket" method="post">
         <h1 class="formTitle">Ticket</h1>
         <p class="inputTitle">Category</p>
-        <select name="selectCategory" id="categorySelection" onchange="this.form.submit()">
+        <select name="selectCategory" id="categorySelection" onchange="this.form.submit()" required>
             <option value="" disabled selected hidden>Choose the Category</option>
             <?php
             showCategoriesInOptionForTickets($categoriesArray);
             ?>
         </select>
         <p class="inputTitle">Subject</p>
-        <select name="selectSubject">
+        <select name="selectSubject" required>
             <option value="" disabled selected hidden>Choose the subject</option>
             <?php
             showSubjectsInOption($subjectsCategoriesArray);
             ?>
         </select>
         <p class="inputTitle">Layer</p>
-        <select name="layerChooser">
+        <select name="layerChooser" required>
             <option value="" disabled selected hidden>Choose the layer</option>
             <option value="front-end">Front-end</option>
             <option value="back-end">Back-end</option>
-            <option value="both">Front-end and Back-end</option>
+            <option value="front-end_back-end">Front-end and Back-end</option>
         </select>
         <p class="inputTitle">Language</p>
-        <input type="text" name="language" placeholder="Language">
+        <input type="text" name="language" placeholder="Language" required>
         <p class="inputTitle">Description</p>
-        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="description" placeholder="Description" required>
         <p class="inputTitle">Deadline</p>
-        <input type="date" name="deadline">
+        <input type="date" name="deadline" required>
         <p class="inputTitle">Forecast time</p>
-        <input type="number" name="time" placeholder="How long will it take">
+        <input type="number" name="time" placeholder="How long will it take" required>
         <button class="Submit" name="submitTicket" onclick="myFunction()">Add</button>
     </form>
     <!-- end of where you can make the ticket-->
@@ -223,18 +258,18 @@ function showSubjectsInOption($setSubjectAndCategories)
     <div class="listGrid">
         <div class="container">
             <p id="existingtitle">Category's</p>
-            <div class="existingList">
+            <form class="existingList" method="post">
                 <?php
                 showExistingCategory($categoriesArray);
                 ?>
-            </div>
+            </form>
         </div>
 
         <div class="container">
             <p id="existingtitle">Subject's</p>
             <div class="existingList">
                 <?php
-                showExistingSubjects($subjectsArray);
+                showExistingSubjects($conn, $subjectsArray, $_SESSION["selectedExistingCategory"]);
                 ?>
             </div>
         </div>
