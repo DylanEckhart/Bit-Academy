@@ -132,6 +132,14 @@ else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
 </form>
 <br>
 <br>
+    <!--POP-UP-->
+        <div class="pop-up">
+            <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to submit? <br></label>
+            <button id="yesButton" type="submit" name="YES" onclick="something return false">Yes</button>
+            <button id="noButton" type="submit" name="NO" onclick="nothing return false">No</button>
+        </div>
+
+
 
 <script>
     <!-- to hide pause button -->

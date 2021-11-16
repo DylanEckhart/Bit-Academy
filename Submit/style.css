@@ -166,6 +166,31 @@ select, option, input {
     font-size: 4vw;
     overflow-x: unset;
 }
+
+
+.pop-up{
+    text-align: center;
+    background-color: #1db1c9;
+    padding: 20px;
+    border-radius: 15px;
+    position: fixed;
+    height: content-box;
+    line-height: 6vw;
+    width: 50vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#yesButton {
+    width: 45%;
+    font-size: 3vh;
+    background-color: green;
+}
+#noButton {
+    width: 45%;
+    font-size: 3vh;
+    background-color: red;
+}
 /*smaller screen sizes*/
 @media screen and (max-width: 800px) {
 
@@ -287,5 +312,22 @@ select, option, input {
 
     #previewHeader {
         font-size: 7vw;
+    }
+
+    .pop-up{
+        overflow-y: hidden;
+        height: content-box;
+        width: content-box;
+        line-height: 6vh;
+    }
+    #yesButton {
+        width: 100%;
+        height: 6vh;
+        background-color: green;
+    }
+    #noButton {
+        width: 100%;
+        height: 6vh;
+        background-color: red;
     }
 }
