@@ -28,8 +28,6 @@ session_start();
 
 <h1 id="PageName">Submit</h1><br>
 
-
-
 <!--THIS WEEK PLANNING-->
 <form class="thisWeekPlanning">
     <label class="PlanningHeader">This week planning</label><br>
@@ -45,43 +43,42 @@ session_start();
     </ul>
 </form>
 <!--PREVIEW WINDOW-->
+<?php
+if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
+    ?>
     <form action="process.php" id="addToPlanning" method="post">
         <div id="alertBox">
-        <span class="closebtn" onclick="closePreview()">&#10006;</span>
-            <label style="background-color: transparent;" for=".alert" id="previewHeader">Preview<br></label>
-                <?php
-                foreach ($_SESSION['submitPlan'] as $key => $value) {
-                    if ($key == 0) {
-                        echo "Category = " . $value . "<br>";
-                    }
-                    if ($key == 1) {
-                        echo "Subject = " . $value . "<br>";
-                    }
-                    if ($key == 2) {
-                        echo "Description = " . $value . "<br>";
-                    }
+            <span class="closebtn" id="previewClosebtn" onclick="closePreview()">&#10006;</span>
+            <label style="background-color: transparent; font-size: 30px" for="#alertBox">Preview <br></label>
+            <?php
+            foreach ($_SESSION['submitPlan'] as $key => $value) {
+                if ($key == 0) {
+                    echo "Category = " . $value . "<br>";
                 }
-                ?>
+                if ($key == 1) {
+                    echo "Subject = " . $value . "<br>";
+                }
+                if ($key == 2) {
+                    echo "Description = " . $value . "<br>";
+                }
+            }
+            ?>
             <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="sumbitTasks()">Confirm Plan</button>
         </div>
     </form>
+    <?php
+}
+else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
+<span style="color: red; font-size: 20px; text-align: center" >
+        <?php
+        echo 'Niet alles ingevuld';
+        }
+        ?>
+
 
 <!--ADD SUBJECT-->
 <form action="process.php" id="addToPlanning" method="post">
-    <!--NIET ALLES INGEVULD-->
-    <?php
-    if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
-        ?>
 
-
-        <?php
-    }
-    else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
-    <span style="color: red; font-size: 20px;" >
-        <?php
-        echo 'Niet alles ingevuld <br>';
-        }
-        ?>
     <label for="category" class="label">Category</label>
 
     <select id="category" name="category">
@@ -178,13 +175,15 @@ session_start();
         return false;
     }
     function closePreview() {
-
-        preview.parentElement.style.display="none";
-
+        preview.parentElement.style.height='0';
+        preview.parentElement.style.padding='0';
+        document.getElementById("previewClosebtn").style.height='0';
+        preview.style.border='none';
         return false;
     }
     function sumbitTasks(){
         (alert("Succesfully submitted"));
+        return false;
         }
 </script>
 </body>

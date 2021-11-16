@@ -3,6 +3,7 @@
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
     color: white;
+    overflow-y: hidden;
 }
 body{
     background-color: #000563;
@@ -128,8 +129,8 @@ button {
     font-size: 2vw;
     display: unset;
     position: absolute;
-    top: 6vw;
-    right: 4vw;
+    top: 8vh;
+    right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 10px;
 }
@@ -171,17 +172,18 @@ select, option, input {
     * {
         text-align: center;
         font-size: 20px;
-    }
-    body {
         overflow-y: visible;
     }
+    body {
+    }
     /*For the warning box that displays and you can click away*/
+
 
     #alertBox {
         padding: 3.2vw;
         position: static;
         margin: 0 auto 0 auto;
-        line-height: 40px;
+        line-height: 30px;
         width: 90%;
         height: 35vh;
     }
