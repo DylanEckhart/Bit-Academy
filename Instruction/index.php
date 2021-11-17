@@ -24,12 +24,13 @@
         <!-- Instruction block for submit -->
         <div class="instruction_submit">
             <h2 class="submit_head">Instruction of Submit</h2>
-            <img class="screenshot_submit" src="IMG/admin_screen.png" alt="screenshot">
+            <img class="screenshot_submit" src="IMG/submit_screen.png" alt="screenshot">
             <p>
-                An admin can create tickets on this page for students to use. That works like this: <br>
-                - First the admin creates an category or chooses an existing one. <br>
-                - Then he creates an subject following the category or chooses one. <br>
-                - After that he creates a ticket with the following aspects: the category and subject you just made, a layer (front-end / back-end), a language that corresponds with                   the category, a small description of the task, deadline and a forcast time how long the student must work.
+                An student can create a planning on this page to organize his work. That works like this: <br>
+                - First the student chooses an category. <br>
+                - Then chooses an subject that corresponds with the category. <br>
+                - After that chooses the description and plan his planning. <br>
+                - The planning will stand at the right of the screen.
             </p>
         </div>
         <!-- Instruction block for admin -->
