@@ -63,7 +63,6 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
 <form class="thisWeekPlanning">
     <label class="PlanningHeader">This week planning</label><br>
     <ul id="listOfTasks">
-            item1 - chapter 1 <br>Start Time: 09:30 <br>
             <?php
             $sqlActiveTickets = "SELECT * FROM plannings WHERE isFinished = 0";
             $resultActiveTickets =  mysqli_query($conn, $sqlActiveTickets);
