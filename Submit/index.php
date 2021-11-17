@@ -64,7 +64,12 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
     <label class="PlanningHeader">This week planning</label><br>
     <ul id="listOfTasks">
             <?php
-            $sqlActivePlanning = "SELECT * FROM plannings WHERE isFinished = 0";
+            //GET DATA FROM PLANNING DATABASE
+            $sqlActivePlanning = "SELECT categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Deadline, Forcast_Time, TimeSpent  
+FROM tickets
+INNER JOIN plannings
+ON tickets.Description = plannings.tickets_Description
+where IsFinished = 0";
             $resultActiveplannings =  mysqli_query($conn, $sqlActivePlanning);
             if (mysqli_num_rows($resultActiveplannings) > 0) {
                 // output data of each row
@@ -72,15 +77,25 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
                     //ECHO ALL DATA IN TABLE
                     ?>
                     <li class="listItem">
-        <?php
-                echo "Description : " . $row['tickets_Description'] . "<br>";
+                        <?php
+                        //CATEGORIE AND SUBJECT VALUES
+                        echo $row['categories_and_subjects_subjects_Subject'] . "<br>";
+                        //DESCRIPTION, LAYER, LANGUAGE VALUES
+                echo "Description : " . $row['Description'] . "<br>";
+                        echo "Layer : " . $row['Layer'] . "<br>";
+                        echo "Language : " . $row['Language'] . "<br>";
+                        //STARTING TIME, DEADLINE, FORECAST TIME VALUES
                     echo "Start Time : " . $row['Start_Time'] . "<br>";
+                        echo "Deadline : " . $row['Deadline'] . "<br>";
+                        echo "Forcast Time : " . $row['Forcast_Time'] . "<br>";
+                        //TIME SPEND VALUE
+                        echo "Time Spend : " . $row['TimeSpent'] . "<br>";
         ?>
                         <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
             <button id="Resume" onclick="return showPauseButton()">Resume</button>
             <button id="Stop" onclick="stopTasks()">Stop</button>
                          <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
-        </li>
+                    </li>
         <?php
                 }
             }
