@@ -18,7 +18,6 @@
 .screenshot_admin, .screenshot_submit {
     margin-top: 2%;
     width: 100%;
-    height: 45%;
 }
 
 /* Give instruction a border and center it */
@@ -34,8 +33,9 @@
 
 /* Responsive for max-width 800px */
 @media screen and (max-width: 800px) {
-    .instruction_submit, .instruction_admin {
+    /* Set grid items underneath each other*/
+    #grid-container {
         margin-bottom: 35px;
-        grid-template: auto / 50% 50%;
+        grid-template: auto / minmax(0, 1fr);
     }
 }
