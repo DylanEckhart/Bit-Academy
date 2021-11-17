@@ -62,10 +62,7 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
 <!--THIS WEEK PLANNING-->
 <form class="thisWeekPlanning">
     <label class="PlanningHeader">This week planning</label><br>
-
     <ul id="listOfTasks">
-        <li class="listItem">
-            <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
             item1 - chapter 1 <br>Start Time: 09:30 <br>
             <?php
             $sqlActiveTickets = "SELECT * FROM plannings WHERE isFinished = 0";
@@ -75,15 +72,22 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
                 while($row = mysqli_fetch_assoc($resultActiveTickets)) {
                     //ECHO ALL DATA IN TABLE
                     //echo implode($row) . "<br>";
-                    echo $row['Start_Time'] . "<br>";
-                }
-            }
-
-            ?>
-            <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
+                    ?>
+                    <li class="listItem">
+            <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
+        <?php
+                echo "Description : " . $row['tickets_Description'] . "<br>";
+                    echo "Start Time : " . $row['Start_Time'] . "<br>";
+        ?>
+                        <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
             <button id="Resume" onclick="return showPauseButton()">Resume</button>
             <button id="Stop" onclick="stopTasks()">Stop</button>
         </li>
+        <?php
+                }
+
+            }
+            ?>
     </ul>
 </form>
     <!--ADD SUBJECT-->
