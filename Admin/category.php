@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="category_style.css" rel="stylesheet">
-<!--    <link href="../style.css" rel="stylesheet">-->
     <title>Category creator</title>
     <link rel="icon" href="../images/icon/favicon.ico" type="image/icon">
 </head>
@@ -14,6 +13,9 @@ require_once "../Header/header.php";
 require_once "../DB/connection.php";
 
 session_start();
+
+$_SESSION["test"] = "test test";
+echo $_SESSION["test"];
 
 $conn = openConn();
 
@@ -56,6 +58,14 @@ if (sizeof($categoriesArray) > 0) {
     }
 }
 
+if (sizeof($subjectsArray) > 0) {
+    foreach ($subjectsArray as $subject) {
+        if (isset($_POST[$subject["subjects_Subject"]])) {
+            $_SESSION["selectedExistingSubject"] = $_POST[$subject["subjects_Subject"]];
+        }
+    }
+}
+
 if (isset($_POST["selectCategory"])) {
     $_SESSION["selectedCategory"] = $_POST["selectCategory"];
 
@@ -79,6 +89,20 @@ if (isset($_POST["submitSubject"])) {
 
 if (isset($_POST["submitTicket"])) {
     addTicketIntoDB($conn);
+}
+
+if (isset($_SESSION["selectedExistingCategory"])) {
+    if (isset($_POST["deleteCategory"])) {
+        $deleteCategorySQL = "DELETE FROM `subjects` WHERE `subjects`.`Subject` = '" . $_SESSION["selectedExistingSubject"] . "'";
+
+        mysqli_query($conn, $deleteCategorySQL);
+    }
+}
+
+if (isset($_SESSION["selectedExistingSubject"])) {
+    if (isset($_POST["deleteSubject"])) {
+        deleteSubject($_SESSION["selectedExistingSubject"], $conn);
+    }
 }
 
 function addCategoryIntoDB($conn)
@@ -126,30 +150,24 @@ function showExistingCategory($categoriesArray)
 {
     if (sizeof($categoriesArray) > 0) {
         foreach ($categoriesArray as $category) {
-            echo "<button id='existingCategoryButton' name='" . $category["Category"] . "' value='" . $category["Category"] . "' onclick='this.form.submit()'>" . $category["Category"] . "</button>";
+            echo "<button id='existingButton' name='" . $category["Category"] . "' value='" . $category["Category"] . "' onclick='this.form.submit()'>" . $category["Category"] . "</button>";
         }
     } else echo "<div>There are no Categories yet</div>";
 }
 
-function showExistingSubjects($conn, $subjectArray, $selectedCategory)
+function showExistingSubjects($subjectArray, $selectedCategory)
 {
     if (isset($selectedCategory)) {
-        $preciseSubjects = array();
-
-        $preciseSubjectsSQL = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedExistingCategory"] . "'";
-        $runPrecisesubject = mysqli_query($conn, $preciseSubjectsSQL);
-        while ($row = mysqli_fetch_assoc($runPrecisesubject)) {
-            $preciseSubjects[] = $row;
-        }
-
-        if (sizeof($preciseSubjects) > 0) {
-            foreach ($preciseSubjects as $subject) {
-                echo "<div>" . $subject["subjects_Subject"] . "</div>";
+        if (sizeof($subjectArray) > 0) {
+            foreach ($subjectArray as $subject) {
+                echo "<button id='existingButton' name='" . $subject["subjects_Subject"] . "' value='" . $subject["subjects_Subject"] . "' onclick='this.form.submit()'>" . $subject["subjects_Subject"] . "</button>";
             }
         } else echo "<div>There are no subjects for this category yet</div>";
     } elseif (sizeof($subjectArray) > 0) {
         foreach ($subjectArray as $subject) {
-            echo "<div>" . $subject["subjects_Subject"] . "</div>";
+
+            echo "<button id='existingButton' name='" . $subject["subjects_Subject"] . "' value='" . $subject["subjects_Subject"] . "' onclick='this.form.submit()'>" . $subject["subjects_Subject"] . "</button>";
+
         }
     } else echo "<div>There are no Subjects yet</div>";
 }
@@ -186,6 +204,14 @@ function showSubjectsInOption($setSubjectAndCategories)
         echo "<option disabled hidden selected>First choose a category</option>";
     } else echo "<option disabled hidden selected>There are no subjects for this category</option>";
 }
+
+function deleteSubject($selectedSubject, $conn)
+{
+    $deleteFromSubjects = "delete from subjects where Subject = '" . $selectedSubject . "'";
+    mysqli_query($conn, $deleteFromSubjects);
+}
+
+echo $_SESSION["selectedExistingSubject"] . " " . $_SESSION["selectedExistingCategory"];
 
 ?>
 <div id="grid">
@@ -258,20 +284,26 @@ function showSubjectsInOption($setSubjectAndCategories)
     <div class="listGrid">
         <div class="container">
             <p id="existingtitle">Category's</p>
-            <form class="existingList" method="post">
-                <?php
-                showExistingCategory($categoriesArray);
-                ?>
+            <form class="existingForm" method="post">
+                <div class="existingList">
+                    <?php
+                    showExistingCategory($categoriesArray);
+                    ?>
+                </div>
+                <button class="delete" name="deleteCategory">Delete Category</button>
             </form>
         </div>
 
         <div class="container">
             <p id="existingtitle">Subject's</p>
-            <div class="existingList">
-                <?php
-                showExistingSubjects($conn, $subjectsArray, $_SESSION["selectedExistingCategory"]);
-                ?>
-            </div>
+            <form class="existingForm" method="post">
+                <div class="existingList">
+                    <?php
+                    showExistingSubjects($subjectsArray, $_SESSION["selectedExistingCategory"]);
+                    ?>
+                </div>
+                <button class="delete" name="deleteSubject">Delete Subject</button>
+            </form>
         </div>
     </div>
     <!-- End list of existing category's and subjects  -->
