@@ -14,54 +14,42 @@ if ($conn->connect_error) {
 //STARTING A LIVE SESSION
 session_start();
 
-//DECLARING GLOBAL VARIABLES
-$category = $_POST['category'];
-$subject = $_POST['subject'];
-$description = $_POST['description'];
-$_SESSION['approved'] = false;
+//SETTING TIME ZONE
+date_default_timezone_set('Europe/Amsterdam');
+$startTime = date("j - F - Y - H:i", time());
 
 //SHOW PREVIEW AFTER SUBMIT PLAN BUTTON
-if(isset($_POST['submitPlan']) && !empty($_POST['category']) && !empty($_POST['subject']) && !empty($_POST['description'])){
-    $_SESSION['approved'] = true;
-    $_SESSION['submitPlan'] = array();
-    array_push($_SESSION['submitPlan'], $category , $subject, $description);
-}
-else {
-    $_SESSION['approved'] = false;
+if (isset($_POST['submitPlan'])) {
+    if (!empty($_POST['category']) && !empty($_POST['subject']) && !empty($_POST['description'])) {
+        $category = $_POST['category'];
+        $subject = $_POST['subject'];
+        $description = $_POST['description'];
+        $_SESSION["category"] = $_POST['category'];
+        $_SESSION["subject"] = $_POST['subject'];
+        $_SESSION["description"] = $_POST['description'];
+        $_SESSION['approved'] = true;
+        $_SESSION['submitPlan'] = array();
+        array_push($_SESSION['submitPlan'], $category, $subject, $description);
+    } else {
+        $_SESSION['approved'] = false;
+    }
 }
 
-//SAVE USERINPUT IN SESSION
-if (isset($_POST['submitPlanComfirmed'])) {
-    $id = 1;
-    while (true) {
-        $id += 1;
-        $result = $conn->query("SELECT plannings_idplanning FROM desc.has.idplanning WHERE plannings_idplanning ='1'");
-        if ($result->num_rows == 0) {
-            array_push($_SESSION['submitPlan'], $id);
-            continue;
-        } else {
-            /*run code to insert into desc_has_id and plannings*/
-            break;
-        }
+//SAVE USERINPUT IN DATABASE
+if (isset($_POST['submitPlanConfirmed'])) {
+    $description = $_SESSION["description"];
+
+    $insertPlanningIntoPlannings = "insert into plannings (tickets_Description) values ('$description')";
+    if (mysqli_query($conn, $insertPlanningIntoPlannings)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $insertPlanningIntoPlannings . "<br>" . mysqli_error($conn);
     }
 }
 $conn->close();
 
-//PUSH USERINPUT INTO DATABASE
-if (isset($_POST['submitPlan']) && !empty($category) && !empty($project) && !empty($description)) {
-        date_default_timezone_set('Europe/Amsterdam');
-        $startTime = date("j - F - Y - H:i", time());
-        $sql = "INSERT INTO plannings (Starting_Time)
-VALUES (NOW())";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        mysqli_close($conn);
-    }
-//REDIRECT TO INDEX PAGE
-header("Location: index.php");
-
-
+//CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE
+if(isset($_POST['submitPlanConfirmed'])){
+    unset($_SESSION['approved']);
+    unset($_SESSION['submitPlan']);
+}

@@ -1,5 +1,6 @@
 <?php
 require_once "../Header/header.php";
+require_once "process.php";
 
 $servername = "localhost";
 $username = "root";
@@ -12,9 +13,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,29 +26,14 @@ session_start();
 <body>
 
 <h1 id="PageName">Submit</h1><br>
-
-<!--THIS WEEK PLANNING-->
-<form class="thisWeekPlanning">
-    <label class="PlanningHeader">This week planning</label><br>
-
-    <ul id="listOfTasks">
-        <li class="listItem">
-            <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
-            item1 - chapter 1 <br>Start Time: 09:30 <br>
-            <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
-            <button id="Resume" onclick="return showPauseButton()">Resume</button>
-            <button id="Stop" onclick="stopTasks()">Stop</button>
-        </li>
-    </ul>
-</form>
-<!--PREVIEW WINDOW-->
 <?php
 if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
     ?>
-    <form action="process.php" id="addToPlanning" method="post">
-        <div id="alertBox">
-            <span class="closebtn" id="previewClosebtn" onclick="closePreview()">&#10006;</span>
-            <label style="background-color: transparent; font-size: 30px" for="#alertBox">Preview <br></label>
+    <!--WARNINGBOX-->
+    <form id="addToPlanning" method="post">
+        <div class="alert" style="line-height: 20px">
+            <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
+            <label style="background-color: transparent; font-size: 30px" for=".alert">Preview <br> <br></label>
             <?php
             foreach ($_SESSION['submitPlan'] as $key => $value) {
                 if ($key == 0) {
@@ -68,19 +52,43 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
     </form>
     <?php
 }
-else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
-<span style="color: red; font-size: 20px; text-align: center" >
+elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
+<span style="color: red; font-size: 20px" >
         <?php
         echo 'Niet alles ingevuld';
         }
         ?>
 
+<!--THIS WEEK PLANNING-->
+<form class="thisWeekPlanning">
+    <label class="PlanningHeader">This week planning</label><br>
 
-<!--ADD SUBJECT-->
-<form action="process.php" id="addToPlanning" method="post">
+    <ul id="listOfTasks">
+        <li class="listItem">
+            <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
+            item1 - chapter 1 <br>Start Time: 09:30 <br>
+            <?php
+            $sqlActiveTickets = "SELECT * FROM plannings WHERE isFinished = 0";
+            $resultActiveTickets =  mysqli_query($conn, $sqlActiveTickets);
+            if (mysqli_num_rows($resultActiveTickets) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($resultActiveTickets)) {
+                    //ECHO ALL DATA IN TABLE
+                    //echo implode($row) . "<br>";
+                    echo $row['Start_Time'] . "<br>";
+                }
+            }
 
+            ?>
+            <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
+            <button id="Resume" onclick="return showPauseButton()">Resume</button>
+            <button id="Stop" onclick="stopTasks()">Stop</button>
+        </li>
+    </ul>
+</form>
+    <!--ADD SUBJECT-->
+<form id="addToPlanning" method="post">
     <label for="category" class="label">Category</label>
-
     <select id="category" name="category">
         <option value="" disabled selected hidden>Choose the Category</option>
         <?php
@@ -132,20 +140,10 @@ else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
 </form>
 <br>
 <br>
-    <!--POP-UP-->
-        <div class="pop-up">
-            <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to submit? <br></label>
-            <button id="yesButton" type="submit" name="YES" onclick="something return false">Yes</button>
-            <button id="noButton" type="submit" name="NO" onclick="nothing return false">No</button>
-        </div>
-
-
-
 <script>
     <!-- to hide pause button -->
     let pause = document.getElementById("Pause");
     let resume = document.getElementById("Resume");
-    let preview = document.getElementById("alertBox");
 
     function showPauseButton() {
         pause.style.display = "inline";
@@ -179,40 +177,12 @@ else if (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
             // Save it! OK
         } else {
             // Do nothing! Cancel
-    }
-        return false;
-    }
-    function closePreview() {
-        preview.parentElement.style.height='0';
-        preview.parentElement.style.padding='0';
-        document.getElementById("previewClosebtn").style.height='0';
-        preview.style.border='none';
+        }
         return false;
     }
     function sumbitTasks(){
         (alert("Succesfully submitted"));
-        return false;
-        }
+    }
 </script>
 </body>
 </html>
-<?php
-
-if(isset($_POST['submitPlan'])){
-    $sql = "SELECT plannings_idplanning,  FROM MyGuests";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
-    $conn->close();
-
-}
-
-?>
-
