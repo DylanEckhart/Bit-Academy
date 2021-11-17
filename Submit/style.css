@@ -109,7 +109,6 @@ button {
 #Pause, #Resume, #Stop{
     margin-bottom: 1.5vw;
     font-size: 2vw;
-
     transition: background-color 0.5s ease;
 }
 #Pause {
@@ -128,7 +127,6 @@ button {
 #deleteButton{
     font-size: 2vw;
     display: unset;
-    position: absolute;
     top: 8vh;
     right: 3vw;
     transition: background-color 0.5s ease;

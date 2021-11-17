@@ -70,7 +70,6 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
                 // output data of each row
                 while($row = mysqli_fetch_assoc($resultActiveplannings)) {
                     //ECHO ALL DATA IN TABLE
-                    //echo implode($row) . "<br>";
                     ?>
                     <li class="listItem">
         <?php
@@ -80,7 +79,7 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
                         <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
             <button id="Resume" onclick="return showPauseButton()">Resume</button>
             <button id="Stop" onclick="stopTasks()">Stop</button>
-                        <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
+                         <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
         </li>
         <?php
                 }
