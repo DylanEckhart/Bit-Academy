@@ -64,16 +64,15 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
     <label class="PlanningHeader">This week planning</label><br>
     <ul id="listOfTasks">
             <?php
-            $sqlActiveTickets = "SELECT * FROM plannings WHERE isFinished = 0";
-            $resultActiveTickets =  mysqli_query($conn, $sqlActiveTickets);
-            if (mysqli_num_rows($resultActiveTickets) > 0) {
+            $sqlActivePlanning = "SELECT * FROM plannings WHERE isFinished = 0";
+            $resultActiveplannings =  mysqli_query($conn, $sqlActivePlanning);
+            if (mysqli_num_rows($resultActiveplannings) > 0) {
                 // output data of each row
-                while($row = mysqli_fetch_assoc($resultActiveTickets)) {
+                while($row = mysqli_fetch_assoc($resultActiveplannings)) {
                     //ECHO ALL DATA IN TABLE
                     //echo implode($row) . "<br>";
                     ?>
                     <li class="listItem">
-            <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
         <?php
                 echo "Description : " . $row['tickets_Description'] . "<br>";
                     echo "Start Time : " . $row['Start_Time'] . "<br>";
@@ -81,10 +80,10 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
                         <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
             <button id="Resume" onclick="return showPauseButton()">Resume</button>
             <button id="Stop" onclick="stopTasks()">Stop</button>
+                        <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
         </li>
         <?php
                 }
-
             }
             ?>
     </ul>

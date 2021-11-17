@@ -82,7 +82,7 @@ h1#PageName{
     width: 40%;
     background-color: transparent;
     border-radius: 25px;
-    font-size: 2.5vw;
+    font-size: 1vw;
     text-align: center;
     margin-top: 25vh;
 }
@@ -101,10 +101,10 @@ button {
     background-color: #1cadc5;
     border-radius: 30px;
     width: 40%;
-    height: 4vw;
+    height: 2.5vw;
     border: none;
     margin: 5px;
-    font-size: 2.5vh;
+    font-size: 4vh;
 }
 #Pause, #Resume, #Stop{
     margin-bottom: 1.5vw;

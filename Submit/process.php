@@ -40,13 +40,10 @@ if (isset($_POST['submitPlanConfirmed'])) {
     $description = $_SESSION["description"];
 
     $insertPlanningIntoPlannings = "insert into plannings (tickets_Description) values ('$description')";
-    if (mysqli_query($conn, $insertPlanningIntoPlannings)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $insertPlanningIntoPlannings . "<br>" . mysqli_error($conn);
-    }
+    mysqli_query($conn, $insertPlanningIntoPlannings);
+    header("location: index.php");
+    mysqli_close($conn);
 }
-$conn->close();
 
 //CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE
 if(isset($_POST['submitPlanConfirmed'])){
