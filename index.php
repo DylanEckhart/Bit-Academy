@@ -18,155 +18,59 @@
 </header>
 </form>
 
-<!--pre-plannings of the employee-->
+<!--pre-plannings of the student-->
 <div id="PrePlanning">
     <h1 id="pagetitle">Previous Plannings</h1>
     <div id="PlanningGrid">
         <div class="GridItem">
-            <div class="test">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            <div class="category">
+                <ul class="ticketList">
+                    <li><p class="ticket_title">PHP</p></li>
+                    <li><p class="ticket_desc">- Subject</p></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa
+                    sapien</p>
             </div>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
+            <div name="deadline" class="deadline">
+                <p>Date:</p>
+                <p>26-10-2021</p>
+                <p>Deadline:</p>
+                <p> 25-11-2021</p>
+                <p>Deadline finished:</p>
+                <p class="deadlineFinished">yes or no</p>
+            </div>
+
+            <div name="time" class="time">
+                <p>Scheduled time:</p>
+                <p>5 hours</p>
+                <p>Time spent:</p>
+                <p>5:30 hours</p>
+            </div>
         </div>
 
         <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p>Description:</p>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
+            <div class="category">
+                <ul class="ticketList">
+                    <li><p class="ticket_title">PHP</p></li>
+                    <li><p class="ticket_desc">- Subject</p></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
+            </div>
+            <div class="deadline">
+                <p>Date:</p>
+                <p>26-10-2021</p>
+                <p>Deadline:</p>
+                <p> 25-11-2021</p>
+                <p>Deadline finished:</p>
+                <p>yes or no</p>
+            </div>
 
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Subject - 5 hours</p></li>
-            </ul>
-            <p class="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa sapien</p>
-            <p>Date</p>
-            <p>26-10-2021</p>
-            <p>Start time:</p>
-            <p>09:30</p>
-            <p>Stop time:</p>
-            <p>16:30</p>
-            <p>Time spent:</p>
-            <p>5:30</p>
+            <div class="time2">
+                <p>Scheduled time:</p>
+                <p>5 hours</p>
+                <p>Time spent:</p>
+                <p>5:30 hours</p>
+            </div>
         </div>
     </div>
 </div>
