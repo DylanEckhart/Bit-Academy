@@ -182,6 +182,9 @@ where IsFinished = 0";
     }
     function deleteTask() {
         if (confirm('Are you sure? This will remove the task forever.')) {
+            <?php
+
+            ?>
             // Save it! OK
         } else {
             // Do nothing! Cancel
