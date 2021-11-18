@@ -30,9 +30,9 @@ if ($conn->connect_error) {
 if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
     ?>
     <!--PREVIEW-->
-    <form id="previewPlanning" method="post">
-        <div class="alert" style="line-height: 20px">
-            <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
+    <form method="post">
+        <div class="alert" id="previewPlanning" style="line-height: 20px">
+            <span class="closebtn" onclick="closePreview(); this.style.height='0';">&#10006;</span>
             <label style="background-color: transparent; font-size: 30px" for=".alert">Preview <br> <br></label>
             <?php
             foreach ($_SESSION['submitPlan'] as $key => $value) {
@@ -49,7 +49,6 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
             ?>
             <button id="confirmButton" type="button" name="prototype" onclick="showPopup();">Confirm Plan</button>
         </div>
-
     </form>
     <?php
 }
@@ -95,7 +94,7 @@ where IsFinished = 0";
                         <button  class="Pause" type="button" onclick="return hidePauseButton()">Pause</button>
             <button class="Resume" type="button" onclick="return showPauseButton()">Resume</button>
             <button id="Stop" type="button" onclick="">Stop</button>
-                         <span class="material-icons" id="deleteButton" onclick="showPopup();">delete_outline</span>
+                         <span class="material-icons" id="deleteButton" onclick="showPopupDelete();">delete_outline</span>
                     </li>
         <?php
                 }
@@ -179,6 +178,7 @@ where IsFinished = 0";
     let pause = document.getElementsByClassName("Pause");
     let resume = document.getElementsByClassName("Resume");
     let popup = document.getElementById("popup");
+    let preview = document.getElementById("previewPlanning");
 
     function showPauseButton() {
         pause.style.display = "inline";
@@ -218,7 +218,12 @@ where IsFinished = 0";
     function sumbitTasks(){
         (alert("Succesfully submitted"));
     }
-    function showPopup(){
+    function closePreview(){
+        preview.parentElement.style.height='0';
+        preview.parentElement.style.padding='0';
+
+    }
+    function showPopupSubmit(){
         popup.style.height="content";
         popup.style.width="50vw";
         popup.style.padding="20px";
@@ -234,6 +239,16 @@ where IsFinished = 0";
         popup.style.padding="0";
         popup.style.opacity="0";
 
+    }
+    function showPopupDelete(){
+        popup.style.height="content";
+        popup.style.width="50vw";
+        popup.style.padding="20px";
+        popup.style.opacity="100%";
+
+        /* height to content /
+        / padding to 20px /
+        / opacity to 100% */
     }
 
 </script>
