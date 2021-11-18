@@ -43,12 +43,6 @@ if (isset($_POST['submitPlanConfirmed'])) {
     mysqli_query($conn, $insertPlanningIntoPlannings);
     header("location: index.php");
     mysqli_close($conn);
-
-    //START A TIMER IN PHP
-    $start=hrtime(true);
-    sleep(5);//this is what you are going to be measuring
-    $end=hrtime(true);
-    $eta=$end-$start;
 }
 
 //CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE
