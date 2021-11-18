@@ -14,15 +14,15 @@ require_once "../DB/connection.php";
 
 session_start();
 
-$_SESSION["test"] = "test test";
-echo $_SESSION["test"];
-
 $conn = openConn();
 
 $categoriesArray = array();
 $subjectsArray = array();
 $subjectsCategoriesArray = array();
 $subjectWithSelectedCategoryArray = array();
+
+//$_SESSION["selectedExistingCategory"] = null;
+//$_SESSION["selectedExistingSubject"] = null;
 
 if (isset($_SESSION["selectedExistingCategory"])) {
     $getSubjectsQuery = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedExistingCategory"] . "'";
@@ -45,6 +45,7 @@ while ($row = mysqli_fetch_assoc($setSubjects)) {
 
 if (sizeof($categoriesArray) > 0) {
     foreach ($categoriesArray as $category) {
+        $category = str_replace(" ", "_", $category);
         if (isset($_POST[$category["Category"]])) {
             $_SESSION["selectedExistingCategory"] = $_POST[$category["Category"]];
 
@@ -60,10 +61,19 @@ if (sizeof($categoriesArray) > 0) {
 
 if (sizeof($subjectsArray) > 0) {
     foreach ($subjectsArray as $subject) {
+        $subject = str_replace(" ", "_", $subject);
         if (isset($_POST[$subject["subjects_Subject"]])) {
             $_SESSION["selectedExistingSubject"] = $_POST[$subject["subjects_Subject"]];
         }
     }
+}
+
+if (!isset($_SESSION["selectedExistingCategory"])) {
+    $_SESSION["selectedExistingCategory"] = null;
+}
+
+if (!isset($_SESSION["selectedExistingSubject"])) {
+    $_SESSION["selectedExistingSubject"] = null;
 }
 
 if (isset($_POST["selectCategory"])) {
@@ -100,8 +110,20 @@ if (isset($_SESSION["selectedExistingCategory"])) {
 }
 
 if (isset($_SESSION["selectedExistingSubject"])) {
+    echo isset($_SESSION["selectedExistingSubject"]);
     if (isset($_POST["deleteSubject"])) {
+        echo "sub pressed";
         deleteSubject($_SESSION["selectedExistingSubject"], $conn);
+        header("Refresh:0.5");
+    }
+}
+
+if (isset($_SESSION["selectedExistingCategory"])) {
+    echo isset($_SESSION["selectedExistingCategory"]);
+    if (isset($_POST["deleteCategory"])) {
+        echo "cat pressed";
+        deleteCategorie($_SESSION["selectedExistingCategory"], $conn);
+        header("Refresh:0.5");
     }
 }
 
@@ -207,11 +229,37 @@ function showSubjectsInOption($setSubjectAndCategories)
 
 function deleteSubject($selectedSubject, $conn)
 {
-    $deleteFromSubjects = "delete from subjects where Subject = '" . $selectedSubject . "'";
-    mysqli_query($conn, $deleteFromSubjects);
+    $deleteSubjectFromCategoriesAndSubjects = "DELETE FROM `categories_and_subjects` WHERE `categories_and_subjects` . `subjects_Subject` =  '" . $selectedSubject . "'";
+    $deleteSubjectFromSubjects = "DELETE FROM `subjects` WHERE `subjects` . `Subject` = '" . $selectedSubject . "'";
+    mysqli_query($conn, $deleteSubjectFromSubjects);
+    mysqli_query($conn, $deleteSubjectFromCategoriesAndSubjects);
 }
 
-echo $_SESSION["selectedExistingSubject"] . " " . $_SESSION["selectedExistingCategory"];
+function deleteCategorie($selectedCategory, $conn)
+{
+    $deleteCategoryFromCategories = "DELETE FROM `categories` WHERE `categories` . `Category` = '" . $selectedCategory . "'";
+    $deleteCategoryFromCategoriesAndSubjects = "DELETE FROM `categories_and_subjects` WHERE `categories_and_subjects` . `categories_Category` = '" . $selectedCategory . "'";
+    mysqli_query($conn, $deleteCategoryFromCategories);
+    mysqli_query($conn, $deleteCategoryFromCategoriesAndSubjects);
+}
+
+function showSelectedSubject($selectedSubject)
+{
+    if (isset($selectedSubject)) {
+        echo $selectedSubject;
+    } else {
+        echo "nothing";
+    }
+}
+
+function showSelectedCategory($selectedCategory)
+{
+    if (isset($selectedCategory)) {
+        echo $selectedCategory;
+    } else {
+        echo "nothing";
+    }
+}
 
 ?>
 <div id="grid">
@@ -282,7 +330,7 @@ echo $_SESSION["selectedExistingSubject"] . " " . $_SESSION["selectedExistingCat
 
     <!-- Start list of existing category's and subjects  -->
     <div class="listGrid">
-        <div class="container">
+        <div class="container" id="existingCategories">
             <p id="existingtitle">Category's</p>
             <form class="existingForm" method="post">
                 <div class="existingList">
@@ -295,6 +343,25 @@ echo $_SESSION["selectedExistingSubject"] . " " . $_SESSION["selectedExistingCat
         </div>
 
         <div class="container">
+            <div class="listContainer" id="selectedCategory">
+                <p id="existingtitle" class="selectedTitle">Selected Category</p>
+                <div class="selectedList">
+                    <?php
+                    showSelectedCategory($_SESSION["selectedExistingCategory"]);
+                    ?>
+                </div>
+            </div>
+            <div class="listContainer" id="selectedSubject">
+                <p id="existingtitle" class="selectedTitle">Selected Subject</p>
+                <div class="selectedList">
+                    <?php
+                    showSelectedSubject($_SESSION["selectedExistingSubject"]);
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="existingSubject">
             <p id="existingtitle">Subject's</p>
             <form class="existingForm" method="post">
                 <div class="existingList">

@@ -58,7 +58,7 @@ option {
 /*Start of scrollbar category and subject*/
 .listGrid {
     display: grid;
-    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+    grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-gap: 15px;
     grid-column: span 2;
 }
@@ -73,6 +73,27 @@ option {
     text-align: center;
     border-top: 2px darkgray solid;
     border-bottom: 2px darkgray solid;
+}
+
+.selectedTitle {
+    border-bottom: 1px darkgray solid;
+    margin: 0;
+}
+
+#selectedCategory {
+    border-bottom: 1px darkgray solid;
+}
+
+#selectedSubject {
+    border-top: 1px darkgray solid;
+}
+
+.selectedList {
+    font-size: 24px;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    border-top: 1px darkgray solid;
 }
 
 .container{
@@ -114,6 +135,14 @@ option {
     background: #1CB2CA;
 }
 
+#existingCategories {
+    grid-column-start: 1;
+}
+
+#existingSubject {
+    grid-column-start: 3;
+}
+
 /* Button Layout */
 button.Submit {
     background-color: #1db2cb;
@@ -135,6 +164,7 @@ button.delete {
     font-size: 2.5vh;
     margin: 10px;
     color: white;
+    padding: 10px;
 }
 
 /*end of list of existingcategory's and subjects */
