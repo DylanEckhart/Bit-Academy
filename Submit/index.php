@@ -47,7 +47,7 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
                 }
             }
             ?>
-            <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="showPopup()">Confirm Plan</button>
+            <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="showPopup();">Confirm Plan</button>
         </div>
     </form>
     <?php
@@ -60,7 +60,7 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
         ?>
 
 <!--THIS WEEK PLANNING-->
-<form class="thisWeekPlanning">
+<form class="thisWeekPlanning noTextSelect">
     <label class="PlanningHeader">This week planning</label><br>
     <ul id="listOfTasks">
             <?php
@@ -91,10 +91,10 @@ where IsFinished = 0";
                         //TIME SPEND VALUE
                         echo "Time Spend : " . $row['TimeSpent'] . "<br>";
         ?>
-                        <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
-            <button id="Resume" onclick="return showPauseButton()">Resume</button>
-            <button id="Stop" onclick="stopTasks()">Stop</button>
-                         <span class="material-icons" id="deleteButton" onclick="showPopup()">delete_outline</span>
+                        <button  class="Pause" type="button" onclick="return hidePauseButton()">Pause</button>
+            <button class="Resume" type="button" onclick="return showPauseButton()">Resume</button>
+            <button id="Stop" type="button" onclick="">Stop</button>
+                         <span class="material-icons" id="deleteButton" onclick="showPopup();">delete_outline</span>
                     </li>
         <?php
                 }
@@ -157,15 +157,16 @@ where IsFinished = 0";
 <br>
 <br>
     <!--POP-UP-->
-        <div class="pop-up">
+        <div class="pop-up" id="popup">
             <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to submit? <br></label>
             <button id="yesButton" type="submit" name="YES" onclick="something return false">Yes</button>
             <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
         </div>
 <script>
     <!-- to hide pause button -->
-    let pause = document.getElementById("Pause");
-    let resume = document.getElementById("Resume");
+    // doesn't work as a class'
+    let pause = document.getElementsByClassName("Pause");
+    let resume = document.getElementsByClassName("Resume");
     let popup = document.getElementById("popup");
 
     function showPauseButton() {
@@ -207,20 +208,20 @@ where IsFinished = 0";
         (alert("Succesfully submitted"));
     }
     function showPopup(){
-        popup.style.height='11vw';
-        popup.style.width='50vw';
-        popup.style.padding='20px';
-        popup.style.opacity='100%';
+        popup.style.height="content";
+        popup.style.width="50vw";
+        popup.style.padding="20px";
+        popup.style.opacity="100%";
 
         /* height to content-box /
         / padding to 20px /
         / opacity to 100% */
     }
     function closePopup(){
-        popup.style.height='unset';
-        popup.style.width='0';
-        popup.style.padding='0';
-        popup.style.opacity='0';
+        popup.style.height="unset";
+        popup.style.width="0";
+        popup.style.padding="0";
+        popup.style.opacity="0";
 
     }
 

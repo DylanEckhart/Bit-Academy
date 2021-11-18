@@ -5,6 +5,14 @@
     color: white;
     overflow-y: hidden;
 }
+.noTextSelect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 body{
     background-color: #000563;
     margin: 15px;
@@ -106,16 +114,16 @@ button {
     margin: 5px;
     font-size: 4vh;
 }
-#Pause, #Resume, #Stop{
+.Pause, .Resume, #Stop{
     margin-bottom: 1.5vw;
     font-size: 2vw;
     transition: background-color 0.5s ease;
 }
-#Pause {
+.Pause {
     background-color: #1db2cb;
     display: inline-block;
 }
-#Resume {
+.Resume {
     background-color: #b4b4b4;
     color: black;
     display: none;
@@ -127,10 +135,12 @@ button {
 #deleteButton{
     font-size: 2vw;
     display: unset;
-    top: 8vh;
+    position: absolute;
+    margin-top: -11vw;
+    padding: 2px;
     right: 3vw;
     transition: background-color 0.5s ease;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 #deleteButton:hover{
     background-color: red;
@@ -173,7 +183,7 @@ select, option, input {
     opacity: 0;
     border-radius: 15px;
     position: fixed;
-    height: 0;
+    height: content-box;
     line-height: 6vw;
     width: 50vw;
     left: 50%;
@@ -182,11 +192,13 @@ select, option, input {
 }
 #yesButton {
     width: 45%;
+    height: 6vh;
     font-size: 3vh;
     background-color: green;
 }
 #noButton {
     width: 45%;
+    height: 6vh;
     font-size: 3vh;
     background-color: red;
 }
@@ -270,16 +282,16 @@ select, option, input {
         height: 9vw;
         font-size: 3vw;
     }
-    #Pause, #Resume, #Stop{
+    .Pause, .Resume, #Stop{
         margin-bottom: 3vw;
         font-size: 4vw;
     }
 
-    #Pause {
+    .Pause {
         background-color: #1db2cb;
         display: inline-block;
     }
-    #Resume {
+    .Resume {
         background-color: #b4b4b4;
         color: black;
         display: none;
@@ -289,9 +301,15 @@ select, option, input {
         background-color: red;
     }
     #deleteButton{
-        font-size: 4vw;
+        font-size: 5vw;
         right: 11vw;
-        top: unset;
+        margin-top: -66vw;
+        background-color: red;
+        transition: all 0.5s ease;
+    }
+    #deleteButton:hover{
+        background-color: darkred;
+        color: black;
     }
     #confirmButton {
         margin: 3vh 0 0 0;
