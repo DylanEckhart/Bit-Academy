@@ -43,8 +43,6 @@ if (isset($_POST['submitPlanConfirmed'])) {
     mysqli_query($conn, $insertPlanningIntoPlannings);
     header("location: index.php");
     mysqli_close($conn);
-
-    //START A TIMER IN PHP
 }
 
 //CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE

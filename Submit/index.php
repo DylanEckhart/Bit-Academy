@@ -47,7 +47,7 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
                 }
             }
             ?>
-            <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="sumbitTasks()">Confirm Plan</button>
+            <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="showPopup()">Confirm Plan</button>
         </div>
     </form>
     <?php
@@ -94,7 +94,7 @@ where IsFinished = 0";
                         <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
             <button id="Resume" onclick="return showPauseButton()">Resume</button>
             <button id="Stop" onclick="stopTasks()">Stop</button>
-                         <span class="material-icons" id="deleteButton" onclick="deleteTask()">delete_outline</span>
+                         <span class="material-icons" id="deleteButton" onclick="showPopup()">delete_outline</span>
                     </li>
         <?php
                 }
@@ -156,10 +156,17 @@ where IsFinished = 0";
 </form>
 <br>
 <br>
+    <!--POP-UP-->
+        <div class="pop-up">
+            <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to submit? <br></label>
+            <button id="yesButton" type="submit" name="YES" onclick="something return false">Yes</button>
+            <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
+        </div>
 <script>
     <!-- to hide pause button -->
     let pause = document.getElementById("Pause");
     let resume = document.getElementById("Resume");
+    let popup = document.getElementById("popup");
 
     function showPauseButton() {
         pause.style.display = "inline";
@@ -202,6 +209,24 @@ where IsFinished = 0";
     function sumbitTasks(){
         (alert("Succesfully submitted"));
     }
+    function showPopup(){
+        popup.style.height='11vw';
+        popup.style.width='50vw';
+        popup.style.padding='20px';
+        popup.style.opacity='100%';
+
+        /* height to content-box /
+        / padding to 20px /
+        / opacity to 100% */
+    }
+    function closePopup(){
+        popup.style.height='unset';
+        popup.style.width='0';
+        popup.style.padding='0';
+        popup.style.opacity='0';
+
+    }
+
 </script>
 </body>
 </html>
