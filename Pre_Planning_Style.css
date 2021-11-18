@@ -98,12 +98,12 @@ p{
     height: 8px;
     line-height: 100px;
     margin: 0 4px 4px 4px;
-    max-width: 40px;
+    max-width: 125px;
     min-width: 40px;
     padding: 0;
     text-shadow: none;
     width: auto;
-    background-color: red;
+    background-color: green;
     border-radius: 4px;
 }
 
