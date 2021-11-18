@@ -29,8 +29,8 @@ if ($conn->connect_error) {
 <?php
 if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
     ?>
-    <!--WARNINGBOX-->
-    <form id="addToPlanning" method="post">
+    <!--PREVIEW-->
+    <form id="previewPlanning" method="post">
         <div class="alert" style="line-height: 20px">
             <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
             <label style="background-color: transparent; font-size: 30px" for=".alert">Preview <br> <br></label>
@@ -47,8 +47,9 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
                 }
             }
             ?>
-            <button id="confirmButton" type="submit" name="submitPlanConfirmed" onclick="showPopup();">Confirm Plan</button>
+            <button id="confirmButton" type="button" name="prototype" onclick="showPopup();">Confirm Plan</button>
         </div>
+
     </form>
     <?php
 }
@@ -156,12 +157,22 @@ where IsFinished = 0";
 </form>
 <br>
 <br>
-    <!--POP-UP-->
+    <form method="post">
+        <!--POP-UP SUBMIT-->
         <div class="pop-up" id="popup">
             <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to submit? <br></label>
-            <button id="yesButton" type="submit" name="YES" onclick="something return false">Yes</button>
+            <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>
             <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
         </div>
+    </form>
+    <form method="post">
+        <!--POP-UP DELETE-->
+        <div class="pop-up" id="popup">
+            <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to delete this ticket? <br></label>
+            <button id="yesButton" type="submit" name="Delete">Yes</button>
+            <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
+        </div>
+    </form>
 <script>
     <!-- to hide pause button -->
     // doesn't work as a class'
@@ -213,7 +224,7 @@ where IsFinished = 0";
         popup.style.padding="20px";
         popup.style.opacity="100%";
 
-        /* height to content-box /
+        /* height to content /
         / padding to 20px /
         / opacity to 100% */
     }

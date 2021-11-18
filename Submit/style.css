@@ -3,7 +3,7 @@
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
     color: white;
-    overflow-y: hidden;
+    overflow-y: visible;
 }
 .noTextSelect {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -57,9 +57,20 @@ h1#PageName{
 }
 #addToPlanning {
     display: block;
-    margin-left: 0;
-    margin-right: auto;
+    margin: 10px auto 10px 0;
     text-align: center;
+    padding: 12px 12px 12px 0;
+    border-radius: 5px;
+    width: 40%;
+    line-height: 4vh;
+}
+#previewPlanning {
+    display: block;
+    margin: 10px auto 10px 0;
+    text-align: center;
+    border: white 1px solid;
+    padding: 12px 12px 12px 0;
+    border-radius: 5px;
     width: 40%;
     line-height: 4vh;
 }
@@ -90,7 +101,7 @@ h1#PageName{
     width: 40%;
     background-color: transparent;
     border-radius: 25px;
-    font-size: 1vw;
+    font-size: 1.5vw;
     text-align: center;
     margin-top: 25vh;
 }
@@ -109,7 +120,8 @@ button {
     background-color: #1cadc5;
     border-radius: 30px;
     width: 40%;
-    height: 2.5vw;
+    height: content-box;
+    padding: 5px;
     border: none;
     margin: 5px;
     font-size: 4vh;
@@ -136,7 +148,7 @@ button {
     font-size: 2vw;
     display: unset;
     position: absolute;
-    margin-top: -11vw;
+    margin-top: -17vw;
     padding: 2px;
     right: 3vw;
     transition: background-color 0.5s ease;
@@ -157,7 +169,6 @@ button {
     border-radius: 50px;
     font-size: 3vh;
     width: 50%;
-    height: 5vh;
 
 }
 /*For all the input boxes that should be white and black text */
@@ -185,9 +196,10 @@ select, option, input {
     position: fixed;
     height: content-box;
     line-height: 6vw;
-    width: 50vw;
+    width: 0;
     left: 50%;
     top: 50%;
+    /*transition: all 1s ease;*/
     transform: translate(-50%, -50%);
 }
 #yesButton {
@@ -237,6 +249,15 @@ select, option, input {
         line-height: 8vh;
         overflow-x: unset;
     }
+    #previewPlanning {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 80%;
+        line-height: 8vh;
+        overflow-x: unset;
+    }
     #subject, #description, #category {
         font-size: 5vw;
     }
@@ -257,7 +278,7 @@ select, option, input {
         height: 8vh;
     }
 
-    /*For the light blue panels on the left and right side of the website*/
+    /*For the planning on the side of the website*/
 
     .thisWeekPlanning {
         display: block;
@@ -286,7 +307,6 @@ select, option, input {
         margin-bottom: 3vw;
         font-size: 4vw;
     }
-
     .Pause {
         background-color: #1db2cb;
         display: inline-block;
