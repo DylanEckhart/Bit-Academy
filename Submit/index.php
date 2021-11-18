@@ -1,18 +1,18 @@
 <?php
-require_once "../Header/header.php";
-require_once "process.php";
+    require_once "../Header/header.php";
+    require_once "process.php";
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "id17762295_bitacademydb";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "id17762295_bitacademydb";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,12 +60,12 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
         ?>
 
 <!--THIS WEEK PLANNING-->
-<form class="thisWeekPlanning">
+<form class="thisWeekPlanning" method="post">
     <label class="PlanningHeader">This week planning</label><br>
     <ul id="listOfTasks">
             <?php
             //GET DATA FROM PLANNING DATABASE
-            $sqlActivePlanning = "SELECT categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Deadline, Forcast_Time, TimeSpent  
+            $sqlActivePlanning = "SELECT idplanning, categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Deadline, Forcast_Time, TimeSpent  
 FROM tickets
 INNER JOIN plannings
 ON tickets.Description = plannings.tickets_Description
@@ -78,6 +78,8 @@ where IsFinished = 0";
                     ?>
                     <li class="listItem">
                         <?php
+                        //TICKET ID
+                        echo "Ticket ID: " . $row['idplanning'] . "<br>";
                         //CATEGORIE AND SUBJECT VALUES
                         echo $row['categories_and_subjects_subjects_Subject'] . "<br>";
                         //DESCRIPTION, LAYER, LANGUAGE VALUES
@@ -91,10 +93,19 @@ where IsFinished = 0";
                         //TIME SPEND VALUE
                         echo "Time Spend : " . $row['TimeSpent'] . "<br>";
         ?>
-                        <button  id="Pause" onclick="return hidePauseButton()">Pause</button>
-            <button id="Resume" onclick="return showPauseButton()">Resume</button>
-            <button id="Stop" onclick="stopTasks()">Stop</button>
-                         <span class="material-icons" id="deleteButton" onclick="showPopup()">delete_outline</span>
+                        <button id="Pause" onclick="return hidePauseButton()">Pause</button>
+                        <button id="Resume" onclick="return showPauseButton()">Resume</button>
+                        <button id="Stop" onclick="stopTasks()">Stop</button>
+                        <?php
+                        echo '<button type="submit" id="deleteButton" name="' . $row["idplanning"] . '">
+                         <span class="material-icons" id="delete" onclick="stopTasks()">delete_outline
+                         </span>
+                        </button>';
+                        ?>
+<!--                        <button type="submit" id="deleteButton" name="deleteButton">-->
+<!--                         <span class="material-icons" id="delete" onclick="stopTasks()">delete_outline-->
+<!--                         </span>-->
+<!--                        </button>-->
                     </li>
         <?php
                 }
@@ -169,6 +180,7 @@ where IsFinished = 0";
     let popup = document.getElementById("popup");
 
     function showPauseButton() {
+        console.log(showPauseButton());
         pause.style.display = "inline";
         resume.style.display = "none";
         return false;
@@ -181,7 +193,6 @@ where IsFinished = 0";
     }
     function stopTasks() {
         if (confirm('Are you sure? This will move the task and move it to the history.')) {
-            // Save it! OK
         } else {
             // Do nothing! Cancel
         }
@@ -189,9 +200,6 @@ where IsFinished = 0";
     }
     function deleteTask() {
         if (confirm('Are you sure? This will remove the task forever.')) {
-            <?php
-
-            ?>
             // Save it! OK
         } else {
             // Do nothing! Cancel

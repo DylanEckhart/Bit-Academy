@@ -125,12 +125,16 @@ button {
     background-color: red;
 }
 #deleteButton{
+    display: inline-block;
+    background-color: #000563;
     font-size: 2vw;
-    display: unset;
-    top: 8vh;
+    position: absolute;
+    margin-top: -12vw;
+    padding: 2px;
+    width: 5vw;
     right: 3vw;
     transition: background-color 0.5s ease;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 #deleteButton:hover{
     background-color: red;
@@ -164,7 +168,6 @@ select, option, input {
     font-size: 4vw;
     overflow-x: unset;
 }
-
 
 .pop-up{
     text-align: center;
@@ -243,6 +246,16 @@ select, option, input {
         font-size: 5vh;
         width: 60%;
         height: 8vh;
+    }
+    #deleteButton{
+        font-size: 5vw;
+        right: 11vw;
+        margin-top: -66vw;
+        background-color: #000563;
+        transition: all 0.5s ease;
+    }
+    #deleteButton:hover{
+        background-color: red;
     }
 
     /*For the light blue panels on the left and right side of the website*/

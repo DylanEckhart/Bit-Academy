@@ -45,6 +45,13 @@ if (isset($_POST['submitPlanConfirmed'])) {
     mysqli_close($conn);
 }
 
+//DELETE SPECIFIK DELETE
+if (isset($_POST['deleteButton'])){
+   $deleteQuery = "DELETE FROM plannings WHERE idplanning = 56";
+    mysqli_query($conn, $deleteQuery);
+    header("location: index.php");
+}
+
 //CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE
 if(isset($_POST['submitPlanConfirmed'])){
     unset($_SESSION['approved']);
