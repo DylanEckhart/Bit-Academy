@@ -40,6 +40,7 @@ require_once 'connection.php';
                 <p> 25-11-2021</p>
                 <p>Deadline finished:</p>
                 <p class="deadlineFinished">yes or no</p>
+                <span class="finishedColor"></span>
             </div>
 
             <div name="time" class="time">

@@ -17,10 +17,11 @@ h1#pagetitle {
 .GridItem {
     display: grid;
     grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
-    grid-gap: 5px;
+    grid-gap: 8px;
     padding: 10px;
     border: 1px solid white;
     border-radius: 0.25rem;
+    background-color: rgb(235,236,240);
 }
 
 /*font sizes and centering*/
@@ -43,22 +44,20 @@ p.ticket_desc {
 
 /*the boxes in the previous plannings*/
 .category{
-    border: 1px solid white;
     grid-column: span 2;
-    background-color: rgba(255, 255, 255, 0.1);
-}
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255, 255, 255);}
 
 .deadline {
-    border: 1px solid white;
     display: grid;
     grid-template: auto/ minmax(0, 1fr) minmax(0, 1fr);
     grid-column: span 2;
-    background-color: rgba(255, 255, 255, 0.3);
-}
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255, 255, 255);}
 
 .time{
-    border: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
     display: grid;
     grid-template: auto/ minmax(0, 1fr) minmax(0, 1fr);
     grid-column: span 2;
@@ -66,10 +65,7 @@ p.ticket_desc {
 
 p{
     padding: 3px;
-}
-
-.deadlineFinished{
-    color: darkred;
+    color: black;
 }
 
 .category2{
@@ -93,6 +89,22 @@ p{
     background-color: rgb(170,67,114);
     grid-template: auto/ minmax(0, 1fr) minmax(0, 1fr);
     grid-column: span 2;
+}
+
+.finishedColor{
+    float: left;
+    font-size: 12px;
+    font-weight: 700;
+    height: 8px;
+    line-height: 100px;
+    margin: 0 4px 4px 4px;
+    max-width: 40px;
+    min-width: 40px;
+    padding: 0;
+    text-shadow: none;
+    width: auto;
+    background-color: red;
+    border-radius: 4px;
 }
 
 /*responsive*/
