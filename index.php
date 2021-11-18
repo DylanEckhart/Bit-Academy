@@ -16,7 +16,9 @@
         <li class="navbar"><a href="">profile</a></li>
     </ul>
 </header>
-</form>
+<?php
+require_once 'connection.php';
+?>
 
 <!--pre-plannings of the student-->
 <div id="PrePlanning">
