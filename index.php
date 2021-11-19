@@ -39,15 +39,18 @@ require_once 'ticketLoad.php';
                 <p>Deadline:</p>
                 <p> 25-11-2021</p>
                 <p class="deadlineFinished">Deadline finished:</p>
-                <p>Yes or No</p>
+                <p>Yes</p>
                 <span class="finishedColor"></span>
             </div>
 
-            <div class="time2">
+            <div class="time">
                 <p>Scheduled time:</p>
                 <p>5 hours</p>
                 <p>Time spent:</p>
                 <p>5:30 hours</p>
+                <p>finished in time</p>
+                <p>no</p>
+                <span class="timeFinished"></span>
             </div>
         </div>
     </div>
