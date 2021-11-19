@@ -1,7 +1,7 @@
 <?php
 
     //Connect to the database
-    require_once 'connection.php';
+    require_once '../DB/connection.php';
     $connection = openConn();
 
     $sqlget = "SELECT * FROM plannings";
