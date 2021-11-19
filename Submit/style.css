@@ -145,11 +145,14 @@ button {
     background-color: red;
 }
 #deleteButton{
+    overflow-y: hidden;
     font-size: 2vw;
     display: unset;
     position: absolute;
-    margin-top: -17vw;
+    margin-top: -9vw;
     padding: 2px;
+    width: content-box;
+    height: content-box;
     right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
@@ -185,7 +188,6 @@ select, option, input {
     font-size: 4vw;
     overflow-x: unset;
 }
-
 
 .pop-up{
     text-align: center;
