@@ -26,80 +26,74 @@
     <h1 id="pagetitle">Previous Plannings</h1>
     <!-- Planning tickets of the student -->
     <div id="PlanningGrid">
-        <div class="GridItem">
-            <div class="category">
-                <div class="ticketList">
-                    <?php
-                        // Query to select data from database
-                        $getDataQuery = "SELECT idplanning, categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Deadline, Forcast_Time, TimeSpent, categories_Category, deadlineFinished, finishedInTime 
-                                         FROM tickets 
-                                         INNER JOIN categories_and_subjects 
-                                         ON tickets.categories_and_subjects_subjects_Subject = categories_and_subjects.subjects_Subject 
-                                         INNER JOIN plannings 
-                                         ON tickets.Description = plannings.tickets_Description 
-                                         WHERE IsFinished = 1";
+        <?php
+            // Query to select data from database
+            $getDataQuery = "SELECT idplanning, categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Stop_Time, Deadline, Forcast_Time, TimeSpent, categories_Category, deadlineFinished, finishedInTime 
+                             FROM tickets 
+                             INNER JOIN categories_and_subjects 
+                             ON tickets.categories_and_subjects_subjects_Subject = categories_and_subjects.subjects_Subject 
+                             INNER JOIN plannings 
+                             ON tickets.Description = plannings.tickets_Description 
+                             WHERE IsFinished = 1";
 
-                        // Get query results
-                        $setData = mysqli_query($connection, $getDataQuery);
+            // Get query results
+            $setData = mysqli_query($connection, $getDataQuery);
 
-                        while ($row = mysqli_fetch_assoc($setData)) {
-                            $dataArray[] = $row;
-                        }
+            while ($row = mysqli_fetch_assoc($setData)) {
+                $dataArray[] = $row;
+            }
 
-                        // Display category and subject
-                        if (sizeof($dataArray) > 0) {
-                            foreach ($dataArray as $category) {
-                                echo '<p class="ticket_title">' . $category["categories_Category"] . ' - </p>';
-                                echo '<p class="ticket_title">' . $category["categories_and_subjects_subjects_Subject"] . '</p>';
+            if (sizeof($dataArray) > 0) {
+                foreach ($dataArray as $planning) {
+                    // Display category and subject
+                    echo "<div class='GridItem'>";
+                    echo "<div class='category'>";
+                    echo "<div class='ticketList'>";
+                    echo '<p class="ticket_title">' . $planning["categories_Category"] . ' - </p>';
+                    echo '<p class="ticket_title">' . $planning["categories_and_subjects_subjects_Subject"] . '</p>';
+                    echo "</div>";
 
-                            }
-                        } else echo "<option disabled hidden selected>There are no categories yet</option>";
-                    ?>
-                </div>
-                <!-- Display description -->
-                <?php
-                    if (sizeof($dataArray) > 0 ) {
-                        foreach ($dataArray as $description) {
-                            echo '<p>' . $description["Description"] . '</p>';
-                        }
+                    // Display description
+                    echo "<p>" . $planning['Description'] . "</p>";
+                    echo "</div>";
+
+                    // Display date, deadline and bool
+                    echo "<div class='deadline'>";
+                    echo "<p>Date:</p>";
+                    echo "<p>" . $planning['Stop_Time'] . "</p>";
+                    echo "<p>Deadline:</p>";
+                    echo "<p>" . $planning['Deadline'] . "</p>";
+                    echo '<p class="deadlineFinished">Deadline finished:</p>';
+                    echo '<p>' . ($planning["deadlineFinished"] ? "Yes" : "No") . '</p>';
+
+                    // Set color bar
+                    if ($planning["deadlineFinished"]) {
+                        echo '<span class="finishedColorYes"></span>';
+                    } else {
+                        echo '<span class="finishedColorNo"></span>';
                     }
-                ?>
-            </div>
+                    echo "</div>";
 
-            <div class="deadline">
-            <!-- Display date, deadline and deadline finished -->
-                <?php
-                    if (sizeof($dataArray) > 0) {
-                        foreach ($dataArray as $deadline) {
-                            echo '<p>Date:</p>';
-                            echo '<p>' . $deadline["Start_Time"] . '</p>';
-                            echo '<p>Deadline:</p>';
-                            echo '<p>' . $deadline["Deadline"] . '</p>';
-                            echo '<p class="deadlineFinished">Deadline finished:</p>';
-                            echo '<p>' . ($deadline["deadlineFinished"] ? "Yes" : "No") . '</p>';
-                        }
-                    }
-                ?>
-                <span class="finishedColor"></span>
-            </div>
+                    // Display time
+                    echo "<div class='time'>";
+                    echo '<p>Forcast time:</p>';
+                    echo '<p>' . $planning["Forcast_Time"] . '</p>';
+                    echo '<p>Time spent:</p>';
+                    echo '<p>' . $planning["TimeSpent"] . '</p>';
+                    echo '<p>Finished in time:</p>';
+                    echo '<p>' . ($planning["finishedInTime"] ? "Yes" : "No") . '</p>';
 
-            <div class="time">
-                <!-- Display forcast time and time spent -->
-                <?php
-                    if (sizeof($dataArray) > 0) {
-                        foreach ($dataArray as $time) {
-                            echo '<p>Forcast time:</p>';
-                            echo '<p>' . $time["Forcast_Time"] . '</p>';
-                            echo '<p>Time spent:</p>';
-                            echo '<p>' . $time["TimeSpent"] . '</p>';
-                            echo '<p>Finished in time:</p>';
-                            echo '<p>' . ($time["finishedInTime"] ? "Yes" : "No") . '</p>';
-                        }
+                    // Set colorbar
+                    if ($planning["finishedInTime"]) {
+                        echo '<span class="finishedColorYes"></span>';
+                    } else {
+                        echo '<span class="finishedColorNo"></span>';
                     }
-                ?>
-                <span class="finishedColor"></span>
-            </div>
-        </div>
+                    echo "</div>";
+                    echo "</div>";
+                }
+            }
+        ?>
     </div>
 </div>
 </body>
