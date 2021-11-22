@@ -61,7 +61,7 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
 
 <!--THIS WEEK PLANNING-->
 <form class="thisWeekPlanning">
-    <label class="PlanningHeader">This week planning</label><br>
+    <label class="PlanningHeader">This Week Planning</label><br>
     <ul id="listOfTasks">
             <?php
             //GET DATA FROM PLANNING DATABASE
@@ -137,7 +137,7 @@ where IsFinished = 0";
     </select>
     <label for="description" class="label">Description</label>
     <select id="description" name="description">
-        <option value="" disabled selected hidden>Choose the Discription</option>
+        <option value="" disabled selected hidden>Choose the Description</option>
         <?php
         $ticketdescriptionArray = array();
 
@@ -159,7 +159,7 @@ where IsFinished = 0";
     <form method="post">
         <!--POP-UP-->
         <div class="pop-up" id="popup">
-            <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want to submit? <br></label>
+            <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText"><br></label>
             <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>
             <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
         </div>
