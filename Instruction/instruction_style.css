@@ -76,7 +76,27 @@
 
 @media screen and (max-width: 470px){
 
+    #grid-container{
+        grid-gap: 20px;
+    }
+
     .accordion{
         grid-column: span 2;
+    }
+
+    .butSubmit{
+        grid-row-start: 1;
+    }
+
+    .butAdmin{
+        grid-row-start: 2;
+    }
+
+    .instruction_submit{
+        grid-row-start: 3;
+    }
+
+    .instruction_admin{
+        grid-row-start: 4;
     }
 }
