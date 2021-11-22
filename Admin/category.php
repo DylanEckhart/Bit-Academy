@@ -21,9 +21,6 @@ $subjectsArray = array();
 $subjectsCategoriesArray = array();
 $subjectWithSelectedCategoryArray = array();
 
-//$_SESSION["selectedExistingCategory"] = null;
-//$_SESSION["selectedExistingSubject"] = null;
-
 if (isset($_SESSION["selectedExistingCategory"])) {
     $getSubjectsQuery = "select * from categories_and_subjects where categories_Category = '" . $_SESSION["selectedExistingCategory"] . "'";
 } else {
@@ -55,6 +52,7 @@ if (sizeof($categoriesArray) > 0) {
             while ($row = mysqli_fetch_assoc($setSubjectsWithSelectedCategory)) {
                 $subjectWithSelectedCategoryArray[] = $row;
             }
+            header("Refresh:0.1");
         }
     }
 }
@@ -89,41 +87,29 @@ if (isset($_POST["selectCategory"])) {
 
 if (isset($_POST["submitCategory"])) {
     addCategoryIntoDB($conn);
-    header("Refresh:0.5");
+    header("Refresh:1");
 }
 
 if (isset($_POST["submitSubject"])) {
     addSubjectIntoDB($conn);
-    header("Refresh:0.5");
+    header("Refresh:1");
 }
 
 if (isset($_POST["submitTicket"])) {
     addTicketIntoDB($conn);
 }
 
-if (isset($_SESSION["selectedExistingCategory"])) {
-    if (isset($_POST["deleteCategory"])) {
-        $deleteCategorySQL = "DELETE FROM `subjects` WHERE `subjects`.`Subject` = '" . $_SESSION["selectedExistingSubject"] . "'";
-
-        mysqli_query($conn, $deleteCategorySQL);
-    }
-}
-
 if (isset($_SESSION["selectedExistingSubject"])) {
-    echo isset($_SESSION["selectedExistingSubject"]);
     if (isset($_POST["deleteSubject"])) {
-        echo "sub pressed";
         deleteSubject($_SESSION["selectedExistingSubject"], $conn);
-        header("Refresh:0.5");
+        header("Refresh:1");
     }
 }
 
 if (isset($_SESSION["selectedExistingCategory"])) {
-    echo isset($_SESSION["selectedExistingCategory"]);
     if (isset($_POST["deleteCategory"])) {
-        echo "cat pressed";
         deleteCategorie($_SESSION["selectedExistingCategory"], $conn);
-        header("Refresh:0.5");
+        header("Refresh:1");
     }
 }
 
@@ -145,6 +131,9 @@ function addSubjectIntoDB($conn)
     if ($addSubject != null && $addCategoryForSubject != null) {
         mysqli_query($conn, $insertSubjectSQL);
         mysqli_query($conn, $insertSubjectAndCategorySQL);
+        if (mysqli_query($conn, $insertSubjectAndCategorySQL)) {
+            echo true;
+        }
     }
 }
 
@@ -233,14 +222,16 @@ function deleteSubject($selectedSubject, $conn)
     $deleteSubjectFromSubjects = "DELETE FROM `subjects` WHERE `subjects` . `Subject` = '" . $selectedSubject . "'";
     mysqli_query($conn, $deleteSubjectFromSubjects);
     mysqli_query($conn, $deleteSubjectFromCategoriesAndSubjects);
+    header("Refresh:0.1");
 }
 
 function deleteCategorie($selectedCategory, $conn)
 {
     $deleteCategoryFromCategories = "DELETE FROM `categories` WHERE `categories` . `Category` = '" . $selectedCategory . "'";
     $deleteCategoryFromCategoriesAndSubjects = "DELETE FROM `categories_and_subjects` WHERE `categories_and_subjects` . `categories_Category` = '" . $selectedCategory . "'";
-    mysqli_query($conn, $deleteCategoryFromCategories);
     mysqli_query($conn, $deleteCategoryFromCategoriesAndSubjects);
+    mysqli_query($conn, $deleteCategoryFromCategories);
+    header("Refresh:0.1");
 }
 
 function showSelectedSubject($selectedSubject)
@@ -248,7 +239,7 @@ function showSelectedSubject($selectedSubject)
     if (isset($selectedSubject)) {
         echo $selectedSubject;
     } else {
-        echo "nothing";
+        echo "None";
     }
 }
 
@@ -257,9 +248,30 @@ function showSelectedCategory($selectedCategory)
     if (isset($selectedCategory)) {
         echo $selectedCategory;
     } else {
-        echo "nothing";
+        echo "None";
     }
 }
+
+function unsetSelectedCategory($categoriesArray)
+{
+    if (isset($_SESSION["selectedExistingCategory"])) {
+        if (!array_search($_SESSION["selectedExistingCategory"], array_column($categoriesArray, "Category"))) {
+            $_SESSION["selectedExistingCategory"] = null;
+        }
+    }
+}
+
+function unsetSelectedSubject($subjectsArray)
+{
+    if (isset($_SESSION["selectedExistingSubject"])) {
+        if (!array_search($_SESSION["selectedExistingSubject"], array_column($subjectsArray, "subjects_Subject"))) {
+            $_SESSION["selectedExistingSubject"] = null;
+        }
+    }
+}
+
+unsetSelectedCategory($categoriesArray);
+unsetSelectedSubject($subjectsArray);
 
 ?>
 <div id="grid">
