@@ -25,9 +25,8 @@ h1#pagetitle {
 }
 
 /*font sizes and centering*/
-ul.ticketList {
+.ticketList {
     display: flex;
-    list-style-type: none;
     align-items: center;
     grid-column: span 2;
     padding: 0;
