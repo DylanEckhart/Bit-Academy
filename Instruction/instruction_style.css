@@ -7,7 +7,7 @@
 /* Center welcome text */
 .welcome {
     text-align: center;
-    margin-top: 3%;
+    margin: 3% 0;
 }
 /* Headers of the instruction blocks */
 .admin_head, .submit_head {
@@ -29,6 +29,31 @@
     margin-right: auto;
     border: 1px solid white;
     border-radius: 0.25rem;
+    display: none;
+    overflow: hidden;
+}
+
+.accordion {
+    padding: 15px;
+    background-color: #1db2cb;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    transition: 0.4s;
+}
+
+.instruction_admin{
+    grid-column-start: 2;
+    grid-row: span 2;
+}
+
+.instruction_submit{
+    grid-column-start: 1;
+}
+
+.butAdmin{
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
 
 /* Responsive for max-width 800px */
@@ -36,6 +61,22 @@
     /* Set grid items underneath each other*/
     #grid-container {
         margin-bottom: 35px;
-        grid-template: auto / minmax(0, 1fr);
+    }
+
+    .instruction_submit{
+        grid-row-start: 2;
+        grid-column: span 2;
+    }
+
+    .instruction_admin{
+        grid-row-start: 3;
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 470px){
+
+    .accordion{
+        grid-column: span 2;
     }
 }
