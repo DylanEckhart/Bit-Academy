@@ -47,7 +47,7 @@ if(isset($_SESSION['approved']) && $_SESSION['approved'] == true){
                 }
             }
             ?>
-            <button id="confirmButton" type="button" name="prototype" onclick="showPopup();">Confirm Plan</button>
+            <button id="confirmButton" type="button" name="prototype" onclick="showPopupSubmit();">Confirm Plan</button>
         </div>
     </form>
     <?php
@@ -60,7 +60,7 @@ elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) { ?>
         ?>
 
 <!--THIS WEEK PLANNING-->
-<form class="thisWeekPlanning noTextSelect">
+<form class="thisWeekPlanning">
     <label class="PlanningHeader">This week planning</label><br>
     <ul id="listOfTasks">
             <?php
@@ -157,18 +157,10 @@ where IsFinished = 0";
 <br>
 <br>
     <form method="post">
-        <!--POP-UP SUBMIT-->
+        <!--POP-UP-->
         <div class="pop-up" id="popup">
-            <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to submit? <br></label>
+            <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want to submit? <br></label>
             <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>
-            <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
-        </div>
-    </form>
-    <form method="post">
-        <!--POP-UP DELETE-->
-        <div class="pop-up" id="popup">
-            <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to delete this ticket? <br></label>
-            <button id="yesButton" type="submit" name="Delete">Yes</button>
             <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
         </div>
     </form>
@@ -179,6 +171,8 @@ where IsFinished = 0";
     let resume = document.getElementsByClassName("Resume");
     let popup = document.getElementById("popup");
     let preview = document.getElementById("previewPlanning");
+    let popupText = document.getElementById("popupText");
+    let yesbutton = document.getElementById("yesButton");
 
     function showPauseButton() {
         pause.style.display = "inline";
@@ -224,6 +218,11 @@ where IsFinished = 0";
 
     }
     function showPopupSubmit(){
+
+        yesbutton.name = "submitPlanConfirmed";
+
+        popupText.innerHTML = "Are you sure you want to submit? ";
+
         popup.style.height="content";
         popup.style.width="50vw";
         popup.style.padding="20px";
@@ -241,6 +240,10 @@ where IsFinished = 0";
 
     }
     function showPopupDelete(){
+
+        yesbutton.name = "deleteTaskConfirmed";
+        popupText.innerHTML = "Are you sure you want to delete this ticket? ";
+
         popup.style.height="content";
         popup.style.width="50vw";
         popup.style.padding="20px";
