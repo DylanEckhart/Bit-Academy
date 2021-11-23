@@ -274,121 +274,123 @@ unsetSelectedCategory($categoriesArray);
 unsetSelectedSubject($subjectsArray);
 
 ?>
-<div id="grid">
-    <!-- here you can make a category-->
-    <div>
-        <form class="form" id="formCategory" method="post">
-            <h1 class="formTitle">Category</h1>
-            <p class="inputTitle">Category</p>
-            <input type="text" name="category" class="input" placeholder="ex. PHP">
-            <button type="button" name="submitCategory" class="Submit" onclick="">Submit</button>
-        </form>
-    </div>
-    <!--End of category-->
+<div id="body">
+    <div id="grid">
+        <!-- here you can make a category-->
+        <div>
+            <form class="form" id="formCategory" method="post">
+                <h1 class="formTitle">Category</h1>
+                <p class="inputTitle">Category</p>
+                <input type="text" name="category" class="input" placeholder="ex. PHP">
+                <button name="submitCategory" class="Submit">Submit</button>
+            </form>
+        </div>
+        <!--End of category-->
 
-    <!--here you can make the ticket-->
-    <form class="form" id="formTicket" method="post">
-        <h1 class="formTitle">Ticket</h1>
-        <p class="inputTitle">Category</p>
-        <select name="selectCategory" id="categorySelection" onchange="this.form.submit()" required>
-            <option value="" disabled selected hidden>Choose the Category</option>
-            <?php
-            showCategoriesInOptionForTickets($categoriesArray);
-            ?>
-        </select>
-        <p class="inputTitle">Subject</p>
-        <select name="selectSubject" required>
-            <option value="" disabled selected hidden>Choose the subject</option>
-            <?php
-            showSubjectsInOption($subjectsCategoriesArray);
-            ?>
-        </select>
-        <p class="inputTitle">Layer</p>
-        <select name="layerChooser" required>
-            <option value="" disabled selected hidden>Choose the layer</option>
-            <option value="front-end">Front-end</option>
-            <option value="back-end">Back-end</option>
-            <option value="front-end_back-end">Front-end and Back-end</option>
-        </select>
-        <p class="inputTitle">Language</p>
-        <input type="text" name="language" placeholder="Language" required>
-        <p class="inputTitle">Description</p>
-        <input type="text" name="description" placeholder="Description" required>
-        <p class="inputTitle">Deadline</p>
-        <input type="date" name="deadline" required>
-        <p class="inputTitle">Forecast time</p>
-        <input type="number" name="time" placeholder="How long will it take" required>
-        <button type="button" class="Submit" name="submitTicket" onclick="">Add</button>
-    </form>
-    <!-- end of where you can make the ticket-->
-
-    <!-- here you can make a subject-->
-    <div>
-        <form class="form" id="formSubject" method="post">
-            <h1 class="formTitle">Subject</h1>
+        <!--here you can make the ticket-->
+        <form class="form" id="formTicket" method="post">
+            <h1 class="formTitle">Ticket</h1>
             <p class="inputTitle">Category</p>
-            <select name="selectCategoryForSubject">
-                <option value="" disabled selected hidden>Choose a Category</option>
+            <select name="selectCategory" id="categorySelection" onchange="this.form.submit()" required>
+                <option value="" disabled selected hidden>Choose the Category</option>
                 <?php
-                showCategoriesInOption($categoriesArray);
+                showCategoriesInOptionForTickets($categoriesArray);
                 ?>
             </select>
             <p class="inputTitle">Subject</p>
-            <input type="text" name="subject" class="input" placeholder="ex. cookies">
-            <button type="button" name="submitSubject" class="Submit" onclick="">Submit</button>
+            <select name="selectSubject" required>
+                <option value="" disabled selected hidden>Choose the subject</option>
+                <?php
+                showSubjectsInOption($subjectsCategoriesArray);
+                ?>
+            </select>
+            <p class="inputTitle">Layer</p>
+            <select name="layerChooser" required>
+                <option value="" disabled selected hidden>Choose the layer</option>
+                <option value="front-end">Front-end</option>
+                <option value="back-end">Back-end</option>
+                <option value="front-end_back-end">Front-end and Back-end</option>
+            </select>
+            <p class="inputTitle">Language</p>
+            <input type="text" name="language" placeholder="Language" required>
+            <p class="inputTitle">Description</p>
+            <input type="text" name="description" placeholder="Description" required>
+            <p class="inputTitle">Deadline</p>
+            <input type="date" name="deadline" required>
+            <p class="inputTitle">Forecast time</p>
+            <input type="number" name="time" placeholder="How long will it take" required>
+            <button class="Submit" name="submitTicket">Add</button>
         </form>
-    </div>
-    <!--end of where you can make a subject-->
+        <!-- end of where you can make the ticket-->
 
-    <!-- Start list of existing category's and subjects  -->
-    <div class="listGrid">
-        <div class="container" id="existingCategories">
-            <p id="existingtitle">Category's</p>
-            <form class="existingForm" method="post">
-                <div class="existingList">
+        <!-- here you can make a subject-->
+        <div>
+            <form class="form" id="formSubject" method="post">
+                <h1 class="formTitle">Subject</h1>
+                <p class="inputTitle">Category</p>
+                <select name="selectCategoryForSubject">
+                    <option value="" disabled selected hidden>Choose a Category</option>
                     <?php
-                    showExistingCategory($categoriesArray);
+                    showCategoriesInOption($categoriesArray);
                     ?>
-                </div>
-                <button type="button" class="delete" name="deleteCategory" onclick="">Delete Category</button>
+                </select>
+                <p class="inputTitle">Subject</p>
+                <input type="text" name="subject" class="input" placeholder="ex. cookies">
+                <button name="submitSubject" class="Submit">Submit</button>
             </form>
         </div>
+        <!--end of where you can make a subject-->
 
-        <div class="container">
-            <div class="listContainer" id="selectedCategory">
-                <p id="existingtitle" class="selectedTitle">Selected Category</p>
-                <div class="selectedList">
-                    <?php
-                    showSelectedCategory($_SESSION["selectedExistingCategory"]);
-                    ?>
+        <!-- Start list of existing category's and subjects  -->
+        <div class="listGrid">
+            <div class="container" id="existingCategories">
+                <p id="existingtitle">Category's</p>
+                <form class="existingForm" method="post">
+                    <div class="existingList">
+                        <?php
+                        showExistingCategory($categoriesArray);
+                        ?>
+                    </div>
+                    <button class="delete" name="deleteCategory">Delete Category</button>
+                </form>
+            </div>
+
+            <div class="container" id="SelectedCatAndSub">
+                <div class="listContainer" id="selectedCategory">
+                    <p id="existingtitle" class="selectedTitle">Selected Category</p>
+                    <div class="selectedList">
+                        <?php
+                        showSelectedCategory($_SESSION["selectedExistingCategory"]);
+                        ?>
+                    </div>
+                </div>
+                <div class="listContainer" id="selectedSubject">
+                    <p id="existingtitle" class="selectedTitle">Selected Subject</p>
+                    <div class="selectedList">
+                        <?php
+                        showSelectedSubject($_SESSION["selectedExistingSubject"]);
+                        ?>
+                    </div>
                 </div>
             </div>
-            <div class="listContainer" id="selectedSubject">
-                <p id="existingtitle" class="selectedTitle">Selected Subject</p>
-                <div class="selectedList">
-                    <?php
-                    showSelectedSubject($_SESSION["selectedExistingSubject"]);
-                    ?>
-                </div>
+
+            <div class="container" id="existingSubject">
+                <p id="existingtitle">Subject's</p>
+                <form class="existingForm" method="post">
+                    <div class="existingList">
+                        <?php
+                        showExistingSubjects($subjectsArray, $_SESSION["selectedExistingCategory"]);
+                        ?>
+                    </div>
+                    <button class="delete" name="deleteSubject">Delete Subject</button>
+                </form>
             </div>
         </div>
-
-        <div class="container" id="existingSubject">
-            <p id="existingtitle">Subject's</p>
-            <form class="existingForm" method="post">
-                <div class="existingList">
-                    <?php
-                    showExistingSubjects($subjectsArray, $_SESSION["selectedExistingCategory"]);
-                    ?>
-                </div>
-                <button type="button" class="delete" name="deleteSubject" onclick="">Delete Subject</button>
-            </form>
-        </div>
+        <!-- End list of existing category's and subjects  -->
     </div>
-    <!-- End list of existing category's and subjects  -->
 </div>
 <!--<form method="post">-->
-    <!--POP-UP-->
+<!--POP-UP-->
 <!--    <div class="pop-up" id="popup">-->
 <!--        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText"><br></label>-->
 <!--        <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>-->
