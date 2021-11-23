@@ -247,6 +247,7 @@ echo '<form class="thisWeekPlanning" method="post">';
         popup.style.padding = "20px";
         popup.style.opacity = "100%";
     }
+
     function showPopup() {
         popup.style.height = "content";
         popup.style.width = "50vw";
