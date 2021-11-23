@@ -281,7 +281,7 @@ unsetSelectedSubject($subjectsArray);
             <h1 class="formTitle">Category</h1>
             <p class="inputTitle">Category</p>
             <input type="text" name="category" class="input" placeholder="ex. PHP">
-            <button name="submitCategory" class="Submit">Submit</button>
+            <button type="button" name="submitCategory" class="Submit" onclick="">Submit</button>
         </form>
     </div>
     <!--End of category-->
@@ -318,7 +318,7 @@ unsetSelectedSubject($subjectsArray);
         <input type="date" name="deadline" required>
         <p class="inputTitle">Forecast time</p>
         <input type="number" name="time" placeholder="How long will it take" required>
-        <button class="Submit" name="submitTicket" onclick="myFunction()">Add</button>
+        <button type="button" class="Submit" name="submitTicket" onclick="">Add</button>
     </form>
     <!-- end of where you can make the ticket-->
 
@@ -335,7 +335,7 @@ unsetSelectedSubject($subjectsArray);
             </select>
             <p class="inputTitle">Subject</p>
             <input type="text" name="subject" class="input" placeholder="ex. cookies">
-            <button name="submitSubject" class="Submit">Submit</button>
+            <button type="button" name="submitSubject" class="Submit" onclick="">Submit</button>
         </form>
     </div>
     <!--end of where you can make a subject-->
@@ -350,7 +350,7 @@ unsetSelectedSubject($subjectsArray);
                     showExistingCategory($categoriesArray);
                     ?>
                 </div>
-                <button class="delete" name="deleteCategory">Delete Category</button>
+                <button type="button" class="delete" name="deleteCategory" onclick="">Delete Category</button>
             </form>
         </div>
 
@@ -381,26 +381,50 @@ unsetSelectedSubject($subjectsArray);
                     showExistingSubjects($subjectsArray, $_SESSION["selectedExistingCategory"]);
                     ?>
                 </div>
-                <button class="delete" name="deleteSubject">Delete Subject</button>
+                <button type="button" class="delete" name="deleteSubject" onclick="">Delete Subject</button>
             </form>
         </div>
     </div>
     <!-- End list of existing category's and subjects  -->
 </div>
-</body>
+<!--<form method="post">-->
+    <!--POP-UP-->
+<!--    <div class="pop-up" id="popup">-->
+<!--        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText"><br></label>-->
+<!--        <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>-->
+<!--        <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>-->
+<!--    </div>-->
+<!--</form>-->
+<!--</body>-->
 
 <!--jscript for popup message-->
 <script>
-    function myFunction() {
-        var userPreference;
-
-        if (confirm("Do you want to save changes?") === true) {
-            userPreference = "Data saved successfully!";
-        } else {
-            userPreference = "Save Canceled!";
-        }
-
-        document.getElementById("msg").innerHTML = userPreference;
-    }
+    // let popup = document.getElementById("popup");
+    // let popupText = document.getElementById("popupText");
+    // let yesbutton = document.getElementById("yesButton");
+    //
+    // function showPopupSubmit(){
+    //
+    //     yesbutton.name = "submitPlanConfirmed";
+    //
+    //     popupText.innerHTML = "Are you sure you want to submit? ";
+    //
+    //     popup.style.height="content";
+    //     popup.style.width="50vw";
+    //     popup.style.padding="20px";
+    //     popup.style.opacity="100%";
+    //
+    //     /* height to content /
+    //     / padding to 20px /
+    //     / opacity to 100% */
+    //     return false;
+    // }
+    //
+    // function closePopup(){
+    //     popup.style.height="unset";
+    //     popup.style.width="0";
+    //     popup.style.padding="0";
+    //     popup.style.opacity="0";
+    // }
 </script>
 </html>

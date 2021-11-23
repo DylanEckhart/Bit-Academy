@@ -169,6 +169,38 @@ button.delete {
 
 /*end of list of existingcategory's and subjects */
 
+/*start of the popup css*/
+.pop-up{
+    text-align: center;
+    background-color: #1db1c9;
+    padding: 0;
+    opacity: 0;
+    border-radius: 15px;
+    position: fixed;
+    height: content-box;
+    line-height: 6vw;
+    width: 0;
+    left: 50%;
+    top: 50%;
+/*transition: all 1s ease;*/
+transform: translate(-50%, -50%);
+}
+
+#yesButton {
+    width: 45%;
+    height: 6vh;
+    font-size: 3vh;
+    background-color: green;
+}
+
+#noButton {
+    width: 45%;
+    height: 6vh;
+    font-size: 3vh;
+    background-color: red;
+}
+/*end of the popup css*/
+
 /*responsive*/
 @media screen and (max-width: 1200px) {
 
@@ -200,6 +232,25 @@ button.delete {
 
     input, select, p {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .pop-up{
+        overflow-y: hidden;
+        height: content-box;
+        width: content-box;
+        line-height: 6vh;
+    }
+    #yesButton {
+        width: 100%;
+        height: 6vh;
+        background-color: green;
+    }
+    #noButton {
+        width: 100%;
+        height: 6vh;
+        background-color: red;
     }
 }
 
