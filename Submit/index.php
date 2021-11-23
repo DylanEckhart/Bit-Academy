@@ -40,9 +40,9 @@ $resultActiveplannings = mysqli_query($conn, $sqlActivePlanning);
 if (isset($_SESSION['approved']) && $_SESSION['approved'] == true) {
     ?>
     <!--PREVIEW-->
-    <form id="previewPlanning" method="post">
-        <div class="alert" style="line-height: 20px">
-            <span class="closebtn" onclick="this.parentElement.style.height='0'; this.parentElement.style.padding='0';">&#10006;</span>
+    <form method="post">
+        <div class="alert" id="previewPlanning" style="line-height: 20px">
+            <span class="closebtn" onclick="closePreview(); this.style.height='0';">&#10006;</span>
             <label style="background-color: transparent; font-size: 30px" for=".alert">Preview <br> <br></label>
             <?php
             foreach ($_SESSION['submitPlan'] as $key => $value) {
@@ -57,9 +57,8 @@ if (isset($_SESSION['approved']) && $_SESSION['approved'] == true) {
                 }
             }
             ?>
-            <button id="confirmButton" type="button" name="prototype" onclick="showPopup();">Confirm Plan</button>
+            <button id="confirmButton" type="button" name="prototype" onclick="showPopupSubmit();">Confirm Plan</button>
         </div>
-
     </form>
     <?php
 } elseif (isset($_SESSION['approved']) && $_SESSION['approved'] == false) {
@@ -145,7 +144,7 @@ echo '<form class="thisWeekPlanning" method="post">';
     </select>
     <label for="description" class="label">Description</label>
     <select id="description" name="description">
-        <option value="" disabled selected hidden>Choose the Discription</option>
+        <option value="" disabled selected hidden>Choose the Description</option>
         <?php
         $ticketdescriptionArray = array();
 
@@ -188,6 +187,9 @@ echo '<form class="thisWeekPlanning" method="post">';
     let pause = document.getElementsByClassName("Pause");
     let resume = document.getElementsByClassName("Resume");
     let popup = document.getElementById("popup");
+    let preview = document.getElementById("previewPlanning");
+    let popupText = document.getElementById("popupText");
+    let yesbutton = document.getElementById("yesButton");
 
     function showPauseButton() {
         console.log(showPauseButton());
@@ -231,6 +233,21 @@ echo '<form class="thisWeekPlanning" method="post">';
     function sumbitTasks() {
         (alert("Succesfully submitted"));
     }
+    function closePreview(){
+        preview.parentElement.style.height='0';
+        preview.parentElement.style.padding='0';
+
+    }
+    function showPopupSubmit(){
+
+        yesbutton.name = "submitPlanConfirmed";
+
+        popupText.innerHTML = "Are you sure you want to submit? ";
+
+        popup.style.height="content";
+        popup.style.width="50vw";
+        popup.style.padding="20px";
+        popup.style.opacity="100%";
 
     function showPopup() {
         popup.style.height = "content";
@@ -249,6 +266,20 @@ echo '<form class="thisWeekPlanning" method="post">';
         popup.style.padding = "0";
         popup.style.opacity = "0";
 
+    }
+    function showPopupDelete(){
+
+        yesbutton.name = "deleteTaskConfirmed";
+        popupText.innerHTML = "Are you sure you want to delete this ticket? ";
+
+        popup.style.height="content";
+        popup.style.width="50vw";
+        popup.style.padding="20px";
+        popup.style.opacity="100%";
+
+        /* height to content /
+        / padding to 20px /
+        / opacity to 100% */
     }
 
 </script>

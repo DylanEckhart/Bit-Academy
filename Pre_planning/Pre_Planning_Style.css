@@ -25,12 +25,15 @@ h1#pagetitle {
 }
 
 /*font sizes and centering*/
-ul.ticketList {
+.ticketList {
     display: flex;
-    list-style-type: none;
     align-items: center;
     grid-column: span 2;
     padding: 0;
+}
+
+p {
+    margin: 0;
 }
 
 p.ticket_title {
@@ -46,14 +49,16 @@ p.ticket_desc {
 .category{
     grid-column: span 2;
     border: 1px solid rgb(255,255,255);
-    background-color: rgb(255, 255, 255);}
+    background-color: rgb(255, 255, 255);
+}
 
 .deadline {
     display: grid;
     grid-template: auto/ minmax(0, 1fr) minmax(0, 1fr);
     grid-column: span 2;
     border: 1px solid rgb(255,255,255);
-    background-color: rgb(255, 255, 255);}
+    background-color: rgb(255, 255, 255);
+}
 
 .time{
     border: 1px solid rgb(255,255,255);
@@ -68,30 +73,8 @@ p{
     color: black;
 }
 
-.category2{
-    border: 1px solid white;
-    grid-column: span 2;
-    background-color: rgba(255, 255, 255, 0.2);
-
-}
-
-.deadline2{
-    border: 1px solid white;
-    display: grid;
-    grid-template: auto/ minmax(0, 1fr) minmax(0, 1fr);
-    grid-column: span 2;
-    background-color: rgb(84,108,93);
-}
-
-.time2{
-    border: 1px solid white;
-    display: grid;
-    background-color: rgb(170,67,114);
-    grid-template: auto/ minmax(0, 1fr) minmax(0, 1fr);
-    grid-column: span 2;
-}
-
-.finishedColor{
+/* Color when task is finished */
+.finishedColorYes{
     float: left;
     font-size: 12px;
     font-weight: 700;
@@ -106,6 +89,24 @@ p{
     background-color: green;
     border-radius: 4px;
 }
+
+/* Color when task isn't finished */
+.finishedColorNo{
+    float: left;
+    font-size: 12px;
+    font-weight: 700;
+    height: 8px;
+    line-height: 100px;
+    margin: 0 4px 4px 4px;
+    max-width: 125px;
+    min-width: 40px;
+    padding: 0;
+    text-shadow: none;
+    width: auto;
+    background-color: red;
+    border-radius: 4px;
+}
+
 
 /*responsive*/
 @media screen and (max-width: 1500px) {

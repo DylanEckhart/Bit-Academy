@@ -68,9 +68,6 @@ li.navbar a {
     margin-top: 5vh;
     margin-right: 5vh;
 }
-p {
-    margin: 10px;
-}
 /*hide icon in desktop*/
 #menuButtonClosed, #menuButtonOpen{
     display: none;

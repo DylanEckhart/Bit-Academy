@@ -2,119 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel="stylesheet" href="../style.css">-->
     <link rel="stylesheet" href="Pre_Planning_Style.css">
-    <link href="../Header/style.css" rel="stylesheet">
-    <title>Previous Plannings</title>
+    <link rel="stylesheet" href="../Header/style.css">
     <link rel="icon" href="../Images/icon/favicon.ico" type="image/icon">
+    <title>Previous Plannings</title>
 </head>
 <body>
+<!-- Include PHP files -->
 <?php
-require_once "../Header/header.php";
+    // Header
+    require_once "../Header/header.php";
+
+    // Database connection and variable
+    require_once '../DB/connection.php';
+    $connection = openConn();
+
+    // Action
+    require_once 'ticketLoad.php';
 ?>
+
+<!-- Website Title -->
 <div id="PrePlanning">
     <h1 id="pagetitle">Previous Plannings</h1>
+    <!-- Planning tickets of the student -->
     <div id="PlanningGrid">
+        <?php
+            // Query to select data from database
+            $getDataQuery = "SELECT idplanning, categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Stop_Time, Deadline, Forcast_Time, TimeSpent, categories_Category, deadlineFinished, finishedInTime 
+                             FROM tickets 
+                             INNER JOIN categories_and_subjects 
+                             ON tickets.categories_and_subjects_subjects_Subject = categories_and_subjects.subjects_Subject 
+                             INNER JOIN plannings 
+                             ON tickets.Description = plannings.tickets_Description 
+                             WHERE IsFinished = 1";
 
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
+            // Get query results
+            $setData = mysqli_query($connection, $getDataQuery);
 
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
+            while ($row = mysqli_fetch_assoc($setData)) {
+                $dataArray[] = $row;
+            }
 
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
-        <div class="GridItem">
-            <ul class="ticketList">
-                <li><p class="ticket_title">PHP</p></li>
-                <li><p class="ticket_desc">- Web - 5 hours</p></li>
-            </ul>
-            <p class="description">Start time:</p>
-            <p class="time">09:30</p>
-            <p class="description">Stop time:</p>
-            <p class="time">16:30</p>
-        </div>
-
+            // Display tickets
+            if (sizeof($dataArray) > 0) {
+                loadTickets($dataArray);
+            }
+        ?>
     </div>
 </div>
 </body>
