@@ -38,18 +38,25 @@ if (isset($_POST['submitPlan'])) {
 //SAVE USERINPUT IN DATABASE
 if (isset($_POST['submitPlanConfirmed'])) {
     $description = $_SESSION["description"];
-
     $insertPlanningIntoPlannings = "insert into plannings (tickets_Description) values ('$description')";
     mysqli_query($conn, $insertPlanningIntoPlannings);
     header("location: index.php");
-    mysqli_close($conn);
 }
 
-//DELETE SPECIFIK DELETE
-if (isset($_POST['deleteButton'])){
-   $deleteQuery = "DELETE FROM plannings WHERE idplanning = 56";
-    mysqli_query($conn, $deleteQuery);
-    header("location: index.php");
+//DELETE SPECIFIK PLANNING
+if (isset($_SESSION["ticketsArray"])) {
+        if (isset($_POST["delete"])) {
+            $deleteQuery = "DELETE FROM plannings WHERE idplanning = '" . $_POST["delete"] . "'";
+            mysqli_query($conn, $deleteQuery);
+        }
+}
+
+//FINISH PLANNING
+if (isset($_SESSION["ticketsArray"])) {
+        if (isset($_POST["finish"])) {
+            $finishTicketQuery = "UPDATE plannings SET isFinished = '1'  WHERE idplanning ='" . $_POST["finish"] . "'";
+            mysqli_query($conn, $finishTicketQuery);
+        }
 }
 
 //CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE
