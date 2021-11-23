@@ -5,6 +5,7 @@
     require_once 'index.php';
     $connection = openConn();
 
+    // Load tickets
     function loadTickets($dataArray) {
         foreach ($dataArray as $planning) {
             // Display category and subject
