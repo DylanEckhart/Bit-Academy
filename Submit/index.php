@@ -78,8 +78,6 @@ echo '<form class="thisWeekPlanning" method="post">';
             echo "<li class='listItem'>";
             $_SESSION["ticketsArray"][] = $row;
             //ECHO ALL DATA IN TABLE
-            //TICKET ID
-            echo "Ticket ID: " . $row['idplanning'] . "<br>";
             //CATEGORIE AND SUBJECT VALUES
             echo $row['categories_and_subjects_subjects_Subject'] . "<br>";
             //DESCRIPTION, LAYER, LANGUAGE VALUES

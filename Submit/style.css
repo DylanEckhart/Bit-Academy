@@ -125,16 +125,16 @@ button {
     margin: 5px;
     font-size: 4vh;
 }
-.Pause, .Resume, #Stop{
+#Pause, #Resume, #Stop{
     margin-bottom: 1.5vw;
     font-size: 2vw;
     transition: background-color 0.5s ease;
 }
-.Pause {
+#Pause {
     background-color: #1db2cb;
     display: inline-block;
 }
-.Resume {
+#Resume {
     background-color: #b4b4b4;
     color: black;
     display: none;
@@ -151,6 +151,7 @@ button {
     margin-top: -15vw;
     padding: 2px;
     width: 5vw;
+    height: 5vw;
     right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
@@ -313,15 +314,15 @@ select, option, input {
         height: 9vw;
         font-size: 3vw;
     }
-    .Pause, .Resume, #Stop{
+    #Pause, #Resume, #Stop{
         margin-bottom: 3vw;
         font-size: 4vw;
     }
-    .Pause {
+    #Pause {
         background-color: #1db2cb;
         display: inline-block;
     }
-    .Resume {
+    #Resume {
         background-color: #b4b4b4;
         color: black;
         display: none;
@@ -333,6 +334,8 @@ select, option, input {
     #deleteButton{
         font-size: 5vw;
         right: 11vw;
+        width: 5vw;
+        height: 5vw;
         margin-top: -66vw;
         background-color: red;
         transition: all 0.5s ease;
