@@ -14,7 +14,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$_SESSION["id"] = 0;
 //GET DATA FROM PLANNING DATABASE
 $sqlActivePlanning = "SELECT idplanning, categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Deadline, Forcast_Time, TimeSpent, isFinished 
 FROM tickets
@@ -175,10 +174,10 @@ echo '<form class="thisWeekPlanning" method="post">';
 <form method="post">
     <!--POP-UP DELETE-->
     <div class="pop-up" id="popup">
-        <label style="background-color: transparent; font-size: 30px" for=".pop-up">Are you sure you want to delete this
+        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want to delete this
             ticket? <br></label>
         <button id="yesButton" type="submit" name="Delete">Yes</button>
-        <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
+        <button id="noButton" type="submit" name="NO" onclick="">No</button>
     </div>
 </form>
 <script>
@@ -192,7 +191,6 @@ echo '<form class="thisWeekPlanning" method="post">';
     let yesbutton = document.getElementById("yesButton");
 
     function showPauseButton() {
-        console.log(showPauseButton());
         pause.style.display = "inline";
         resume.style.display = "none";
         return false;
@@ -238,17 +236,17 @@ echo '<form class="thisWeekPlanning" method="post">';
         preview.parentElement.style.padding='0';
 
     }
-    function showPopupSubmit(){
+    function showPopupSubmit() {
 
         yesbutton.name = "submitPlanConfirmed";
 
         popupText.innerHTML = "Are you sure you want to submit? ";
 
-        popup.style.height="content";
-        popup.style.width="50vw";
-        popup.style.padding="20px";
-        popup.style.opacity="100%";
-
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+    }
     function showPopup() {
         popup.style.height = "content";
         popup.style.width = "50vw";
