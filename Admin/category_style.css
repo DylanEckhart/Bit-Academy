@@ -6,6 +6,10 @@
     color: white;
 }
 
+#body {
+    margin: 15px;
+}
+
 #grid {
     display: grid;
     grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
@@ -58,6 +62,7 @@ option{
     grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-gap: 15px;
     grid-column: span 2;
+    margin: 15px;
 }
 
 .existingList {
@@ -205,11 +210,25 @@ transform: translate(-50%, -50%);
     #grid {
         display: grid;
         grid-template: auto / minmax(0, 1fr);
+        grid-gap: 15px;
     }
 
     .listGrid {
         grid-column: span 1;
         grid-template: auto/ minmax(0, 1fr);
+    }
+
+    #selectedCatAndSub {
+        grid-row-start: 1;
+    }
+
+    #existingCategories {
+        grid-row-start: 2;
+    }
+
+    #existingSubject {
+        grid-row-start: 3;
+        grid-column-start: 1;
     }
 
     .form {
@@ -260,7 +279,11 @@ transform: translate(-50%, -50%);
         grid-template: auto / 1fr;
     }
 
-    button, .formTitle {
-        grid-column: span 1;
+    button.Submit, .formTitle {
+        grid-column: span none;
+    }
+
+    .formTitle {
+        font-size: 28px;
     }
 }

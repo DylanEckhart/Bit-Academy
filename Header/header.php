@@ -8,7 +8,7 @@
         <li class="navbar"><a href="../Instruction/index.php" class="navItem">Home</a> </li>
         <li class="navbar"><a href="../Pre_planning/index.php" class="navItem">Previous Planning</a></li>
         <li class="navbar"><a href="../Submit/index.php" class="navItem">Submit</a></li>
-        <li class="navbar"><a href="../Admin/index.php" class="navItem">Admin</a></li>
+        <li class="navbar"><a href="../Admin/category.php" class="navItem">Admin</a></li>
     </ul>
 </div>
 <div>
