@@ -270,7 +270,7 @@ echo '<form class="thisWeekPlanning" method="post">';
 
     function showPopupDelete() {
 
-        yesbutton.name = "deleteTaskConfirmed";
+        yesbutton.name = "Delete";
         popupText.innerHTML = "Are you sure you want to delete this ticket? ";
 
         popup.style.height = "content";
