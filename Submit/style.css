@@ -157,10 +157,10 @@ button {
     display: inline-block;
     background-color: #000563;
     position: absolute;
-    margin-top: -15.25vw;
+    margin-top: -15vw;
     padding: 2px;
-    width: 5%;
-    height: 7.5%;
+    width: 2vw;
+    height: 2vw;
     right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
@@ -331,11 +331,11 @@ select, option, input {
         background-color: red;
     }
     #deleteButton{
-        font-size: 20px;
+        font-size: 4vw;
         right: 11vw;
-        width: 30px;
-        height: 30px;
-        margin-top: -58.75vw;
+        width: 5vw;
+        height: 5vw;
+        margin-top: -58vw;
         background-color: red;
         transition: all 0.5s ease;
     }
