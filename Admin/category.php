@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link href="category_style.css" rel="stylesheet">
     <title>Category creator</title>
-    <link rel="icon" href="../images/icon/favicon.ico" type="image/icon">
+    <link rel="icon" href="../Images/icon/favicon.ico" type="image/icon">
 </head>
 <body>
 <?php
@@ -389,6 +389,8 @@ unsetSelectedSubject($subjectsArray);
         <!-- End list of existing category's and subjects  -->
     </div>
 </div>
+
+<!-- POP-UP -->
 <!--<form method="post">-->
 <!--POP-UP-->
 <!--    <div class="pop-up" id="popup">-->
@@ -397,7 +399,7 @@ unsetSelectedSubject($subjectsArray);
 <!--        <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>-->
 <!--    </div>-->
 <!--</form>-->
-<!--</body>-->
+</body>
 
 <!--jscript for popup message-->
 <script>
