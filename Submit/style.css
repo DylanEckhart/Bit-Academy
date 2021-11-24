@@ -1,4 +1,11 @@
 @import url(../Header/style.css);
+
+/*to change:*/
+/*- the confirm plan button text*/
+/*- the P in preview sticks out sometimes on larger screen*/
+/*- delete button popup*/
+
+
 *{
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
@@ -14,12 +21,15 @@ body{
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 h1#PageName{
     font-size: 6vh;
+}
+/*for some reason the browser adds a div to add some space under the webpage. This disables the blank space*/
+div iframe {
+    display: none;
 }
 
 /*For the warning box that displays and you can click away*/
@@ -38,6 +48,7 @@ h1#PageName{
     margin: 1vh auto 2vh auto;
     width: 60%;
     overflow-y: hidden;
+    font-size: 3.3vh;
 }
 .closebtn {
     overflow-y: hidden;
@@ -113,7 +124,9 @@ h1#PageName{
     margin: auto auto 5px;
     padding: 5px;
     line-height: 1.5;
+    word-wrap: break-word;
     height: auto;
+    width: 90%;
 }
 button {
     background-color: #1cadc5;
@@ -125,16 +138,16 @@ button {
     margin: 5px;
     font-size: 4vh;
 }
-.Pause, .Resume, #Stop{
+#Pause, #Resume, #Stop{
     margin-bottom: 1.5vw;
     font-size: 2vw;
     transition: background-color 0.5s ease;
 }
-.Pause {
+#Pause {
     background-color: #1db2cb;
     display: inline-block;
 }
-.Resume {
+#Resume {
     background-color: #b4b4b4;
     color: black;
     display: none;
@@ -144,13 +157,14 @@ button {
     background-color: red;
 }
 #deleteButton{
+    font-size: 3vw;
     display: inline-block;
     background-color: #000563;
-    font-size: 2vw;
     position: absolute;
     margin-top: -15vw;
     padding: 2px;
     width: 5vw;
+    height: 5vw;
     right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
@@ -210,12 +224,28 @@ select, option, input {
 }
 #noButton {
     width: 45%;
-    height: 6vh;
+    height: 5vh;
     font-size: 3vh;
     background-color: red;
 }
+@media screen and (min-width: 912px) and (max-width: 950px) {
+    #deleteButton{
+        font-size: 2.5vw;
+        margin-top: -14.5vw;
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+}
+@media screen and (min-width: 950px) {
+    #deleteButton{
+        font-size: 2.5vw;
+        margin-top: -6vw;
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+}
 /*smaller screen sizes*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 912px) {
 
     * {
         text-align: center;
@@ -277,16 +307,6 @@ select, option, input {
         width: 60%;
         height: 8vh;
     }
-    #deleteButton{
-        font-size: 5vw;
-        right: 11vw;
-        margin-top: -66vw;
-        background-color: #000563;
-        transition: all 0.5s ease;
-    }
-    #deleteButton:hover{
-        background-color: red;
-    }
 
     /*For the planning on the side of the website*/
 
@@ -303,7 +323,6 @@ select, option, input {
         margin-left: 0;
     }
     .listItem {
-        width: 96%;
         font-size: 5vw;
         padding-top: 2vw;
     }
@@ -313,15 +332,15 @@ select, option, input {
         height: 9vw;
         font-size: 3vw;
     }
-    .Pause, .Resume, #Stop{
+    #Pause, #Resume, #Stop{
         margin-bottom: 3vw;
         font-size: 4vw;
     }
-    .Pause {
+    #Pause {
         background-color: #1db2cb;
         display: inline-block;
     }
-    .Resume {
+    #Resume {
         background-color: #b4b4b4;
         color: black;
         display: none;
@@ -331,9 +350,11 @@ select, option, input {
         background-color: red;
     }
     #deleteButton{
-        font-size: 5vw;
+        font-size: 4vw;
         right: 11vw;
-        margin-top: -66vw;
+        width: 5vw;
+        height: 5vw;
+        margin-top: -58vw;
         background-color: red;
         transition: all 0.5s ease;
     }
@@ -376,5 +397,42 @@ select, option, input {
         width: 100%;
         height: 6vh;
         background-color: red;
+    }
+}
+@media screen and (max-width: 456px) and (min-width: 340px) {
+    .listItem {
+        width: 94%;
+    }
+    #deleteButton{
+        font-size: 4vw;
+        width: 6vw;
+        height: 6vw;
+        margin-top: -59vw;
+    }
+}
+@media screen and (max-width: 340px) {
+    #deleteButton{
+        font-size: 4vw;
+        width: 6vw;
+        height: 6vw;
+        margin-top: -66vw;
+    }
+    button {
+        width: 44%;
+        height: 9vw;
+        font-size: 3vw;
+    }
+}
+@media screen and (max-width: 284px) {
+    #deleteButton{
+        font-size: 2.8vw;
+        width: 5vw;
+        height: 5vw;
+        margin-top: -80vw;
+    }
+    button {
+        width: 44%;
+        height: 9vw;
+        font-size: 3vw;
     }
 }

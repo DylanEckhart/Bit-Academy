@@ -78,8 +78,6 @@ echo '<form class="thisWeekPlanning" method="post">';
             echo "<li class='listItem'>";
             $_SESSION["ticketsArray"][] = $row;
             //ECHO ALL DATA IN TABLE
-            //TICKET ID
-            echo "Ticket ID: " . $row['idplanning'] . "<br>";
             //CATEGORIE AND SUBJECT VALUES
             echo $row['categories_and_subjects_subjects_Subject'] . "<br>";
             //DESCRIPTION, LAYER, LANGUAGE VALUES
@@ -98,14 +96,16 @@ echo '<form class="thisWeekPlanning" method="post">';
                 "<button id='Stop' value='" . $row["idplanning"] . "' name='finish' onclick=''>Stop</button>";
             echo
                 "<button id='deleteButton' name='delete' value='" . $row["idplanning"] . "'>
-                         <span class='material-icons' onclick=''>delete_outline</span>
+                         <span class='material-icons' id='trashCanIcon' onclick='' style='font-size: unset'>delete_outline</span>
                             </button>";
             ?>
+            </li>
             <?php
         }
     }
     ?>
 </ul>
+</form>
 <!--ADD SUBJECT-->
 <form id="addToPlanning" method="post">
     <label for="category" class="label">Category</label>
@@ -163,7 +163,7 @@ echo '<form class="thisWeekPlanning" method="post">';
 <form method="post">
     <!--POP-UP SUBMIT-->
     <div class="pop-up" id="popup">
-        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want to submit?
+        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">
             <br></label>
         <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>
         <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
@@ -238,7 +238,7 @@ echo '<form class="thisWeekPlanning" method="post">';
 
         yesbutton.name = "submitPlanConfirmed";
 
-        popupText.innerHTML = "Are you sure you want to submit? ";
+        popupText.innerHTML = "Are you sure you want to submit this ticket? ";
 
         popup.style.height = "content";
         popup.style.width = "50vw";

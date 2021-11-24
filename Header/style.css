@@ -73,7 +73,7 @@ li.navbar a {
     display: none;
 }
 /*smaller screen sizes*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
 
 
     * {
@@ -137,7 +137,7 @@ li.navbar a {
         color: #f2f2f2;
         margin: 7vh;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 25px;
         display: block;
         position: absolute;
         right: 0;
@@ -149,7 +149,7 @@ li.navbar a {
         color: #000563;
         margin: 7vh;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 25px;
         display: block;
         position: absolute;
         right: 0;
@@ -157,7 +157,6 @@ li.navbar a {
         transition: all 1s ease-out;
         background-color: transparent;
     }
-
 
     /*when unfolded, is .responsive*/
 
@@ -215,7 +214,43 @@ li.navbar a {
         transition: all 0.5s ease-out;
         color: #000563;
     }
+    .navbar a:hover{
+        font-size: 28px;
+    }
     .listItem {
         width: 96%;
+    }
+
+}
+
+/*mobile*/
+@media screen and (max-width: 300px) {
+    /*normal open text button*/
+    #menuButtonClosed {
+        margin: 4vh;
+    }
+    #menuButtonOpen {
+        margin: 4vh;
+    }
+}
+
+@media screen and (max-width: 500px) and (min-height: 1000px) {
+    /*normal open text button*/
+    #menuButtonClosed {
+        margin: 4vh;
+    }
+    #menuButtonOpen {
+        margin: 4vh;
+    }
+}
+@media screen and (min-width: 500px) and (min-height: 1000px) {
+    /*normal open text button*/
+    #menuButtonClosed {
+        font-size: 5vw;
+        margin: 5vh;
+    }
+    #menuButtonOpen {
+        font-size: 5vw;
+        margin: 5vh;
     }
 }
