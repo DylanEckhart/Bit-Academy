@@ -214,6 +214,9 @@ li.navbar a {
         transition: all 0.5s ease-out;
         color: #000563;
     }
+    .navbar a:hover{
+        font-size: 28px;
+    }
     .listItem {
         width: 96%;
     }

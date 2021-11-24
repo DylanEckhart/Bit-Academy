@@ -2,9 +2,6 @@
 
 /*to change:*/
 /*- the confirm plan button text*/
-/*- the delete button size in desktop*/
-/*- the delete button size in mobile*/
-/*- the delete button position in mobile*/
 /*- the P in preview sticks out sometimes on larger screen*/
 /*- delete button popup*/
 
@@ -30,6 +27,10 @@ body{
 h1#PageName{
     font-size: 6vh;
 }
+/*for some reason the browser adds a div to add some space under the webpage. This disables the blank space*/
+div iframe {
+    display: none;
+}
 
 /*For the warning box that displays and you can click away*/
 
@@ -47,6 +48,7 @@ h1#PageName{
     margin: 1vh auto 2vh auto;
     width: 60%;
     overflow-y: hidden;
+    font-size: 3.3vh;
 }
 .closebtn {
     overflow-y: hidden;
@@ -122,7 +124,9 @@ h1#PageName{
     margin: auto auto 5px;
     padding: 5px;
     line-height: 1.5;
+    word-wrap: break-word;
     height: auto;
+    width: 90%;
 }
 button {
     background-color: #1cadc5;
@@ -153,14 +157,14 @@ button {
     background-color: red;
 }
 #deleteButton{
-    font-size: 1.5vw;
+    font-size: 3vw;
     display: inline-block;
     background-color: #000563;
     position: absolute;
     margin-top: -15vw;
     padding: 2px;
-    width: 2vw;
-    height: 2vw;
+    width: 5vw;
+    height: 5vw;
     right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
@@ -220,9 +224,25 @@ select, option, input {
 }
 #noButton {
     width: 45%;
-    height: 6vh;
+    height: 5vh;
     font-size: 3vh;
     background-color: red;
+}
+@media screen and (min-width: 912px) and (max-width: 950px) {
+    #deleteButton{
+        font-size: 2.5vw;
+        margin-top: -14.5vw;
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+}
+@media screen and (min-width: 950px) {
+    #deleteButton{
+        font-size: 2.5vw;
+        margin-top: -6vw;
+        width: 3.5vw;
+        height: 3.5vw;
+    }
 }
 /*smaller screen sizes*/
 @media screen and (max-width: 912px) {
@@ -303,7 +323,6 @@ select, option, input {
         margin-left: 0;
     }
     .listItem {
-        width: 96%;
         font-size: 5vw;
         padding-top: 2vw;
     }
@@ -378,5 +397,42 @@ select, option, input {
         width: 100%;
         height: 6vh;
         background-color: red;
+    }
+}
+@media screen and (max-width: 456px) and (min-width: 340px) {
+    .listItem {
+        width: 94%;
+    }
+    #deleteButton{
+        font-size: 4vw;
+        width: 6vw;
+        height: 6vw;
+        margin-top: -59vw;
+    }
+}
+@media screen and (max-width: 340px) {
+    #deleteButton{
+        font-size: 4vw;
+        width: 6vw;
+        height: 6vw;
+        margin-top: -66vw;
+    }
+    button {
+        width: 44%;
+        height: 9vw;
+        font-size: 3vw;
+    }
+}
+@media screen and (max-width: 284px) {
+    #deleteButton{
+        font-size: 2.8vw;
+        width: 5vw;
+        height: 5vw;
+        margin-top: -80vw;
+    }
+    button {
+        width: 44%;
+        height: 9vw;
+        font-size: 3vw;
     }
 }
