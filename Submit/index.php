@@ -95,8 +95,8 @@ echo '<form class="thisWeekPlanning" method="post">';
             echo
                 "<button id='Stop' value='" . $row["idplanning"] . "' name='finish' onclick=''>Stop</button>";
             echo
-                "<button id='deleteButton' name='delete' value='" . $row["idplanning"] . "'>
-                         <span class='material-icons' id='trashCanIcon' onclick='' style='font-size: unset'>delete_outline</span>
+                "<button id='deleteButton' type='submit' name='deleteFase1' value='" . $row["idplanning"] . "'>
+                         <span class='material-icons' onclick=''>delete_outline</span>
                             </button>";
             ?>
             </li>
@@ -172,10 +172,11 @@ echo '<form class="thisWeekPlanning" method="post">';
 <form method="post">
     <!--POP-UP DELETE-->
     <div class="pop-up" id="popup">
-        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want to delete this
+        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want
+            to delete this
             ticket? <br></label>
         <button id="yesButton" type="submit" name="Delete">Yes</button>
-        <button id="noButton" type="submit" name="NO" onclick="">No</button>
+        <button id="noButton" type="submit" name="NO" onclick="closePopup()">No</button>
     </div>
 </form>
 <script>
@@ -229,11 +230,13 @@ echo '<form class="thisWeekPlanning" method="post">';
     function sumbitTasks() {
         (alert("Succesfully submitted"));
     }
-    function closePreview(){
-        preview.parentElement.style.height='0';
-        preview.parentElement.style.padding='0';
+
+    function closePreview() {
+        preview.parentElement.style.height = '0';
+        preview.parentElement.style.padding = '0';
 
     }
+
     function showPopupSubmit() {
 
         yesbutton.name = "submitPlanConfirmed";
@@ -264,15 +267,16 @@ echo '<form class="thisWeekPlanning" method="post">';
         popup.style.opacity = "0";
 
     }
-    function showPopupDelete(){
+
+    function showPopupDelete() {
 
         yesbutton.name = "deleteTaskConfirmed";
         popupText.innerHTML = "Are you sure you want to delete this ticket? ";
 
-        popup.style.height="content";
-        popup.style.width="50vw";
-        popup.style.padding="20px";
-        popup.style.opacity="100%";
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
 
         /* height to content /
         / padding to 20px /
@@ -280,5 +284,12 @@ echo '<form class="thisWeekPlanning" method="post">';
     }
 
 </script>
+<?php
+if (isset($_SESSION["id"])) {
+    if ($_SESSION["id"] != null) {
+        echo "<script type='text/javascript'>showPopupDelete()</script>";
+    }
+}
+?>
 </body>
 </html>

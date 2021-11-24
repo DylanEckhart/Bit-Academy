@@ -35,20 +35,28 @@ if (isset($_POST['submitPlan'])) {
     }
 }
 
+//DELETE SPECIFIK PLANNING
+if (isset($_POST["deleteFase1"])){
+    $_SESSION["id"] = $_POST["deleteFase1"];
+}
+
+if (isset($_POST["delete"])) {
+    $deleteQuery = "DELETE FROM plannings WHERE idplanning = '" . $_SESSION["id"] . "'";
+    mysqli_query($conn, $deleteQuery);
+    unset($_SESSION["id"]);
+}
+//END OF DELETE SPECIFIK PLANNING
+
+if (isset($_POST["NO"])) {
+        unset($_SESSION["id"]);
+}
+
 //SAVE USERINPUT IN DATABASE
 if (isset($_POST['submitPlanConfirmed'])) {
     $description = $_SESSION["description"];
     $insertPlanningIntoPlannings = "insert into plannings (tickets_Description) values ('$description')";
     mysqli_query($conn, $insertPlanningIntoPlannings);
     header("location: index.php");
-}
-
-//DELETE SPECIFIK PLANNING
-if (isset($_SESSION["ticketsArray"])) {
-        if (isset($_POST["delete"])) {
-            $deleteQuery = "DELETE FROM plannings WHERE idplanning = '" . $_POST["delete"] . "'";
-            mysqli_query($conn, $deleteQuery);
-        }
 }
 
 //FINISH PLANNING
