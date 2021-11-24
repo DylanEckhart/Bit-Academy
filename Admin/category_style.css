@@ -1,19 +1,20 @@
 @import url(../Header/style.css);
 
 * {
-    font-family: Arial, sans-serif;
+    font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
     color: white;
 }
 
-/*grid for the page*/
+#body {
+    margin: 15px;
+}
+
 #grid {
     display: grid;
     grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
-    grid-gap: 15px;
 }
 
-/*Start category subject en ticket form*/
 .form {
     padding: 15px;
     width: 75%;
@@ -49,7 +50,7 @@ select {
     padding: 10px;
 }
 
-option {
+option{
     color: black;
 }
 
@@ -61,6 +62,7 @@ option {
     grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     grid-gap: 15px;
     grid-column: span 2;
+    margin: 15px;
 }
 
 .existingList {
@@ -127,6 +129,7 @@ option {
 .existingList::-webkit-scrollbar-track {
     background: darkgray;
     border-radius: 10px;
+    border: none;
 }
 
 /* Handle */
@@ -166,8 +169,8 @@ button.delete {
     color: white;
     padding: 10px;
 }
+/*ends of popup message*/
 
-/*end of list of existingcategory's and subjects */
 
 /*start of the popup css*/
 .pop-up{
@@ -207,6 +210,7 @@ transform: translate(-50%, -50%);
     #grid {
         display: grid;
         grid-template: auto / minmax(0, 1fr);
+        grid-gap: 15px;
     }
 
     .listGrid {
@@ -214,20 +218,36 @@ transform: translate(-50%, -50%);
         grid-template: auto/ minmax(0, 1fr);
     }
 
+    #selectedCatAndSub {
+        grid-row-start: 1;
+    }
+
+    #existingCategories {
+        grid-row-start: 2;
+    }
+
+    #existingSubject {
+        grid-row-start: 3;
+        grid-column-start: 1;
+    }
+
     .form {
         grid-template: auto / 30% 70%;
     }
-
-    ::placeholder {
+    ::placeholder{
         font-size: 13px;
     }
 
-    select, input {
+    select{
         font-size: 13px;
     }
 
-    #formTicket {
-        grid-row-start: 3;
+    input{
+        font-size: 13px;
+    }
+
+    .input{
+        font-size: 13px;
     }
 
     input, select, p {
@@ -259,7 +279,11 @@ transform: translate(-50%, -50%);
         grid-template: auto / 1fr;
     }
 
-    button, .formTitle {
-        grid-column: span 1;
+    button.Submit, .formTitle {
+        grid-column: span none;
+    }
+
+    .formTitle {
+        font-size: 28px;
     }
 }

@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="style.css">
-
 <header class="topnav" id="myTopnav">
     <img src="../Images/logo.png" alt="Logo" id="logo" title="Go to the Homepage">
 </header>
@@ -7,9 +5,10 @@
 <div class="nav-links" id="navlinks">
     <a href="javascript:void(0);" style="font-size:25px;" id="menuButtonOpen" onclick="hideMenu()">&#10006;</a>
     <ul id="header">
+        <li class="navbar"><a href="../Instruction/index.php" class="navItem">Home</a> </li>
         <li class="navbar"><a href="../Pre_planning/index.php" class="navItem">Previous Planning</a></li>
         <li class="navbar"><a href="../Submit/index.php" class="navItem">Submit</a></li>
-        <li class="navbar"><a href="../Admin/index.php" class="navItem">Login</a></li>
+        <li class="navbar"><a href="../Admin/category.php" class="navItem">Admin</a></li>
     </ul>
 </div>
 <div>
