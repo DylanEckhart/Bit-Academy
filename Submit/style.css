@@ -1,4 +1,14 @@
 @import url(../Header/style.css);
+
+/*to change:*/
+/*- the confirm plan button text*/
+/*- the delete button size in desktop*/
+/*- the delete button size in mobile*/
+/*- the delete button position in mobile*/
+/*- the P in preview sticks out sometimes on larger screen*/
+/*- delete button popup*/
+
+
 *{
     font-family: "Roobert", "Helvetica", "Arial", sans-serif;
     margin: 0;
@@ -14,8 +24,7 @@ body{
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 h1#PageName{
@@ -144,14 +153,14 @@ button {
     background-color: red;
 }
 #deleteButton{
+    font-size: 1.5vw;
     display: inline-block;
     background-color: #000563;
-    font-size: 2vw;
     position: absolute;
-    margin-top: -15vw;
+    margin-top: -15.25vw;
     padding: 2px;
-    width: 5vw;
-    height: 5vw;
+    width: 5%;
+    height: 7.5%;
     right: 3vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
@@ -216,7 +225,7 @@ select, option, input {
     background-color: red;
 }
 /*smaller screen sizes*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 912px) {
 
     * {
         text-align: center;
@@ -278,16 +287,6 @@ select, option, input {
         width: 60%;
         height: 8vh;
     }
-    #deleteButton{
-        font-size: 5vw;
-        right: 11vw;
-        margin-top: -66vw;
-        background-color: #000563;
-        transition: all 0.5s ease;
-    }
-    #deleteButton:hover{
-        background-color: red;
-    }
 
     /*For the planning on the side of the website*/
 
@@ -332,11 +331,11 @@ select, option, input {
         background-color: red;
     }
     #deleteButton{
-        font-size: 5vw;
+        font-size: 20px;
         right: 11vw;
-        width: 5vw;
-        height: 5vw;
-        margin-top: -66vw;
+        width: 30px;
+        height: 30px;
+        margin-top: -58.75vw;
         background-color: red;
         transition: all 0.5s ease;
     }
