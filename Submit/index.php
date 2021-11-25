@@ -89,7 +89,9 @@ echo '<form class="thisWeekPlanning" method="post">';
             echo "Deadline : " . $row['Deadline'] . "<br>";
             echo "Forcast Time : " . $row['Forcast_Time'] . " hours" . "<br>";
             echo
-            "<button  id='Pause' onclick='return hidePauseButton()'>Pause</button>";
+            "<button  id='Pause' type='button' onclick='return hidePauseButton()'>Pause</button>";
+            echo
+            "<button  id='Resume' type='button' onclick='return showPauseButton()'>Resume</button>";
             ?>
             <?php
             echo
@@ -193,8 +195,8 @@ echo '<form class="thisWeekPlanning" method="post">';
 <script>
     <!-- to hide pause button -->
     // doesn't work as a class'
-    let pause = document.getElementsByClassName("Pause");
-    let resume = document.getElementsByClassName("Resume");
+    let resume = document.getElementById("Resume");
+    let pause = document.getElementById("Pause");
     let popup = document.getElementById("popup");
     let preview = document.getElementById("previewPlanning");
     let popupText = document.getElementById("popupText");
