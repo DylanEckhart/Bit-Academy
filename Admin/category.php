@@ -481,7 +481,7 @@ unsetSelectedSubject($subjectsArray);
         yesbutton.setAttribute("name", "submitCategoryPOPUP");
         yesbutton.name = "submitCategoryPOPUP";
 
-        popupText.innerHTML = "Are your sure you want to create this category?";
+        popupText.innerHTML = "Are your sure you want to create this category? <br>";
 
         popup.style.height = "content";
         popup.style.width = "50vw";
@@ -495,7 +495,7 @@ unsetSelectedSubject($subjectsArray);
         yesbutton.setAttribute("name", "submitSubjectPOPUP");
         yesbutton.name = "submitSubjectPOPUP";
 
-        popupText.innerHTML = "Are your sure you want to create this subject?";
+        popupText.innerHTML = "Are your sure you want to create this subject? <br>";
 
         popup.style.height = "content";
         popup.style.width = "50vw";
@@ -509,7 +509,7 @@ unsetSelectedSubject($subjectsArray);
         yesbutton.setAttribute("name", "submitTicketPOPUP");
         yesbutton.name = "submitTicketPOPUP";
 
-        popupText.innerHTML = "Are your sure you want to create this Ticket?";
+        popupText.innerHTML = "Are your sure you want to create this Ticket? <br>";
 
         popup.style.height = "content";
         popup.style.width = "50vw";
@@ -523,7 +523,7 @@ unsetSelectedSubject($subjectsArray);
         yesbutton.setAttribute("name", "deleteCatPOPUP");
         yesbutton.name = "deleteCatPOPUP";
 
-        popupText.innerHTML = "Are your sure you want to delete this category? By doing this you will remove all the tickets and subjects belonging to this category";
+        popupText.innerHTML = "Are your sure you want to delete this category? By doing this you will remove all the tickets and subjects belonging to this category <br>";
 
         popup.style.height = "content";
         popup.style.width = "50vw";
@@ -537,7 +537,7 @@ unsetSelectedSubject($subjectsArray);
         yesbutton.setAttribute("name", "deleteSubPOPUP");
         yesbutton.name = "deleteSubPOPUP";
 
-        popupText.innerHTML = "Are your sure you want to delete this subject?";
+        popupText.innerHTML = "Are your sure you want to delete this subject? <br>";
 
         popup.style.height = "content";
         popup.style.width = "50vw";

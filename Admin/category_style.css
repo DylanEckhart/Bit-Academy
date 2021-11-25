@@ -35,6 +35,16 @@
 .inputTitle {
     font-size: 24px;
 }
+button {
+    background-color: #1cadc5;
+    border-radius: 30px;
+    width: 40%;
+    height: content-box;
+    padding: 5px;
+    border: none;
+    margin: 5px;
+    font-size: 4vh;
+}
 select, option, input {
     margin: 10px;
     font-size: 2.5vh;
@@ -173,7 +183,7 @@ button.delete {
     border-radius: 15px;
     position: fixed;
     height: content-box;
-    line-height: 6vw;
+    line-height: 3vw;
     width: 0;
     left: 50%;
     top: 50%;
