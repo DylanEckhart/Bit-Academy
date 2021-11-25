@@ -223,7 +223,7 @@ select, option, input {
 }
 #noButton {
     width: 45%;
-    height: 5vh;
+    height: 6vh;
     font-size: 3vh;
     background-color: red;
 }
