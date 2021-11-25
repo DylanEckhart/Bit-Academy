@@ -100,7 +100,7 @@ option{
 
 .container{
     border: 2px darkgray solid;
-    width: 50%;
+    width: 80%;
     margin: auto;
     border-radius: 8px;
 }
@@ -185,8 +185,8 @@ button.delete {
     width: 0;
     left: 50%;
     top: 50%;
-/*transition: all 1s ease;*/
-transform: translate(-50%, -50%);
+    /*transition: all 1s ease;*/
+    transform: translate(-50%, -50%);
 }
 
 #yesButton {
