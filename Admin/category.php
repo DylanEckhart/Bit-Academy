@@ -85,75 +85,129 @@ if (isset($_POST["selectCategory"])) {
     }
 }
 
-if (isset($_POST["submitCategory"])) {
+if (isset($_POST["NO"])) {
+    unset($_SESSION["createCategory"]);
+
+    unset($_SESSION["createSubject"]);
+
+    unset($_SESSION["selectedCategoryForTicket"]);
+    unset($_SESSION["selectedSubjectForTicket"]);
+    unset($_SESSION["layerForTicket"]);
+    unset($_SESSION["languageForTicket"]);
+    unset($_SESSION["descForTicket"]);
+    unset($_SESSION["deadlineForTicket"]);
+    unset($_SESSION["timeForTicket"]);
+
+    unset($_SESSION["deleteCategory"]);
+    unset($_SESSION["deleteSubject"]);
+}
+
+if (isset($_POST["submitCategoryPOPUP"])) {
     addCategoryIntoDB($conn);
-    header("Refresh:1");
+    unset($_SESSION["createCategory"]);
+    header("Refresh:0");
+}
+
+if (isset($_POST["submitCategory"])) {
+    $_SESSION["createCategory"] = $_POST["category"];
+}
+
+if (isset($_POST["submitSubjectPOPUP"])) {
+    addSubjectIntoDB($conn);
+    unset($_SESSION["createSubject"]);
+    header("Refresh:0");
 }
 
 if (isset($_POST["submitSubject"])) {
-    addSubjectIntoDB($conn);
-    header("Refresh:1");
+    $_SESSION["createSubject"] = $_POST["subject"];
+    $_SESSION["selectedCategoryForSubject"] = $_POST["selectCategoryForSubject"];
+}
+
+if (isset($_POST["submitTicketPOPUP"])) {
+    addTicketIntoDB($conn);
+
+    unset($_SESSION["selectedCategoryForTicket"]);
+    unset($_SESSION["selectedSubjectForTicket"]);
+    unset($_SESSION["layerForTicket"]);
+    unset($_SESSION["languageForTicket"]);
+    unset($_SESSION["descForTicket"]);
+    unset($_SESSION["deadlineForTicket"]);
+    unset($_SESSION["timeForTicket"]);
 }
 
 if (isset($_POST["submitTicket"])) {
-    addTicketIntoDB($conn);
+    $_SESSION["selectedCategoryForTicket"] = $_POST["selectCategory"];
+    $_SESSION["selectedSubjectForTicket"] = $_POST["selectSubject"];
+    $_SESSION["layerForTicket"] = $_POST["layerChooser"];
+    $_SESSION["languageForTicket"] = $_POST["language"];
+    $_SESSION["descForTicket"] = $_POST["description"];
+    $_SESSION["deadlineForTicket"] = $_POST["deadline"];
+    $_SESSION["timeForTicket"] = $_POST["time"];
+
+}
+
+if (isset($_POST["deleteSubject"])) {
+    $_SESSION["deleteSubject"] = true;
 }
 
 if (isset($_SESSION["selectedExistingSubject"])) {
-    if (isset($_POST["deleteSubject"])) {
+    if (isset($_POST["deleteSubPOPUP"])) {
         deleteSubject($_SESSION["selectedExistingSubject"], $conn);
-        header("Refresh:1");
+        unset($_SESSION["deleteSubject"]);
     }
 }
 
+if (isset($_POST["deleteCategory"])) {
+    $_SESSION["deleteCategory"] = true;
+}
+
 if (isset($_SESSION["selectedExistingCategory"])) {
-    if (isset($_POST["deleteCategory"])) {
+    if (isset($_POST["deleteCatPOPUP"])) {
         deleteCategorie($_SESSION["selectedExistingCategory"], $conn);
-        header("Refresh:1");
+        unset($_SESSION["deleteCategory"]);
     }
 }
 
 function addCategoryIntoDB($conn)
 {
-    $addCategory = $_POST["category"];
-    $insertCategory = "insert into categories (Category) values ('$addCategory')";
-    if ($addCategory != null) {
+    $insertCategory = "insert into categories (Category) values ('" . $_SESSION["createCategory"] . "')";
+    if ($_SESSION["createCategory"] != null) {
         mysqli_query($conn, $insertCategory);
     }
 }
 
 function addSubjectIntoDB($conn)
 {
-    $addSubject = $_POST["subject"];
-    $addCategoryForSubject = $_POST["selectCategoryForSubject"];
+    $addSubject = $_SESSION["createSubject"];
+    $addCategoryForSubject = $_SESSION["selectedCategoryForSubject"];
     $insertSubjectSQL = "insert into subjects (Subject) values ('$addSubject')";
     $insertSubjectAndCategorySQL = "insert into categories_and_subjects (subjects_Subject, categories_Category) VALUES ('$addSubject', '$addCategoryForSubject')";
     if ($addSubject != null && $addCategoryForSubject != null) {
         mysqli_query($conn, $insertSubjectSQL);
         mysqli_query($conn, $insertSubjectAndCategorySQL);
-        if (mysqli_query($conn, $insertSubjectAndCategorySQL)) {
-            echo true;
-        }
     }
 }
 
 function addTicketIntoDB($conn)
 {
-    $getCategory = $_POST["selectCategory"];
-    $getSubject = $_POST["selectSubject"];
-    $getLayer = $_POST["layerChooser"];
-    $getLanguage = $_POST["language"];
-    $getDescription = $_POST["description"];
-    $getDeadline = $_POST["deadline"];
-    $getTime = $_POST["time"];
+    if (isset($_SESSION["selectedCategoryForTicket"]) && isset($_SESSION["selectedSubjectForTicket"]) && isset($_SESSION["layerForTicket"]) && isset($_SESSION["languageForTicket"])
+        && isset($_SESSION["descForTicket"]) && isset($_SESSION["deadlineForTicket"]) && isset($_SESSION["timeForTicket"])) {
+        $getCategory = $_SESSION["selectedCategoryForTicket"];
+        $getSubject = $_SESSION["selectedSubjectForTicket"];
+        $getLayer = $_SESSION["layerForTicket"];
+        $getLanguage = $_SESSION["languageForTicket"];
+        $getDescription = $_SESSION["descForTicket"];
+        $getDeadline = $_SESSION["deadlineForTicket"];
+        $getTime = $_SESSION["timeForTicket"];
 
-    $insertTicketSQL = "insert into tickets (Description, Layer, `Forcast Time`, Deadline, categories_and_subjects_subjects_Subject, Language) 
+        $insertTicketSQL = "insert into tickets (Description, Layer, `Forcast_Time`, Deadline, categories_and_subjects_subjects_Subject, Language) 
                         values ('$getDescription', '$getLayer', '$getTime', '$getDeadline', '$getSubject', '$getLanguage')";
 
-    if ($getCategory != null && $getSubject != null && $getLayer != null && $getLanguage != null && $getDescription != null && $getDeadline != null && $getTime != null) {
-        mysqli_query($conn, $insertTicketSQL);
-    } else {
-        echo false;
+        if ($getCategory != null && $getSubject != null && $getLayer != null && $getLanguage != null && $getDescription != null && $getDeadline != null && $getTime != null) {
+            mysqli_query($conn, $insertTicketSQL);
+        } else {
+            echo false;
+        }
     }
 }
 
@@ -219,18 +273,35 @@ function showSubjectsInOption($setSubjectAndCategories)
 function deleteSubject($selectedSubject, $conn)
 {
     $deleteSubjectFromCategoriesAndSubjects = "DELETE FROM `categories_and_subjects` WHERE `categories_and_subjects` . `subjects_Subject` =  '" . $selectedSubject . "'";
+    $deleteSubjectFromTickets = "DELETE FROM tickets WHERE categories_and_subjects_subjects_Subject = '" . $selectedSubject . "'";
     $deleteSubjectFromSubjects = "DELETE FROM `subjects` WHERE `subjects` . `Subject` = '" . $selectedSubject . "'";
-    mysqli_query($conn, $deleteSubjectFromSubjects);
     mysqli_query($conn, $deleteSubjectFromCategoriesAndSubjects);
+    mysqli_query($conn, $deleteSubjectFromTickets);
+    if (!mysqli_query($conn, $deleteSubjectFromSubjects)) {
+        echo "<script>alert('This subject can not be deleted because there is an existing planning with it')</script>";
+    }
     header("Refresh:0.1");
 }
 
 function deleteCategorie($selectedCategory, $conn)
 {
+    $getSubjectWithSelectedCategroies = "select subjects_Subject from categories_and_subjects where categories_Category = '" . $selectedCategory . "'";
+    $setsubjectsFromSelectedCategory = mysqli_query($conn, $getSubjectWithSelectedCategroies);
+    while ($row = mysqli_fetch_assoc($setsubjectsFromSelectedCategory)) {
+        $subjectsFromSelectedCategory[] = $row;
+    }
+
+    foreach ($subjectsFromSelectedCategory as $subject) {
+        $deleteCategoryFromTickets = "DELETE FROM tickets where categories_and_subjects_subjects_Subject = '" . $subject["subjects_Subject"] . "'";
+        mysqli_query($conn, $deleteCategoryFromTickets);
+    }
+
     $deleteCategoryFromCategories = "DELETE FROM `categories` WHERE `categories` . `Category` = '" . $selectedCategory . "'";
     $deleteCategoryFromCategoriesAndSubjects = "DELETE FROM `categories_and_subjects` WHERE `categories_and_subjects` . `categories_Category` = '" . $selectedCategory . "'";
     mysqli_query($conn, $deleteCategoryFromCategoriesAndSubjects);
-    mysqli_query($conn, $deleteCategoryFromCategories);
+    if (!mysqli_query($conn, $deleteCategoryFromCategories)) {
+        echo "<script>alert('This category can not be deleted because there is an existing planning with it')</script>";
+    }
     header("Refresh:0.1");
 }
 
@@ -279,10 +350,10 @@ unsetSelectedSubject($subjectsArray);
         <!-- here you can make a category-->
         <div>
             <form class="form" id="formCategory" method="post">
-                <h1 class="formTitle">Category</h1>
+                <h1 class="formTitle">Create Category</h1>
                 <p class="inputTitle">Category</p>
-                <input type="text" name="category" class="input" placeholder="ex. PHP">
-                <button name="submitCategory" class="Submit">Submit</button>
+                <input type="text" name="category" class="input" placeholder="ex. PHP" required>
+                <button class="Submit" name="submitCategory">Submit</button>
             </form>
         </div>
         <!--End of category-->
@@ -326,7 +397,7 @@ unsetSelectedSubject($subjectsArray);
         <!-- here you can make a subject-->
         <div>
             <form class="form" id="formSubject" method="post">
-                <h1 class="formTitle">Subject</h1>
+                <h1 class="formTitle">Create subject</h1>
                 <p class="inputTitle">Category</p>
                 <select name="selectCategoryForSubject">
                     <option value="" disabled selected hidden>Choose a Category</option>
@@ -391,44 +462,129 @@ unsetSelectedSubject($subjectsArray);
 </div>
 
 <!-- POP-UP -->
-<!--<form method="post">-->
-<!--POP-UP-->
-<!--    <div class="pop-up" id="popup">-->
-<!--        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText"><br></label>-->
-<!--        <button id="yesButton" type="submit" name="submitPlanConfirmed">Yes</button>-->
-<!--        <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>-->
-<!--    </div>-->
-<!--</form>-->
-</body>
-
+<form method="post">
+    <!--POP-UP-->
+    <div class="pop-up" id="popup">
+        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText"><br></label>
+        <button id="yesButton" type="submit">Yes</button>
+        <button id="noButton" type="submit" name="NO" onclick="closePopup();">No</button>
+    </div>
+</form>
 <!--jscript for popup message-->
 <script>
-    // let popup = document.getElementById("popup");
-    // let popupText = document.getElementById("popupText");
-    // let yesbutton = document.getElementById("yesButton");
-    //
-    // function showPopupSubmit(){
-    //
-    //     yesbutton.name = "submitPlanConfirmed";
-    //
-    //     popupText.innerHTML = "Are you sure you want to submit? ";
-    //
-    //     popup.style.height="content";
-    //     popup.style.width="50vw";
-    //     popup.style.padding="20px";
-    //     popup.style.opacity="100%";
-    //
-    //     /* height to content /
-    //     / padding to 20px /
-    //     / opacity to 100% */
-    //     return false;
-    // }
-    //
-    // function closePopup(){
-    //     popup.style.height="unset";
-    //     popup.style.width="0";
-    //     popup.style.padding="0";
-    //     popup.style.opacity="0";
-    // }
+    let popup = document.getElementById("popup");
+    let popupText = document.getElementById("popupText");
+    let yesbutton = document.getElementById("yesButton");
+
+    function showPopupCreaCat() {
+
+        yesbutton.setAttribute("name", "submitCategoryPOPUP");
+        yesbutton.name = "submitCategoryPOPUP";
+
+        popupText.innerHTML = "Are your sure you want to create this category?";
+
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+        return false;
+    }
+
+    function showPopupCreaSub() {
+
+        yesbutton.setAttribute("name", "submitSubjectPOPUP");
+        yesbutton.name = "submitSubjectPOPUP";
+
+        popupText.innerHTML = "Are your sure you want to create this subject?";
+
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+        return false;
+    }
+
+    function showPopupCreaTic() {
+
+        yesbutton.setAttribute("name", "submitTicketPOPUP");
+        yesbutton.name = "submitTicketPOPUP";
+
+        popupText.innerHTML = "Are your sure you want to create this Ticket?";
+
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+        return false;
+    }
+
+    function showPopupDelCat() {
+
+        yesbutton.setAttribute("name", "deleteCatPOPUP");
+        yesbutton.name = "deleteCatPOPUP";
+
+        popupText.innerHTML = "Are your sure you want to delete this category? By doing this you will remove all the tickets and subjects belonging to this category";
+
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+        return false;
+    }
+
+    function showPopupDelSub() {
+
+        yesbutton.setAttribute("name", "deleteSubPOPUP");
+        yesbutton.name = "deleteSubPOPUP";
+
+        popupText.innerHTML = "Are your sure you want to delete this subject?";
+
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+        return false;
+    }
+
+    function closePopup() {
+        popup.style.height = "unset";
+        popup.style.width = "0";
+        popup.style.padding = "0";
+        popup.style.opacity = "0";
+    }
 </script>
+<?php
+if (isset($_SESSION["createCategory"])) {
+    if ($_SESSION["createCategory"] != null) {
+        echo "<script type='text/javascript'>showPopupCreaCat()</script>";
+    }
+}
+
+if (isset($_SESSION["createSubject"])) {
+    if ($_SESSION["createSubject"] != null) {
+        echo "<script type='text/javascript'>showPopupCreaSub()</script>";
+    }
+}
+
+if (isset($_SESSION["selectedCategoryForTicket"]) && isset($_SESSION["selectedSubjectForTicket"]) && isset($_SESSION["layerForTicket"]) && isset($_SESSION["languageForTicket"])
+    && isset($_SESSION["descForTicket"]) && isset($_SESSION["deadlineForTicket"]) && isset($_SESSION["timeForTicket"])) {
+    if ($_SESSION["selectedCategoryForTicket"] != null && $_SESSION["selectedSubjectForTicket"] != null && $_SESSION["layerForTicket"] != null && $_SESSION["languageForTicket"] !=
+        null && $_SESSION["descForTicket"] != null && $_SESSION["deadlineForTicket"] != null && $_SESSION["timeForTicket"] != null) {
+        echo "<script type='text/javascript'>showPopupCreaTic()</script>";
+    }
+}
+
+if (isset($_SESSION["deleteCategory"])) {
+    if ($_SESSION["deleteCategory"] != null) {
+        echo "<script type='text/javascript'>showPopupDelCat()</script>";
+    }
+}
+
+if (isset($_SESSION["deleteSubject"])) {
+    if ($_SESSION["deleteSubject"] != null) {
+        echo "<script type='text/javascript'>showPopupDelSub()</script>";
+    }
+}
+?>
+</body>
 </html>
