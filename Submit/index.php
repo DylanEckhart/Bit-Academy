@@ -96,7 +96,7 @@ echo '<form class="thisWeekPlanning" method="post">';
                 "<button id='Stop' value='" . $row["idplanning"] . "' name='finishFase1' type='submit'>Stop</button>";
             echo
                 "<button id='deleteButton' type='submit' name='deleteFase1' value='" . $row["idplanning"] . "'>
-                         <span class='material-icons' onclick=''>delete_outline</span>
+                         <span class='material-icons' onclick='' id='deleteText'>delete_outline</span>
                             </button>";
             ?>
             </li>

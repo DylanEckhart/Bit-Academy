@@ -1,9 +1,5 @@
 @import url(../Header/style.css);
 
-/*to change:*/
-/*- the confirm plan button text*/
-/*- the P in preview sticks out sometimes on larger screen*/
-/*- delete button popup*/
 
 
 *{
@@ -157,18 +153,23 @@ button {
     background-color: red;
 }
 #deleteButton{
-    font-size: 3vw;
+    font-size: 4vw;
+    position: absolute;
     display: inline-block;
     background-color: #000563;
-    top: 15vw;
+    top: 11vw;
     padding: 2px;
-    width: 5vw;
-    right: 10vw;
+    width: 3vw;
+    height: 3vw;
+    right: 4vw;
     transition: background-color 0.5s ease;
     border-radius: 50px;
 }
 #deleteButton:hover{
     background-color: red;
+}
+#deleteText {
+    font-size: 2vw;
 }
 
 /*For the submit/plan button*/
@@ -226,22 +227,7 @@ select, option, input {
     font-size: 3vh;
     background-color: red;
 }
-@media screen and (min-width: 912px) and (max-width: 950px) {
-    #deleteButton{
-        font-size: 2.5vw;
-        margin-top: -14.5vw;
-        width: 3.5vw;
-        height: 3.5vw;
-    }
-}
-@media screen and (min-width: 950px) {
-    #deleteButton{
-        font-size: 2.5vw;
-        margin-top: -6vw;
-        width: 3.5vw;
-        height: 3.5vw;
-    }
-}
+
 /*smaller screen sizes*/
 @media screen and (max-width: 912px) {
 
@@ -348,17 +334,20 @@ select, option, input {
         background-color: red;
     }
     #deleteButton{
-        font-size: 4vw;
-        right: 11vw;
-        width: 5vw;
-        height: 5vw;
-        margin-top: -58vw;
+        font-size: 3vw;
+        right: 12.5vw;
+        width: 7vw;
+        height: 7vw;
+        margin-top: 29.5vh;
         background-color: red;
         transition: all 0.5s ease;
     }
     #deleteButton:hover{
         background-color: darkred;
         color: black;
+    }
+    #deleteText {
+        font-size: 4vw;
     }
     #confirmButton {
         margin: 3vh 0 0 0;
@@ -395,42 +384,5 @@ select, option, input {
         width: 100%;
         height: 6vh;
         background-color: red;
-    }
-}
-@media screen and (max-width: 456px) and (min-width: 340px) {
-    .listItem {
-        width: 94%;
-    }
-    #deleteButton{
-        font-size: 4vw;
-        width: 6vw;
-        height: 6vw;
-        margin-top: -59vw;
-    }
-}
-@media screen and (max-width: 340px) {
-    #deleteButton{
-        font-size: 4vw;
-        width: 6vw;
-        height: 6vw;
-        margin-top: -66vw;
-    }
-    button {
-        width: 44%;
-        height: 9vw;
-        font-size: 3vw;
-    }
-}
-@media screen and (max-width: 284px) {
-    #deleteButton{
-        font-size: 2.8vw;
-        width: 5vw;
-        height: 5vw;
-        margin-top: -80vw;
-    }
-    button {
-        width: 44%;
-        height: 9vw;
-        font-size: 3vw;
     }
 }

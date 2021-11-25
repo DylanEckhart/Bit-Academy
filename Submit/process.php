@@ -41,7 +41,6 @@ if (isset($_POST["deleteFase1"])) {
 }
 
 if (isset($_POST["Delete"])) {
-    echo "true";
     $deleteQuery = "DELETE FROM plannings WHERE idplanning = '" . $_SESSION["id"] . "'";
     mysqli_query($conn, $deleteQuery);
     unset($_SESSION["id"]);
