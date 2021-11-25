@@ -46,13 +46,13 @@ if (isset($_SESSION['approved']) && $_SESSION['approved'] == true) {
             <?php
             foreach ($_SESSION['submitPlan'] as $key => $value) {
                 if ($key == 0) {
-                    echo "Category = " . $value . "<br>";
+                    echo "<strong>CATEGORY</strong> = " . $value . "<br>";
                 }
                 if ($key == 1) {
-                    echo "Subject = " . $value . "<br>";
+                    echo "<strong>SUBJECT</strong> = " . $value . "<br>";
                 }
                 if ($key == 2) {
-                    echo "Description = " . $value . "<br>";
+                    echo "<strong>DESCRIPTION</strong> = " . $value . "<br>";
                 }
             }
             ?>
@@ -93,7 +93,7 @@ echo '<form class="thisWeekPlanning" method="post">';
             ?>
             <?php
             echo
-                "<button id='Stop' value='" . $row["idplanning"] . "' name='finish' onclick=''>Stop</button>";
+                "<button id='Stop' value='" . $row["idplanning"] . "' name='finishFase1' type='submit'>Stop</button>";
             echo
                 "<button id='deleteButton' type='submit' name='deleteFase1' value='" . $row["idplanning"] . "'>
                          <span class='material-icons' onclick=''>delete_outline</span>
@@ -179,6 +179,17 @@ echo '<form class="thisWeekPlanning" method="post">';
         <button id="noButton" type="submit" name="NO" onclick="closePopup()">No</button>
     </div>
 </form>
+<form method="post">
+    <!--POP-UP FINISH-->
+    <div class="pop-up" id="popup">
+        <label style="background-color: transparent; font-size: 30px" for=".pop-up" id="popupText">Are you sure you want
+            to delete this
+            ticket? <br></label>
+        <button id="yesButton" type="submit" name="Finish">Yes</button>
+        <button id="noButton" type="submit" name="NO" onclick="closePopup()">No</button>
+    </div>
+</form>
+
 <script>
     <!-- to hide pause button -->
     // doesn't work as a class'
@@ -201,32 +212,6 @@ echo '<form class="thisWeekPlanning" method="post">';
         return false;
     }
 
-    function stopTasks() {
-        if (confirm('Are you sure? This will move the task and move it to the history.')) {
-        } else {
-            // Do nothing! Cancel
-        }
-        return false;
-    }
-
-    function deleteTask() {
-        if (confirm('Are you sure? This will remove the task forever.')) {
-            // Save it! OK
-        } else {
-            // Do nothing! Cancel
-        }
-        return false;
-    }
-
-    function pauzetask() {
-        if (confirm('Are you sure? This will Pauze the task')) {
-            // Save it! OK
-        } else {
-            // Do nothing! Cancel
-        }
-        return false;
-    }
-
     function sumbitTasks() {
         (alert("Succesfully submitted"));
     }
@@ -234,7 +219,6 @@ echo '<form class="thisWeekPlanning" method="post">';
     function closePreview() {
         preview.parentElement.style.height = '0';
         preview.parentElement.style.padding = '0';
-
     }
 
     function showPopupSubmit() {
@@ -283,11 +267,31 @@ echo '<form class="thisWeekPlanning" method="post">';
         / opacity to 100% */
     }
 
+    function showPopupFinished() {
+
+        yesbutton.name = "finish";
+        popupText.innerHTML = "Are you sure you are done with your ticket?";
+
+        popup.style.height = "content";
+        popup.style.width = "50vw";
+        popup.style.padding = "20px";
+        popup.style.opacity = "100%";
+
+        /* height to content /
+        / padding to 20px /
+        / opacity to 100% */
+    }
+
 </script>
 <?php
 if (isset($_SESSION["id"])) {
     if ($_SESSION["id"] != null) {
         echo "<script type='text/javascript'>showPopupDelete()</script>";
+    }
+}
+if (isset($_SESSION["idFinished"])) {
+    if ($_SESSION["idFinished"] != null) {
+        echo "<script type='text/javascript'>showPopupFinished()</script>";
     }
 }
 ?>

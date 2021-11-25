@@ -36,7 +36,7 @@ if (isset($_POST['submitPlan'])) {
 }
 
 //DELETE SPECIFIK PLANNING
-if (isset($_POST["deleteFase1"])){
+if (isset($_POST["deleteFase1"])) {
     $_SESSION["id"] = $_POST["deleteFase1"];
 }
 
@@ -46,10 +46,11 @@ if (isset($_POST["Delete"])) {
     mysqli_query($conn, $deleteQuery);
     unset($_SESSION["id"]);
 }
-//END OF DELETE SPECIFIK PLANNING
 
 if (isset($_POST["NO"])) {
-        unset($_SESSION["id"]);
+    unset($_SESSION["id"]);
+
+    unset($_SESSION["idFinished"]);
 }
 
 //SAVE USERINPUT IN DATABASE
@@ -61,15 +62,18 @@ if (isset($_POST['submitPlanConfirmed'])) {
 }
 
 //FINISH PLANNING
-if (isset($_SESSION["ticketsArray"])) {
-        if (isset($_POST["finish"])) {
-            $finishTicketQuery = "UPDATE plannings SET isFinished = '1'  WHERE idplanning ='" . $_POST["finish"] . "'";
-            mysqli_query($conn, $finishTicketQuery);
-        }
+if (isset($_POST["finishFase1"])) {
+    $_SESSION["idFinished"] = $_POST["finishFase1"];
+}
+
+if (isset($_POST["finish"])) {
+    $finishTicketQuery = "UPDATE plannings SET isFinished = '1'  WHERE idplanning ='" . $_SESSION["idFinished"] . "'";
+    mysqli_query($conn, $finishTicketQuery);
+    unset($_SESSION['idFinished']);
 }
 
 //CLOSE PREVIEW AFTER USERINPUT SAVED INTO DATABASE
-if(isset($_POST['submitPlanConfirmed'])){
+if (isset($_POST['submitPlanConfirmed'])) {
     unset($_SESSION['approved']);
     unset($_SESSION['submitPlan']);
 }
