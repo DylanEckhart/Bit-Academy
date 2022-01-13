@@ -2,17 +2,20 @@
 require_once "../Header/header.php";
 require_once "process.php";
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "id17762295_bitacademydb";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$servername = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "id17762295_bitacademydb";
+//// Create connection
+//$conn = new mysqli($servername, $username, $password, $dbname);
+//
+//// Check connection
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//}
+require_once "../DB/connection.php";
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$conn = openConn();
 
 //GET DATA FROM PLANNING DATABASE
 $sqlActivePlanning = "SELECT idplanning, categories_and_subjects_subjects_Subject, Description, Layer, Language, Start_Time, Deadline, Forcast_Time, TimeSpent, isFinished 
@@ -131,12 +134,12 @@ echo '<form class="thisWeekPlanning" method="post">';
     <select id="subject" name="subject">
         <option value="" disabled selected hidden>Choose the Subject</option>
         <?php
-        $sqlSubject = "SELECT * FROM subjects";
+        $sqlSubject = "SELECT * FROM categories_and_subjects";
         $resultsSubjects = mysqli_query($conn, $sqlSubject);
 
         if (mysqli_num_rows($resultsSubjects) > 0) {
             while ($row = mysqli_fetch_assoc($resultsSubjects)) {
-                echo "<option value='" . $row["Subject"] . "'>" . $row["Subject"] . "</option>";
+                echo "<option value='" . $row["subjects_Subject"] . "'>" . $row["subjects_Subject"] . "</option>";
             }
         }
         ?>

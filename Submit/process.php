@@ -1,16 +1,19 @@
 <?php
 //DATABASE CONNECTION VARIABLES
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "id17762295_bitacademydb";
+//$servername = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "id17762295_bitacademydb";
 //CREATE DATABASECONNECTION
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli($servername, $username, $password, $dbname);
+require_once "../DB/connection.php";
+
+$conn = openConn();
 
 //CHECK DATABASE CONNECTION
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//}
 //STARTING A LIVE SESSION
 session_start();
 
